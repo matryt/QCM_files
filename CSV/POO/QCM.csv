@@ -1,0 +1,33 @@
+Quelle est la caractéristique principale d’un arbre binaire ?,Chaque nœud a au plus deux enfants,Chaque nœud a un nombre illimité d’enfants,Les valeurs des nœuds sont uniques,Les feuilles sont toujours au même niveau,Chaque nœud a au plus deux enfants,none
+Comment insère-t-on un élément dans un arbre binaire de recherche ?,À gauche si plus petit, à droite si plus grand,À droite uniquement,À gauche uniquement,À un emplacement aléatoire,À gauche si plus petit, à droite si plus grand,none
+Quelle est la complexité moyenne de la recherche dans un arbre binaire de recherche équilibré ?,O(log n),O(n),O(1),O(n log n),O(log n),none
+Quel parcours d’arbre suit l’ordre : gauche – racine – droite ?,Infixe,Préfixe,Postfixe,Niveau par niveau,Infixe,none
+Quel mot-clé permet de définir un record en Java ?,record,class,struct,data,record,none
+Les records en Java sont-ils immuables ?,Oui,Non,Seulement si les champs sont privés,Seulement si définis final,Oui,none
+Pourquoi utiliser un record au lieu d’une classe ?,Réduire le code pour des structures de données simples,Améliorer les performances,Rendre le code plus abstrait,Autoriser l’héritage multiple,Réduire le code pour des structures de données simples,none
+Quelle méthode est automatiquement générée dans un record ?,equals(),hashCode(),toString(),Toutes ces réponses,Toutes ces réponses,none
+Quelle est la signature d’une interface fonctionnelle ?,Une interface avec une seule méthode abstraite,Une interface avec plusieurs méthodes abstraites,Une classe implémentant plusieurs interfaces,Une classe contenant des méthodes abstraites,Une interface avec une seule méthode abstraite,none
+Quelle annotation est utilisée pour déclarer une interface fonctionnelle ?,@FunctionalInterface,@Override,@Interface,@Lambda,@FunctionalInterface,none
+Quelle syntaxe permet de créer une expression lambda ?,() -> {},new Lambda(),lambda() {},None of the above,() -> {},none
+Quel est l’avantage principal des interfaces fonctionnelles ?,Permettre l’utilisation des expressions lambda,Supporter l’héritage multiple,Améliorer la lisibilité des classes,Créer des objets plus rapidement,Permettre l’utilisation des expressions lambda,none
+Quel type de classes internes existe-t-il en Java ?,Classes statiques internes,Classes locales,Classes anonymes,Toutes ces réponses,Toutes ces réponses,none
+Quelle est la particularité d’une classe interne statique ?,Elle ne peut pas accéder aux membres non statiques de la classe englobante,Elle peut être instanciée sans instance de la classe englobante,Elle ne peut contenir que des variables statiques,Elle ne peut pas accéder aux membres non statiques de la classe englobante;Elle peut être instanciée sans instance de la classe englobante,none
+Dans quelle situation utilise-t-on une classe interne ?,Quand la classe n’a de sens qu’avec la classe englobante,Quand elle doit être accessible dans tout le package,Quand elle doit être publique,Quand elle a un constructeur privé,Quand la classe n’a de sens qu’avec la classe englobante,none
+Quel est l’intérêt d’un itérateur en Java ?,Parcourir une collection sans exposer son implémentation,Accélérer la recherche dans une liste,Modifier une collection tout en la parcourant,Créer une nouvelle liste plus efficacement,Parcourir une collection sans exposer son implémentation,none
+Comment vérifier s’il reste un élément à parcourir avec un itérateur ?,hasNext(),next(),hasElement(),isNotEmpty(),hasNext(),none
+Que fait la méthode `remove()` d’un itérateur ?,Supprime le dernier élément retourné,Efface tous les éléments,Déplace l’itérateur au début,Ajoute un élément dans la collection,Supprime le dernier élément retourné,none
+Comment obtenir un itérateur sur une liste ?,list.iterator(),list.getIterator(),list.createIterator(),list.iterate(),list.iterator(),none
+Que retourne ce code ?,"Alice",null,25,Erreur de compilation,"Alice",https://i.postimg.cc/ZRzkFp2c/Record-Person.png
+Complétez ce code pour qu’il fonctionne avec une interface fonctionnelle,(a, b) -> a + b,new Operation(),Operation(a, b) -> a + b,() -> a + b,(a, b) -> a + b,https://i.postimg.cc/25H9cv1v/FI-Operation.png
+Que fait ce code avec une classe interne ?,Affiche Hello,Ne compile pas,Provoque une NullPointerException,Affiche Inner class,Affiche Hello,https://i.postimg.cc/T1HRThNW/Outer-Test.png
+Quel est l’intérêt de Iterator ici ?,Affiche a b c,Lève une exception,Ne compile pas,Ne fait rien,Affiche a b c,https://i.postimg.cc/tJRM255h/String-iterator.png
+Quel est le parcours d’un arbre binaire de recherche pour obtenir une liste triée ?,Infixe,Préfixe,Postfixe,Niveau par niveau,Infixe,none
+Comment définir un constructeur compact dans un record ?,Ne pas déclarer les paramètres,N’utiliser que `this()`,Utiliser `super()`,Ne pas préciser `public`,Ne pas déclarer les paramètres,none
+Pourquoi les records ne peuvent-ils pas hériter d’autres classes ?,Java interdit l’héritage multiple,Les records sont déjà des sous-classes d’Object,Pour éviter la surcharge des méthodes,Les records ne sont pas des classes,Java interdit l’héritage multiple,none
+Quelle est la seule chose qu’un record peut implémenter ?,Des interfaces,Des classes abstraites,Des classes normales,Des annotations,Des interfaces,none
+Quel est l’intérêt principal d’une interface fonctionnelle ?,Utilisation des expressions lambda,Optimisation mémoire,Amélioration de la lisibilité du code,Réduction du temps d’exécution,Utilisation des expressions lambda,none
+Quelle interface Java permet de représenter une fonction qui ne prend aucun paramètre et ne retourne rien ?,Runnable,Consumer,Supplier,Function,Runnable,none
+Quelle est la différence entre `Predicate` et `Function` ?,Predicate retourne un boolean, Function retourne un type générique,Predicate retourne un int, Function un boolean,Les deux retournent un boolean,Les deux retournent un int,Predicate retourne un boolean, Function retourne un type générique,none
+Pourquoi utiliser un itérateur plutôt qu’une boucle for classique ?,Pour éviter ConcurrentModificationException,Pour améliorer les performances,Pour simplifier la syntaxe,Pour permettre l’héritage multiple,Pour éviter ConcurrentModificationException,none
+Quel est l’avantage principal des Streams combinés aux itérateurs ?,Optimisation des performances,Facilité de lecture,Meilleure sécurité,Support natif des threads,Optimisation des performances,none
+Quel est le problème avec ce code ?,Il ne respecte pas le contrat @FunctionalInterface,Il manque un constructeur,subtract doit être static,apply doit être public,Il ne respecte pas le contrat @FunctionalInterface,https://i.postimg.cc/4yXM3M2P/FI-Deux-Methodes.png
