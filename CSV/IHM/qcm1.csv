@@ -2,7 +2,7 @@ Quels sont des exemples de handicaps à considérer en conception IHM ?,Déficie
 Qu'est-ce que l'usability selon les normes ?,Efficacité,Efficience,Satisfaction visuelle,Satisfaction,Efficacité;Efficience;Satisfaction,none
 Quels sont les rôles d’un utilisateur dans un modèle de tâches ?,Acteur principal,Observateur,Développeur,Acteur principal;Observateur,none
 Quels sont les objectifs de l’ergonomie ?,Adapter l'outil à l'homme,Améliorer le style du code,Limiter les erreurs humaines,Adapter l'outil à l'homme;Limiter les erreurs humaines,none
-Que représente une "abstraction" dans un arbre de tâches ?,Une tâche générale,Une tâche optionnelle,Un détail d’implémentation,Une tâche générale,none
+Que représente une abstraction dans un arbre de tâches ?,Une tâche générale,Une tâche optionnelle,Un détail d’implémentation,Une tâche générale,none
 Quel outil permet de créer des modèles de tâches avec opérateurs temporels ?,HAMSTERS,Visual Studio,Excel,HAMSTERS,none
 Quel critère ergonomique concerne la réduction de la charge mentale ?,Compatibilité,Contrôle explicite,Charge de travail,Charge de travail,none
 Pourquoi utilise-t-on des scénarios utilisateurs ?,Tester les performances,Explorer des situations concrètes,Écrire les spécifications logicielles,Explorer des situations concrètes,none
