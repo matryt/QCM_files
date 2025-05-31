@@ -1,0 +1,43 @@
+Quels sont des exemples de handicaps à considérer en conception IHM ?,Déficience visuelle,Déficience auditive,Incompatibilité logicielle,Déficience motrice,Déficience visuelle;Déficience auditive;Déficience motrice,none
+Qu'est-ce que l'usability selon les normes ?,Efficacité,Efficience,Satisfaction visuelle,Satisfaction,Efficacité;Efficience;Satisfaction,none
+Quels sont les rôles d’un utilisateur dans un modèle de tâches ?,Acteur principal,Observateur,Développeur,Acteur principal;Observateur,none
+Quels sont les objectifs de l’ergonomie ?,Adapter l'outil à l'homme,Améliorer le style du code,Limiter les erreurs humaines,Adapter l'outil à l'homme;Limiter les erreurs humaines,none
+Que représente une "abstraction" dans un arbre de tâches ?,Une tâche générale,Une tâche optionnelle,Un détail d’implémentation,Une tâche générale,none
+Quel outil permet de créer des modèles de tâches avec opérateurs temporels ?,HAMSTERS,Visual Studio,Excel,HAMSTERS,none
+Quel critère ergonomique concerne la réduction de la charge mentale ?,Compatibilité,Contrôle explicite,Charge de travail,Charge de travail,none
+Pourquoi utilise-t-on des scénarios utilisateurs ?,Tester les performances,Explorer des situations concrètes,Écrire les spécifications logicielles,Explorer des situations concrètes,none
+Que permet de représenter un user/task matrix ?,Les technologies utilisées,Les rôles associés à chaque tâche,Le modèle de données,Les rôles associés à chaque tâche,none
+Quels sont des opérateurs temporels dans les modèles de tâches ?,Séquence,Itération,Parallèle,Exception,Séquence;Parallèle,none
+Quel est un danger d’une mauvaise IHM ?,Confusion utilisateur,Amélioration de l'expérience utilisateur,Baisse de productivité,Confusion utilisateur;Baisse de productivité,none
+Quelles techniques permettent de recueillir des données utilisateur ?,Observation,Analyse du code,Interview,Observation;Interview,none
+Quel est l’objectif du prototypage ?,Documenter l’architecture,Évaluer des idées rapidement,Recruter des testeurs,Évaluer des idées rapidement,none
+Quel type d’utilisateur peut nécessiter un design universel ?,Un utilisateur expérimenté,Une personne âgée,Un développeur,Une personne âgée,none
+Quelle approche décrit un système centré utilisateur ?,User-Centered Design,Back-End Driven Design,Model-Driven Design,User-Centered Design,none
+Qu’est-ce qu’un affordance en IHM ?,La capacité d’une interface à suggérer son utilisation,Un effet visuel décoratif,Une méthode d’optimisation du code,La capacité d’une interface à suggérer son utilisation,none
+Quelle méthode est appelée lors de la création initiale d'une activité ?,onCreate(),onStart(),onResume(),onDestroy(),onPause(),onCreate(),none
+Quelles méthodes font partie du cycle de vie d'une activité ?,onCreate();onStart();onPause(),onStart();onStop();onDestroy(),onResume();onPause();onStop(),Toutes ces réponses,Toutes ces réponses,none
+Qu'est-ce qu'un Intent explicite ?,Un Intent qui spécifie directement la classe cible,Un Intent qui ne précise pas la classe cible,Un Intent utilisé pour lancer un service,Un Intent pour ouvrir une URL,Un Intent envoyé pour une notification,Un Intent qui spécifie directement la classe cible,none
+Parmi ces vues, lesquelles sont des conteneurs de vues ?,TextView(),LinearLayout(),Button(),ConstraintLayout(),ImageView(),LinearLayout();ConstraintLayout(),none
+Comment créer un fragment dynamiquement ?,En utilisant XML uniquement,En instanciant le fragment en Java et en l'ajoutant via FragmentManager,En modifiant le manifeste Android,En utilisant un Intent,En instanciant le fragment en Java et en l'ajoutant via FragmentManager,none
+Quels sont les états possibles du cycle de vie d'un fragment ?,onAttach(),onCreateView(),onDestroyView(),onDetach(),onPause(),onAttach();onCreateView();onDestroyView();onDetach(),none
+Quelle méthode est appelée juste avant que l'activité ne devienne visible ?,onStart(),onResume(),onCreate(),onPause(),onStop(),onStart(),none
+Quels sont les types d'animations disponibles dans Android ?,Animation de propriétés,Animation image par image,Animation vectorielle,Animation de vues,Aucune de ces réponses,Animation de propriétés;Animation image par image;Animation de vues,none
+Quelle interface permet de gérer les clics sur une ListView ?,OnClickListener,OnItemClickListener,OnTouchListener,OnLongClickListener,OnScrollListener,OnItemClickListener,none
+Comment demander une permission à l'utilisateur dans Android ?,Via un fichier XML uniquement,En utilisant la méthode requestPermissions() dans l'activité,En modifiant le manifeste uniquement,Par une notification,Via un Intent,En utilisant la méthode requestPermissions() dans l'activité,none
+Quels sont les rôles d'un Adapter dans Android ?,Gérer les données à afficher,Créer les vues pour chaque item,Gérer le cycle de vie de l'activité,Mettre à jour l'interface utilisateur,Définir la navigation,Gérer les données à afficher;Créer les vues pour chaque item;Mettre à jour l'interface utilisateur,none
+Quels composants Android peuvent recevoir des Intents ?,Activités,Services,Fragments,Activités;Services,none
+Qu'est-ce qu'un Parcelable ?,Un format pour stocker des données,Une interface pour transférer des données entre activités,Un service système,Un type de layout,Une classe utilitaire,Une interface pour transférer des données entre activités,none
+Quelles ressources sont définies dans le dossier res/values ?,Layouts,Images,Couleurs,String,Classes Java,Couleurs;String,none
+Quel fichier contient la déclaration des permissions requises par l'application ?,AndroidManifest.xml,build.gradle,strings.xml,styles.xml,MainActivity.java,AndroidManifest.xml,none
+Quelle méthode est appelée quand une activité reprend l'interaction avec l'utilisateur ?,onResume(),onStart(),onCreate(),onPause(),onStop(),onResume(),none
+Comment fonctionne un ListView avec un Adapter ?,L'Adapter fournit les données et crée les vues pour chaque item,Le ListView crée lui-même les vues,Le ListView gère les clics automatiquement,L'Adapter n'est pas nécessaire pour un ListView,L'Adapter fournit les données et crée les vues pour chaque item,none
+Qu'est-ce que le design pattern Observer dans Android ?,Un modèle pour gérer des événements asynchrones,Un modèle pour stocker des données,Un modèle pour la navigation entre activités,Un modèle pour créer des fragments,Un modèle pour gérer des animations,Un modèle pour gérer des événements asynchrones,none
+Quelle classe est utilisée pour afficher une notification ?,NotificationManager,NotificationCompat,NotificationChannel,Notification.Builder,NotificationService,NotificationCompat,none
+Quelles méthodes sont liées au cycle de vie d'un service Android ?,onCreate(),onStartCommand(),onDestroy(),onBind(),onPause(),onCreate();onStartCommand();onDestroy();onBind(),none
+Comment communiquer entre un fragment et son activité parente ?,Par une interface définie dans le fragment,Par un Intent,Par un Singleton,Par une variable globale,Par le manifeste,Par une interface définie dans le fragment,none
+Quelle est la fonction principale du fichier R.java ?,Stocker les ressources utilisées dans l'application,Définir le thème de l'application,Définir les permissions,Définir le cycle de vie,Créer les activités,Stocker les ressources utilisées dans l'application,none
+Quels sont les éléments qui composent un Intent ?,Action,Data,Category,Extras,Flag,Action;Data;Category;Extras;Flag,none
+Quelles permissions doivent être demandées à l'utilisateur à partir d'Android 6 ?,Internet,Accès au stockage,Appareil photo,Localisation,Réseau,Réseau;Localisation;Accès au stockage;Appareil photo,none
+Quel est l’intérêt d’utiliser un ServiceConnection ?,Gérer la communication entre activité et service,Lancer un service en arrière-plan,Afficher une notification,Démarrer une activité,Lancer un thread,Gérer la communication entre activité et service,none
+Comment ouvrir un navigateur web depuis une application Android ?,En utilisant un Intent explicite,En utilisant un Intent implicite avec ACTION_VIEW,En utilisant WebView,En modifiant le manifeste,En utilisant un Service,En utilisant un Intent implicite avec ACTION_VIEW,none
+Quelle méthode permet de vérifier si l’application a une permission donnée ?,checkSelfPermission(),requestPermission(),hasPermission(),grantPermission(),checkPermission(),checkSelfPermission(),none
