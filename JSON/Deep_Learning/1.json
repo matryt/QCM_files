@@ -1,0 +1,668 @@
+[
+  {
+    "question": "Quel est l'objectif principal du partage de poids (sharing weights) dans une couche de convolution ?",
+    "responses": [
+      {
+        "text": "Rendre le réseau capable de résoudre la fonction XOR",
+        "isCorrect": false
+      },
+      {
+        "text": "Permettre à un même filtre de détecter une caractéristique sur l'ensemble de l'image",
+        "isCorrect": true
+      },
+      {
+        "text": "Augmenter considérablement le nombre de paramètres à apprendre",
+        "isCorrect": false
+      },
+      {
+        "text": "Remplacer l'utilisation de la fonction d'activation ReLU",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Que permet principalement l'utilisation de convolutions 1 x 1 (Network in Network) ?",
+    "responses": [
+      {
+        "text": "Augmenter la résolution spatiale de l'image",
+        "isCorrect": false
+      },
+      {
+        "text": "Réduire la dimensionnalité en profondeur (depth reduction)",
+        "isCorrect": true
+      },
+      {
+        "text": "Rendre le modèle moins profond et plus facile à entraîner",
+        "isCorrect": false
+      },
+      {
+        "text": "Remplacer les opérations de pooling",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Dans le contexte de la classification d'images, quel est l'objectif principal des couches de pooling ?",
+    "responses": [
+      {
+        "text": "Appliquer une non-linéarité pour augmenter la complexité",
+        "isCorrect": false
+      },
+      {
+        "text": "Maintenir la taille spatiale de l'image",
+        "isCorrect": false
+      },
+      {
+        "text": "Réduire la taille des données (downsampling)",
+        "isCorrect": true
+      },
+      {
+        "text": "Remplacer la rétropropagation",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quelle propriété rend la convolution et la corrélation équivalentes ?",
+    "responses": [
+      {
+        "text": "L'utilisation d'un stride de 2",
+        "isCorrect": false
+      },
+      {
+        "text": "La normalisation des données d'entrée",
+        "isCorrect": false
+      },
+      {
+        "text": "La symétrie du noyau (kernel)",
+        "isCorrect": true
+      },
+      {
+        "text": "L'ajout d'une couche Dense",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quelle est l'innovation majeure introduite par l'architecture ResNet (2015) ?",
+    "responses": [
+      {
+        "text": "L'utilisation de filtres de convolution 3 x 3 uniquement",
+        "isCorrect": false
+      },
+      {
+        "text": "La séparation des convolutions (depthwise separable)",
+        "isCorrect": false
+      },
+      {
+        "text": "L'introduction des connexions résiduelles (residual connections)",
+        "isCorrect": true
+      },
+      {
+        "text": "L'utilisation exclusive du Max Pooling",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Dans Keras, quel paramètre de la couche Conv2D assure que la dimension spatiale de la sortie est la même que celle de l'entrée ?",
+    "responses": [
+      {
+        "text": "strides=(2, 2)",
+        "isCorrect": false
+      },
+      {
+        "text": "padding = 'valid'",
+        "isCorrect": false
+      },
+      {
+        "text": "padding = 'same'",
+        "isCorrect": true
+      },
+      {
+        "text": "kernel_size = 1",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quelle est la principale caractéristique de l'architecture VGG (VGG-16, VGG-19) ?",
+    "responses": [
+      {
+        "text": "Elle utilise des modules Inception complexes",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle minimise le nombre total de couches",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle utilise de petits filtres de convolution de taille 3 x 3 empilés",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle utilise uniquement le Global Average Pooling",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quel type de pooling réduit les dimensions spatiales à (batchSize, channels), indépendamment de la taille d'entrée ?",
+    "responses": [
+      {
+        "text": "Max Pooling",
+        "isCorrect": false
+      },
+      {
+        "text": "Average Pooling",
+        "isCorrect": false
+      },
+      {
+        "text": "Global Pooling",
+        "isCorrect": true
+      },
+      {
+        "text": "Min Pooling",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Lequel des éléments suivants est un avantage de la normalisation de batch (Batch Normalisation) ?",
+    "responses": [
+      {
+        "text": "Permettre uniquement l'utilisation de la fonction d'activation Sigmoid",
+        "isCorrect": false
+      },
+      {
+        "text": "Accélérer l'apprentissage",
+        "isCorrect": true
+      },
+      {
+        "text": "Ajouter de la complexité non-linéaire",
+        "isCorrect": false
+      },
+      {
+        "text": "Réduire la taille du batch",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Dans Xception, la séparation des convolutions consiste à remplacer une convolution standard par deux opérations distinctes. Quelles sont ces deux opérations ?",
+    "responses": [
+      {
+        "text": "Pooling et Dense",
+        "isCorrect": false
+      },
+      {
+        "text": "Convolution Depthwise et Convolution Pointwise",
+        "isCorrect": true
+      },
+      {
+        "text": "Max Pooling et Average Pooling",
+        "isCorrect": false
+      },
+      {
+        "text": "Convolution 1 x 1 et Convolution 5 x 5",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quel est le rôle principal de la \"validation set\" (jeu de validation) ?",
+    "responses": [
+      {
+        "text": "Ajuster les poids du modèle",
+        "isCorrect": false
+      },
+      {
+        "text": "Évaluer la performance finale du modèle",
+        "isCorrect": false
+      },
+      {
+        "text": "Déterminer le critère d'arrêt (e.g., Early Stopping) pour éviter le surapprentissage (overfitting)",
+        "isCorrect": true
+      },
+      {
+        "text": "Calculer la matrice de confusion",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quel est l'avantage principal de l'ajout d'une quantité de \"Momentum\" à l'algorithme de descente de gradient ?",
+    "responses": [
+      {
+        "text": "S'assurer que le taux d'apprentissage reste constant",
+        "isCorrect": false
+      },
+      {
+        "text": "Réduire le surapprentissage du modèle",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliser l'information des variations précédentes pour accélérer la convergence dans des directions cohérentes",
+        "isCorrect": true
+      },
+      {
+        "text": "Changer la fonction de perte",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Pourquoi l'utilisation d'une fonction d'activation doit-elle être continue et dérivable dans les réseaux de neurones classiques ?",
+    "responses": [
+      {
+        "text": "Pour garantir que la sortie soit bornée entre 0 et 1",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour que l'algorithme de rétropropagation (basé sur la règle de la chaîne) puisse calculer les gradients",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour simplifier le calcul du biais",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour éviter le besoin de normalisation de batch",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Comment l'algorithme de Rétropropagation (Backpropagation) propage-t-il l'erreur aux couches cachées ?",
+    "responses": [
+      {
+        "text": "En calculant la dérivée seconde de la fonction de perte",
+        "isCorrect": false
+      },
+      {
+        "text": "En réinitialisant les poids de la couche précédente",
+        "isCorrect": false
+      },
+      {
+        "text": "En utilisant la règle de delta généralisée, qui dépend de la somme pondérée des delta des neurones qui le suivent",
+        "isCorrect": true
+      },
+      {
+        "text": "En appliquant uniquement la règle du produit",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quelle fonction de perte est appropriée pour la régression lorsque l'on entraîne un neurone unique sans activation de sortie ?",
+    "responses": [
+      {
+        "text": "Binary Cross-Entropy",
+        "isCorrect": false
+      },
+      {
+        "text": "Categorical Cross-Entropy",
+        "isCorrect": false
+      },
+      {
+        "text": "Mean Square Error (MSE)",
+        "isCorrect": true
+      },
+      {
+        "text": "Sigmoid Loss",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quel est le rôle de la fonction sigmoid dans un neurone unique utilisé pour la classification binaire ?",
+    "responses": [
+      {
+        "text": "Elle assure que l'entrée est toujours positive",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle réduit la dimensionnalité des données",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle transforme la sortie linéaire en une probabilité (valeur entre 0 et 1)",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle applique la méthode de Monte Carlo",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Comment le surapprentissage (overfitting) peut-il être mitigé dans les réseaux de neurones ?",
+    "responses": [
+      {
+        "text": "En augmentant le nombre de paramètres",
+        "isCorrect": false
+      },
+      {
+        "text": "En augmentant le nombre d'époques sans critère d'arrêt",
+        "isCorrect": false
+      },
+      {
+        "text": "En utilisant la régularisation (L1, L2 ou Dropout) et l'arrêt précoce (Early Stopping)",
+        "isCorrect": true
+      },
+      {
+        "text": "En utilisant uniquement le jeu d'entraînement",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Pourquoi l'augmentation de données (Data Augmentation) est-elle essentielle lors de l'entraînement d'un CNN ?",
+    "responses": [
+      {
+        "text": "Remplacer la nécessité d'un GPU",
+        "isCorrect": false
+      },
+      {
+        "text": "Assurer que tous les filtres 3 x 3 sont appris",
+        "isCorrect": false
+      },
+      {
+        "text": "Améliorer la généralisation et rendre le modèle plus robuste",
+        "isCorrect": true
+      },
+      {
+        "text": "Réduire le nombre de couches de pooling",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Pour pouvoir appliquer un CNN au jeu de données MNIST (images 28 x 28), quelle transformation dimensionnelle est requise pour les images avant la première couche Conv2D ?",
+    "responses": [
+      {
+        "text": "Flattening en un vecteur de 784 éléments",
+        "isCorrect": false
+      },
+      {
+        "text": "La dimension du canal (channel) doit être supprimée",
+        "isCorrect": false
+      },
+      {
+        "text": "L'ajout d'une dimension de canal unique (e.g., de (N, 28, 28) à (N, 28, 28, 1))",
+        "isCorrect": true
+      },
+      {
+        "text": "La mise à l'échelle à 224 x 224",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Pour le Transfert de Style Artistique, quel concept mathématique est utilisé pour capturer et mesurer les corrélations de style entre les couches ?",
+    "responses": [
+      {
+        "text": "La distance euclidienne",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Gradient",
+        "isCorrect": false
+      },
+      {
+        "text": "La matrice de Gram",
+        "isCorrect": true
+      },
+      {
+        "text": "Le Softmax",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Pour les problèmes de classification multi-classes (comme CatDogBird), quelle fonction d'activation est généralement utilisée sur le neurone de sortie ?",
+    "responses": [
+      {
+        "text": "Sigmoid",
+        "isCorrect": false
+      },
+      {
+        "text": "ReLU",
+        "isCorrect": false
+      },
+      {
+        "text": "Identity",
+        "isCorrect": false
+      },
+      {
+        "text": "Softmax",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Pourquoi l'opération booléenne XOR est-elle impossible à résoudre correctement avec un seul neurone (Perceptron) ?",
+    "responses": [
+      {
+        "text": "Car elle nécessite un taux d'apprentissage trop élevé",
+        "isCorrect": false
+      },
+      {
+        "text": "Car elle est non-séparable linéairement",
+        "isCorrect": true
+      },
+      {
+        "text": "Car elle nécessite l'utilisation du GPU",
+        "isCorrect": false
+      },
+      {
+        "text": "Car elle utilise une fonction d'activation Sigmoid",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Quel type d'encodage est requis pour les étiquettes de classe lors de l'utilisation de la perte Categorical Cross-Entropy ?",
+    "responses": [
+      {
+        "text": "Un encodage entier (index de classe)",
+        "isCorrect": false
+      },
+      {
+        "text": "Un encodage binaire (0 ou 1)",
+        "isCorrect": false
+      },
+      {
+        "text": "Un encodage One-Hot (vecteur binaire où seul l'index de la classe est à 1)",
+        "isCorrect": true
+      },
+      {
+        "text": "Un encodage par valeur flottante continue",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Que fait la ligne marquée par ... (ligne C1) dans l'extrait de code visant à implémenter le Transfert Learning avec VGG16 ?",
+    "responses": [
+      {
+        "text": "Elle retire les couches Dense de la partie pré-apprise",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle gèle les poids des couches VGG, les rendant non-entraînables",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle initialise les poids aléatoirement pour le fine-tuning",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle ajoute une nouvelle couche Conv2D",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "codeLanguage":  "python",
+    "code": "VGGmodel = VGG16(weights='imagenet', include_top=False)\nfor layer in VGGmodel.layers:\n\tlayer.trainable = False  # <--- Ligne C1\n"
+  },
+  {
+    "question": "Dans le contexte du TP MNIST, quelle est la forme résultante d'un tenseur de données X_train de forme (N, 28, 28) après l'opération np.expand_dims(X_train, axis=-1) ?",
+    "responses": [
+      {
+        "text": "(N, 784)",
+        "isCorrect": false
+      },
+      {
+        "text": "(N, 28, 28)",
+        "isCorrect": false
+      },
+      {
+        "text": "(N, 28, 28, 1)",
+        "isCorrect": true
+      },
+      {
+        "text": "(1, N, 28, 28)",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Combien de paramètres (poids + biais) sont appris au total dans l'architecture définie ci-contre ?",
+    "responses": [
+      {
+        "text": "10 paramètres",
+        "isCorrect": false
+      },
+      {
+        "text": "11 paramètres",
+        "isCorrect": false
+      },
+      {
+        "text": "21 paramètres",
+        "isCorrect": false
+      },
+      {
+        "text": "31 paramètres",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "codeLanguage": "python",
+    "code": "model = Sequential()\nmodel.add(keras.Input(shape=(2,))) # 2 entrées\nmodel.add(Dense(10, activation='sigmoid')) # Couche cachée 1\nmodel.add(Dense(1, activation='sigmoid')) # Couche de sortie\n"
+  },
+  {
+    "question": "Quel est l'effet de l'utilisation du callback EarlyStopping avec patience = 20, en particulier lorsque restore_best_weights=True est utilisé ?",
+    "responses": [
+      {
+        "text": "L'entraînement est arrêté après 20 époques",
+        "isCorrect": false
+      },
+      {
+        "text": "Le taux d'apprentissage est réduit si la perte n'améliore pas",
+        "isCorrect": false
+      },
+      {
+        "text": "L'entraînement s'arrête si val_loss n'améliore pas, et le modèle récupère l'état des poids ayant donné la meilleure performance de validation",
+        "isCorrect": true
+      },
+      {
+        "text": "Tous les poids sont remis à zéro si la perte augmente",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Dans l'extrait Pytorch utilisant autograd, pourquoi est-il nécessaire d'appeler theta.grad.zero_() (ligne C6) au début de chaque itération de la descente de gradient ?",
+    "responses": [
+      {
+        "text": "Pour réinitialiser le paramètre theta à zéro",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour s'assurer que theta est déplacé vers le GPU",
+        "isCorrect": false
+      },
+      {
+        "text": "Car Pytorch accumule les gradients des appels backward précédents par défaut",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour que la fonction d'activation ReLU puisse être utilisée",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "codeLanguage": "python",
+    "code": "# ... boucle d'entraînement ...\nwhile (abs(dyi) > 0.01) and (cpt < limite):\n    theta.grad.zero_() # <--- Ligne C6\n    yi = f(theta)\n    yi.backward()\n    # ... descente de gradient ..."
+  },
+  {
+    "question": "Combien de paramètres sont appris dans la couche block1_conv1 de VGG16 (noyau 3 x 3, entrée 3 canaux, sortie 64 filtres) ?",
+    "responses": [
+      {
+        "text": "896",
+        "isCorrect": false
+      },
+      {
+        "text": "1792",
+        "isCorrect": true
+      },
+      {
+        "text": "36928",
+        "isCorrect": false
+      },
+      {
+        "text": "73856",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  },
+  {
+    "question": "Dans l'algorithme de Rétropropagation, comment l'erreur delta_i d'un neurone d'une couche cachée est-elle calculée ?",
+    "responses": [
+      {
+        "text": "Elle est calculée en fonction de la perte totale seulement",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle est calculée de l'avant (forward) vers l'arrière",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle est calculée par récursion, en fonction des erreurs (delta_k) des neurones de la couche suivante",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle est toujours égale à la dérivée de la fonction d'activation",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null
+  }
+]
