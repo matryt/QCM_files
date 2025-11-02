@@ -555,8 +555,8 @@
     "question": "Combien de paramètres (poids + biais) sont appris au total dans l'architecture définie ci-contre ?",
     "responses": [
       {
-        "text": "10 paramètres",
-        "isCorrect": false
+        "text": "41 paramètres",
+        "isCorrect": true
       },
       {
         "text": "11 paramètres",
@@ -567,8 +567,8 @@
         "isCorrect": false
       },
       {
-        "text": "31 paramètres",
-        "isCorrect": true
+        "text": "30 paramètres",
+        "isCorrect": false
       }
     ],
     "imageUrl": null,
