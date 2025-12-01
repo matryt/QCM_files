@@ -1,0 +1,569 @@
+[
+  {
+    "question": "Comment nomme-t-on l'opération de transformation des données d'un objet en mémoire en un format binaire ou textuel pour transmission sur le réseau ?",
+    "responses": [
+      {
+        "text": "Encodage de protocole",
+        "isCorrect": false
+      },
+      {
+        "text": "Proxyfication",
+        "isCorrect": false
+      },
+      {
+        "text": "Marshalling (ou sérialisation)",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "Quel avantage clé est apporté par l'utilisation de HTTP/2.0 comme protocole de transport sous-jacent à gRPC ?",
+    "responses": [
+      {
+        "text": "Il permet aux clients d'utiliser exclusivement JSON pour la charge utile.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il permet le multiplexage des appels distants sur une seule connexion TCP, ce qui améliore l'efficacité.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il garantit que tous les appels sont asynchrones par défaut.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le modèle RPC (y compris gRPC), quel composant est le 'Proxy' côté client, responsable de la gestion des protocoles réseau et de la sérialisation des requêtes ?",
+    "responses": [
+      {
+        "text": "Le Servicer (Skeleton)",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Stub",
+        "isCorrect": true
+      },
+      {
+        "text": "Le Broker",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la principale contrainte non-fonctionnelle qui distingue un appel de méthode distante (RMI/RPC) d'un appel local en programmation ?",
+    "responses": [
+      {
+        "text": "L'appel distant est toujours asynchrone.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le programme appelant doit gérer des erreurs liées au réseau et à la communication (non-business logic errors).",
+        "isCorrect": true
+      },
+      {
+        "text": "La sérialisation des objets n'est jamais nécessaire pour les appels distants.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Le modèle de service WCF est basé sur la trilogie ABC. Que représente le 'C' ?",
+    "responses": [
+      {
+        "text": "Le protocole de transport et le format d'encodage.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'URI où le service est localisé.",
+        "isCorrect": false
+      },
+      {
+        "text": "Ce que fournit l'interface du service (opérations, messages, types de données).",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "Dans WCF, quel attribut .Net est utilisé pour marquer une interface comme définissant un ensemble d'opérations de service ?",
+    "code": "public interface IService1\n{\n    [OperationContract]\n    string GetData(int value);\n}",
+    "codeLanguage": "csharp",
+    "responses": [
+      {
+        "text": "DataContract",
+        "isCorrect": false
+      },
+      {
+        "text": "ServiceContract",
+        "isCorrect": true
+      },
+      {
+        "text": "DataMember",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Selon le modèle ABC de WCF, quelle composante détermine si le message doit être encodé en Text/XML (SOAP) ou en binaire, et quel protocole de transport utiliser (HTTP, TCP, MSMQ) ?",
+    "responses": [
+      {
+        "text": "L'Address (A)",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Contract (C)",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Binding (B)",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la principale caractéristique de la communication inter-applicative via un Middleware Orienté Message (MOM) ?",
+    "responses": [
+      {
+        "text": "Elle est synchrone et nécessite une connexion permanente (online).",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle est asynchrone et permet de fonctionner en mode déconnecté (offline).",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle est toujours orientée objet.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel modèle de messagerie JMS est basé sur le concept de 'Queue' (File d'attente), garantissant qu'un message n'est reçu que par un seul consommateur, même s'il y en a plusieurs ?",
+    "responses": [
+      {
+        "text": "Publication-Souscription (Pub/Sub)",
+        "isCorrect": false
+      },
+      {
+        "text": "Point-à-Point (PTP)",
+        "isCorrect": true
+      },
+      {
+        "text": "Requête-Réponse synchrone",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est l'avantage architectural du style 'Store-and-Forward' utilisé par les MOMs ?",
+    "responses": [
+      {
+        "text": "Il assure une faible latence comparable aux appels locaux.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il garantit la livraison ('Guaranteed Delivery'), car le message est stocké si l'application réceptrice est indisponible.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il force l'utilisation exclusive du protocole HTTP.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Si un message JMS est envoyé en mode de livraison 'PERSISTENT', que garantit le Provider MOM ?",
+    "responses": [
+      {
+        "text": "Le message sera délivré au plus une fois, sans risque de duplication.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le message est stocké sur un support permanent par le provider, garantissant qu'il ne sera pas perdu en cas de crash (une et une seule fois).",
+        "isCorrect": true
+      },
+      {
+        "text": "Que le message ne sera pas ré-délivré.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le contexte transactionnel JMS, que se passe-t-il si un client appelle `session.rollback()` après avoir reçu et traité un message ?",
+    "responses": [
+      {
+        "text": "Le message est définitivement perdu.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le message n'est pas acquitté et est remis dans la file pour être re-délivré et traité à nouveau.",
+        "isCorrect": true
+      },
+      {
+        "text": "Seul l'envoi des messages (production) est annulé.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel mode d'acquittement JMS exige que le client appelle explicitement la méthode `Message.acknowledge()` pour acquitter ce message et tous les messages précédents non acquittés ?",
+    "responses": [
+      {
+        "text": "AUTO_ACKNOWLEDGE",
+        "isCorrect": false
+      },
+      {
+        "text": "DUPS_OK_ACKNOWLEDGE",
+        "isCorrect": false
+      },
+      {
+        "text": "CLIENT_ACKNOWLEDGE",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "En JMS, quelles interfaces sont typiquement recherchées par le client via l'API JNDI avant de pouvoir créer une connexion et des sessions ?",
+    "responses": [
+      {
+        "text": "MessageProducer et MessageConsumer",
+        "isCorrect": false
+      },
+      {
+        "text": "ConnectionFactory et Destination (Queue ou Topic)",
+        "isCorrect": true
+      },
+      {
+        "text": "XASession et Connection",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le modèle Requête-Réponse implémenté sur JMS, comment le client indique-t-il au serveur la destination où la réponse doit être envoyée ?",
+    "responses": [
+      {
+        "text": "En utilisant l'identifiant JMSMessageID.",
+        "isCorrect": false
+      },
+      {
+        "text": "En spécifiant une Destination Temporaire dans le champ d'entête JMSReplyTo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le serveur utilise toujours la file de requête (Request Queue) pour la réponse.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Pourquoi la communication JMS est-elle dite 'faiblement couplée' par rapport à RMI ?",
+    "responses": [
+      {
+        "text": "Parce que le client et le serveur doivent être dans le même langage (Java).",
+        "isCorrect": false
+      },
+      {
+        "text": "Parce que le producteur et le consommateur ne nécessitent pas d'être en ligne ou connectés au MOM en même temps.",
+        "isCorrect": true
+      },
+      {
+        "text": "Parce qu'elle n'utilise que le protocole HTTP.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans les systèmes d'objets distribués (RMI, CORBA), la communication est-elle par défaut synchrone ou asynchrone ?",
+    "responses": [
+      {
+        "text": "Asynchrone par défaut.",
+        "isCorrect": false
+      },
+      {
+        "text": "Synchrone (bloquante).",
+        "isCorrect": true
+      },
+      {
+        "text": "Dépend entièrement de l'IDL utilisé.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle information essentielle le client RMI doit-il connaître avant de chercher le stub de l'objet distant dans le Registre RMI ?",
+    "responses": [
+      {
+        "text": "L'adresse IP et le port de la Queue JMS.",
+        "isCorrect": false
+      },
+      {
+        "text": "La chaîne (clé) utilisée pour enregistrer ce stub dans le Registre RMI (via Naming.lookup).",
+        "isCorrect": true
+      },
+      {
+        "text": "Le WSDL du service.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la principale différence d'interopérabilité entre RMI et CORBA ?",
+    "responses": [
+      {
+        "text": "RMI est spécifique à Java, tandis que CORBA utilise un IDL pour permettre l'interopérabilité multi-langages.",
+        "isCorrect": true
+      },
+      {
+        "text": "CORBA supporte uniquement les appels synchrones.",
+        "isCorrect": false
+      },
+      {
+        "text": "RMI est un protocole de messagerie asynchrone.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le code client RMI, qu'implique l'appel `remoteCatalog.lookingFor()` ?",
+    "code": "boolean available=remoteCatalog.lookingFor(\"ISBN12345\");",
+    "codeLanguage": "java",
+    "responses": [
+      {
+        "text": "L'exécution est non bloquante, le résultat est reçu par un écouteur asynchrone.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'exécution est bloquante et attend le retour de la procédure distante sur le réseau.",
+        "isCorrect": true
+      },
+      {
+        "text": "La méthode est exécutée localement par le Stub.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel composant WSDL définit formellement un ensemble d'opérations et les messages (entrée/sortie) qu'elles impliquent ?",
+    "responses": [
+      {
+        "text": "La balise <binding>",
+        "isCorrect": false
+      },
+      {
+        "text": "La balise <portType>",
+        "isCorrect": true
+      },
+      {
+        "text": "La balise <service>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Pourquoi le modèle Requête-Réponse implémenté sur un MOM nécessite-t-il l'envoi de la requête et la réception de la réponse dans deux transactions successives distinctes ?",
+    "responses": [
+      {
+        "text": "C'est une exigence du protocole TCP/IP.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un message ne peut être à la fois produit (posté) et consommé (retiré) dans la portée d'une seule transaction MOM.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour des raisons d'optimisation de la sérialisation.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans un scénario Requête-Réponse implémenté via des files d'attente MOM, que se passe-t-il si le serveur de traitement est temporairement en panne ?",
+    "responses": [
+      {
+        "text": "Le client reçoit immédiatement une erreur de connexion (RemoteException).",
+        "isCorrect": false
+      },
+      {
+        "text": "La requête reste dans la file d'attente jusqu'à ce que le serveur se reconnecte pour la consommer.",
+        "isCorrect": true
+      },
+      {
+        "text": "La requête est automatiquement transférée vers un Topic Pub/Sub.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "L'API JMS ne standardise pas quel aspect de la communication avec le serveur MOM ?",
+    "responses": [
+      {
+        "text": "Le modèle de messagerie (PTP/PubSub).",
+        "isCorrect": false
+      },
+      {
+        "text": "La recherche des destinations via JNDI.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le protocole de transport sous-jacent (TCP, etc.).",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "L'utilisation des interfaces XA (XAConnectionFactory, XASession) en JMS permet de supporter quel type de mécanisme ?",
+    "responses": [
+      {
+        "text": "Les appels de fonction asynchrones.",
+        "isCorrect": false
+      },
+      {
+        "text": "Les transactions distribuées (JTA/two-phases commit).",
+        "isCorrect": true
+      },
+      {
+        "text": "Le filtrage des messages par contenu.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel protocole léger de type Publication-Souscription est optimisé pour les environnements Machine-to-Machine (M2M) et les réseaux à connectivité intermittente ?",
+    "responses": [
+      {
+        "text": "AMQP",
+        "isCorrect": false
+      },
+      {
+        "text": "MQTT (Message Queue Telemetry Transport)",
+        "isCorrect": true
+      },
+      {
+        "text": "CORBA IDL",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la nature des messages reçus par un client JMS concernant leur modification ?",
+    "responses": [
+      {
+        "text": "Le corps (body) et les propriétés des messages reçus sont en lecture/écriture.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le corps et les propriétés des messages reçus sont en lecture seule.",
+        "isCorrect": true
+      },
+      {
+        "text": "Seules les propriétés sont en lecture seule, le corps peut être modifié.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le but de la classe utilitaire `QueueRequestor` fournie par JMS ?",
+    "responses": [
+      {
+        "text": "Elle permet de parcourir la Queue sans retirer les messages.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle implémente un modèle synchrone de Requête-Réponse au-dessus de l'infrastructure asynchrone du MOM.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle garantit l'ordre global des messages reçus.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans JMS, la méthode `queueReceiver.receive()` est utilisée pour quel type de réception de message ?",
+    "code": "message = queueReceiver.receive();",
+    "codeLanguage": "java",
+    "responses": [
+      {
+        "text": "Réception asynchrone via un MessageListener.",
+        "isCorrect": false
+      },
+      {
+        "text": "Réception synchrone (bloquante).",
+        "isCorrect": true
+      },
+      {
+        "text": "Réception transactionnelle uniquement.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel protocole vise à standardiser l'échange de messages entre serveurs de message hétérogènes (standard OASIS) et supporte les transactions XA, se positionnant comme un protocole concurrent à l'API JMS ?",
+    "responses": [
+      {
+        "text": "DDS",
+        "isCorrect": false
+      },
+      {
+        "text": "AMQP",
+        "isCorrect": true
+      },
+      {
+        "text": "MQTT",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle contrainte est imposée à un objet Java, comme une classe `Person`, pour qu'il puisse être inclus dans un `ObjectMessage` JMS et être transmis ?",
+    "responses": [
+      {
+        "text": "Il doit être déclaré `public static`.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il doit implémenter l'interface `java.io.Serializable`.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il doit étendre `java.rmi.Remote`.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "L'un des avantages de gRPC par rapport à REST est l'utilisation de Protocol Buffers, ce qui permet :",
+    "responses": [
+      {
+        "text": "De rendre le débogage (debug) plus facile pour les humains.",
+        "isCorrect": false
+      },
+      {
+        "text": "Une sérialisation binaire plus compacte et plus rapide.",
+        "isCorrect": true
+      },
+      {
+        "text": "De manipuler des ressources via des représentations (concept REST).",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans WCF, la liaison `BasicHttpBinding` est souvent choisie pour :",
+    "responses": [
+      {
+        "text": "Obtenir les meilleures performances en communication interne .NET.",
+        "isCorrect": false
+      },
+      {
+        "text": "Assurer la compatibilité maximale (interopérabilité) avec les autres services Web SOAP standard.",
+        "isCorrect": true
+      },
+      {
+        "text": "Exposer des services RESTful en JSON.",
+        "isCorrect": false
+      }
+    ]
+  }
+]
