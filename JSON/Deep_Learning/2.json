@@ -1,0 +1,675 @@
+[
+  {
+    "question": "Théorie (Début de cours) : Dans le cadre de la descente de gradient, quel est le rôle principal du paramètre 'Momentum' ?",
+    "responses": [
+      {
+        "text": "Il adapte le taux d'apprentissage indépendamment pour chaque paramètre (comme RMSprop).",
+        "isCorrect": false
+      },
+      {
+        "text": "Il utilise l'accélération (historique des gradients précédents) pour éviter les oscillations et converger plus vite.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il sert à régulariser les poids pour éviter le surapprentissage (L2 regularization).",
+        "isCorrect": false
+      },
+      {
+        "text": "Il augmente le taux d'apprentissage de manière exponentielle au cours du temps (learning rate scheduling).",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Pytorch : Quelle est la différence fondamentale dans le stockage des dimensions d'une image entre Keras (TensorFlow) et PyTorch par défaut ?",
+    "responses": [
+      {
+        "text": "Keras utilise (Batch, Channel, Height, Width) alors que PyTorch utilise (Batch, Height, Width, Channel).",
+        "isCorrect": false
+      },
+      {
+        "text": "Keras utilise (Batch, Height, Width, Channel) alors que PyTorch utilise (Batch, Channel, Height, Width).",
+        "isCorrect": true
+      },
+      {
+        "text": "Il n'y a aucune différence, les deux utilisent (Height, Width, Channel).",
+        "isCorrect": false
+      },
+      {
+        "text": "PyTorch ignore la dimension du Batch.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Calcul : Soit une couche `Conv2D` avec 32 filtres de taille $3 \\times 3$, recevant une entrée RGB (3 canaux). Le biais est inclus. Combien de paramètres cette couche possède-t-elle ?",
+    "responses": [
+      {
+        "text": "32 * 3 * 3 + 32 = 320",
+        "isCorrect": false
+      },
+      {
+        "text": "32 * (3 * 3 * 3) = 864",
+        "isCorrect": false
+      },
+      {
+        "text": "32 * (3 * 3 * 3 + 1) = 896",
+        "isCorrect": true
+      },
+      {
+        "text": "(224 * 224 * 3) * 32",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Architecture CNN : Quel est l'intérêt principal d'utiliser une convolution $1 \\times 1$ (comme dans GoogleNet/Inception) ?",
+    "responses": [
+      {
+        "text": "Augmenter la résolution spatiale de l'image.",
+        "isCorrect": false
+      },
+      {
+        "text": "Réduire la dimensionnalité (nombre de canaux/profondeur) pour réduire le coût de calcul avant des convolutions plus lourdes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Effectuer un lissage (flou) de l'image.",
+        "isCorrect": false
+      },
+      {
+        "text": "Supprimer le besoin de fonctions d'activation.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Calcul Dimensions : Une image d'entrée de taille $28 \\times 28$ passe dans une couche `Conv2D(kernel_size=4, strides=2, padding='same')`. Quelle est la taille de sortie (spatiale) ?",
+    "responses": [
+      {
+        "text": "28 x 28",
+        "isCorrect": false
+      },
+      {
+        "text": "12 x 12",
+        "isCorrect": false
+      },
+      {
+        "text": "14 x 14",
+        "isCorrect": true
+      },
+      {
+        "text": "13 x 13",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Autoencodeur : Quelle est la différence structurelle majeure d'un VAE (Variational Autoencoder) par rapport à un Autoencodeur classique ?",
+    "responses": [
+      {
+        "text": "Le VAE utilise des convolutions alors que l'AE classique n'utilise que des couches Dense.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le VAE encode l'entrée vers une distribution de probabilité (moyenne $\\mu$ et écart-type $\\sigma$) plutôt que vers un point fixe.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le VAE n'a pas de décodeur.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le VAE utilise une perte MSE pure sans régularisation.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Théorie : Qu'est-ce que le 'Receptive Field' (champ réceptif) dans un CNN ?",
+    "responses": [
+      {
+        "text": "La taille du filtre de toutes les couches de convolution.",
+        "isCorrect": false
+      },
+      {
+        "text": "La zone de l'image d'entrée qui influence l'activation d'un neurone particulier dans une couche profonde.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le nombre total de canaux dans l'image.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le nombre maximum de neurones qu'une couche peut activer.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Théorie : Quel est le problème principal que les connexions résiduelles (skip connections) de ResNet cherchent à résoudre ?",
+    "responses": [
+      {
+        "text": "Le surapprentissage (Overfitting).",
+        "isCorrect": false
+      },
+      {
+        "text": "Le temps de calcul trop long.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le problème de disparition du gradient (vanishing gradient) dans les réseaux très profonds.",
+        "isCorrect": true
+      },
+      {
+        "text": "La faible résolution des images d'entrée.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Architecture : Dans VGG16, pourquoi utilise-t-on deux couches de convolution $3 \\times 3$ successives au lieu d'une seule couche $5 \\times 5$ ?",
+    "responses": [
+      {
+        "text": "Pour avoir plus de paramètres.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour réduire le champ réceptif.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour avoir le même champ réceptif effectif ($5 \\times 5$) mais avec moins de paramètres et plus de non-linéarités.",
+        "isCorrect": true
+      },
+      {
+        "text": "C'est une erreur de conception corrigée dans VGG19.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Théorie VAE : Que signifie le terme 'KL Divergence' dans la perte totale d'un VAE ?",
+    "responses": [
+      {
+        "text": "C'est la différence entre le vecteur $\\mu$ et le vecteur $\\sigma$ du code latent.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est une mesure de distance entre la distribution latente apprise et une distribution normale standard (gaussienne).",
+        "isCorrect": true
+      },
+      {
+        "text": "C'est la différence entre la perte du décodeur et la perte de l'encodeur.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est l'erreur de reconstruction pixel par pixel.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Optimisation : Quelle est la principale caractéristique de l'optimiseur SGD (Stochastic Gradient Descent) par rapport au Gradient Descent classique (Batch) ?",
+    "responses": [
+      {
+        "text": "Il utilise tout le dataset pour calculer le gradient à chaque étape.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il met à jour les poids après chaque exemple (ou un petit lot), ce qui est plus bruyant mais souvent plus rapide pour converger et échapper aux minima locaux.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il utilise le Momentum pour stabiliser la descente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il ne recalcule le gradient que pour les exemples mal classés.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Détection d'objets : À quoi sert le RPN (Region Proposal Network) dans Faster R-CNN ?",
+    "responses": [
+      {
+        "text": "À calculer les coordonnées finales de la boîte de détection.",
+        "isCorrect": false
+      },
+      {
+        "text": "À proposer rapidement des zones de l'image susceptibles de contenir un objet (objectness) avant la classification fine.",
+        "isCorrect": true
+      },
+      {
+        "text": "À détecter les contours et les caractéristiques de bas niveau (edges).",
+        "isCorrect": false
+      },
+      {
+        "text": "À segmenter l'image pixel par pixel.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Calcul Dimensions : Après un `MaxPooling2D(pool_size=(3, 3), strides=2)` sur une entrée de `(64, 64, 3)`, quelle est la dimension de sortie ?",
+    "responses": [
+      {
+        "text": "(32, 32, 3)",
+        "isCorrect": false
+      },
+      {
+        "text": "$(31, 31, 3)$",
+        "isCorrect": true
+      },
+      {
+        "text": "$(30, 30, 3)$",
+        "isCorrect": false
+      },
+      {
+        "text": "$(62, 62, 3)$",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "XAI : Pourquoi préfère-t-on souvent Grad-CAM à la méthode des cartes de saillance (Saliency Maps) basiques ?",
+    "responses": [
+      {
+        "text": "Parce que Grad-CAM est plus rapide à calculer.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parce que les cartes de saillance sont souvent bruitées et visuellement difficiles à interpréter, tandis que Grad-CAM donne une localisation plus grossière mais plus sémantique.",
+        "isCorrect": true
+      },
+      {
+        "text": "Parce que Grad-CAM ne nécessite pas de rétropropagation.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parce que Grad-CAM fonctionne sur les MLP.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Classification : Si j'ai 10 classes mutuellement exclusives (ex: chiffres MNIST), quelle fonction d'activation dois-je utiliser sur la dernière couche Dense ?",
+    "responses": [
+      {
+        "text": "Sigmoid",
+        "isCorrect": false
+      },
+      {
+        "text": "ReLU",
+        "isCorrect": false
+      },
+      {
+        "text": "Softmax",
+        "isCorrect": true
+      },
+      {
+        "text": "Linear",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Détection d'objets : En quoi consiste le 'Non-Maximum Suppression' (NMS) ?",
+    "responses": [
+      {
+        "text": "À supprimer les neurones qui ne s'activent pas.",
+        "isCorrect": false
+      },
+      {
+        "text": "À supprimer les boîtes de détection multiples qui se chevauchent fortement sur le même objet, en ne gardant que celle avec la confiance maximale.",
+        "isCorrect": true
+      },
+      {
+        "text": "À normaliser les valeurs des pixels.",
+        "isCorrect": false
+      },
+      {
+        "text": "À augmenter la taille des boîtes trop petites.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Transfert de style : Comment la 'Perte de Contenu' (Content Loss) est-elle généralement calculée ?",
+    "responses": [
+      {
+        "text": "En comparant les pixels de l'image générée et de l'image de style.",
+        "isCorrect": false
+      },
+      {
+        "text": "En utilisant la MSE entre les activations d'une couche profonde du réseau pour l'image générée et l'image de contenu.",
+        "isCorrect": true
+      },
+      {
+        "text": "En utilisant des matrices de Gram.",
+        "isCorrect": false
+      },
+      {
+        "text": "En utilisant la classification finale.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Autoencodeur : Si l'entrée est une image $28 \\times 28$ aplatie (784) et que la couche goulot (bottleneck) a une dimension de 32, quel est le taux de compression théorique ?",
+    "responses": [
+      {
+        "text": "784 / 32 = 24.5",
+        "isCorrect": true
+      },
+      {
+        "text": "32 / 784 = 0.04",
+        "isCorrect": false
+      },
+      {
+        "text": "28 / 32",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela dépend de la fonction d'activation.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "YOLO : Qu'est-ce qu'une 'Anchor Box' (Boîte d'ancrage) ?",
+    "responses": [
+      {
+        "text": "Une boîte de vérité terrain.",
+        "isCorrect": false
+      },
+      {
+        "text": "Une boîte prédéfinie avec une forme (ratio) et une taille spécifiques, utilisée comme référence pour prédire les décalages.",
+        "isCorrect": true
+      },
+      {
+        "text": "Une boîte dessinée par l'utilisateur.",
+        "isCorrect": false
+      },
+      {
+        "text": "La grille sur laquelle l'image est divisée.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Théorie : Pourquoi normalise-t-on souvent les entrées (images) entre 0 et 1 ou avec moyenne 0 et écart-type 1 ?",
+    "responses": [
+      {
+        "text": "C'est obligatoire pour que le code compile.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour faciliter et accélérer la convergence de la descente de gradient.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour réduire la taille du fichier image.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour que l'image soit visible.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans la boucle d'entraînement PyTorch ci-dessous, quelle ligne est manquante à l'emplacement indiqué par `# ???` pour effectuer la mise à jour des poids ?",
+    "code": "optimizer.zero_grad()\noutputs = model(inputs)\nloss = criterion(outputs, labels)\nloss.backward()\n# ???",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "model.compile()",
+        "isCorrect": false
+      },
+      {
+        "text": "optimizer.step()",
+        "isCorrect": true
+      },
+      {
+        "text": "loss.update()",
+        "isCorrect": false
+      },
+      {
+        "text": "model.fit()",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est l'erreur dans ce code de définition d'un modèle séquentiel Keras simple pour la classification binaire ?",
+    "code": "model = Sequential()\nmodel.add(Dense(10, input_dim=20, activation='relu'))\nmodel.add(Dense(1, activation='softmax'))\nmodel.compile(loss='binary_crossentropy', optimizer='sgd')",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "L'optimiseur 'sgd' n'existe pas.",
+        "isCorrect": false
+      },
+      {
+        "text": "La fonction de perte 'binary_crossentropy' nécessite 2 neurones en sortie.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour une classification binaire avec 'binary_crossentropy', l'activation finale devrait être 'sigmoid' et non 'softmax'.",
+        "isCorrect": true
+      },
+      {
+        "text": "La couche Dense ne peut pas prendre d'argument 'input_dim'.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Ce code est extrait du TP sur les Autoencodeurs Variationnels (VAE). Que réalise la fonction `sampling` ?",
+    "code": "def sampling(args):\n    mu, logSigma = args\n    epsilon = bk.random_normal(shape=(bk.shape(mu), dimLatent), mean=0.0, stddev=1.0)\n    return mu + bk.exp(logSigma) * epsilon",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "Elle effectue une simple normalisation des données d'entrée.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle implémente le 'reparameterization trick' pour rendre l'échantillonnage aléatoire différentiable.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle calcule la perte de Kullback-Leibner.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle supprime le bruit de l'image d'entrée.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Si `x` est un tenseur PyTorch de dimensions `(1, 28, 28)`, que retourne l'opération `x.view(x.size(0), -1)` utilisée couramment avant une couche linéaire ?",
+    "code": "x = torch.randn(1, 28, 28)\nx = x.view(x.size(0), -1)\nprint(x.shape)",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "torch.Size([1, 28])",
+        "isCorrect": false
+      },
+      {
+        "text": "torch.Size([1, 784])",
+        "isCorrect": true
+      },
+      {
+        "text": "torch.Size([28, 28])",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela provoque une erreur de dimension.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans ce code calculant la 'Matrice de Gram' pour le transfert de style, que représente l'opération `torch.mm` ?",
+    "code": "def gram_matrix(input):\n    a, b, c, d = input.size() \n    features = input.view(a * b, c * d)\n    G = torch.mm(features, features.t())\n    return G.div(a * b * c * d)",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "Une multiplication élément par élément (Hadamard product).",
+        "isCorrect": false
+      },
+      {
+        "text": "Une multiplication matricielle.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le calcul de la moyenne mobile.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le maximum de la matrice.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le TP sur la régression, on utilise `EarlyStopping`. Que signifie le paramètre `patience=20` ?",
+    "code": "callback = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "L'entraînement s'arrêtera après 20 époques quoi qu'il arrive.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'entraînement s'arrêtera si la `val_loss` ne s'améliore pas pendant 20 époques consécutives.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'entraînement attendra 20 secondes avant de commencer.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le modèle sauvegardera les poids toutes les 20 époques.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans ce snippet PyTorch (TP from Keras to Pytorch), pourquoi utilise-t-on `torch.inference_mode()` (ou `torch.no_grad()`) ?",
+    "code": "model.eval()\nwith torch.inference_mode():\n    test_pred = model(X_test)",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "Pour accélérer le calcul en désactivant le calcul et le stockage des gradients, inutiles lors de l'inférence.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour forcer le modèle à utiliser le GPU.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour réinitialiser les poids du modèle avant le test.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est obligatoire pour éviter une erreur de compilation.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le TP Object Detection, le modèle a deux sorties. Quelle est l'erreur dans cette compilation ?",
+    "code": "model = Model(inputs=inp, outputs=[box_out, class_out])\nmodel.compile(optimizer='adam', loss='mse')",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "Il n'y a pas d'erreur, la MSE s'appliquera aux deux sorties.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comme il y a 2 sorties, `loss` devrait être une liste ou un dictionnaire spécifiant une perte pour chaque sortie (ex: `['mse', 'categorical_crossentropy']`).",
+        "isCorrect": true
+      },
+      {
+        "text": "L'optimiseur Adam ne supporte pas les modèles multi-sorties.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il faut utiliser `model.fit` pour définir la perte.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la dimension des paramètres (poids) d'une couche `nn.Linear(10, 5)` en PyTorch ?",
+    "code": "layer = nn.Linear(in_features=10, out_features=5)\nprint(layer.weight.shape)",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "torch.Size([10, 5])",
+        "isCorrect": false
+      },
+      {
+        "text": "torch.Size([5, 10])",
+        "isCorrect": true
+      },
+      {
+        "text": "torch.Size([5])",
+        "isCorrect": false
+      },
+      {
+        "text": "torch.Size([10])",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans la méthode Grad-CAM, on calcule `grads`. Que représente `torch.mean(grads, dim=(2, 3))` dans ce contexte (pour un tenseur `[batch, channels, h, w]`) ?",
+    "code": "grads = torch.autograd.grad(y_c, feature_maps)\nweights = torch.mean(grads, dim=(2, 3))",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "Le Global Average Pooling des gradients pour obtenir un poids d'importance par canal.",
+        "isCorrect": true
+      },
+      {
+        "text": "La moyenne des pixels de l'image originale.",
+        "isCorrect": false
+      },
+      {
+        "text": "La suppression des dimensions de batch.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le calcul de la dérivée seconde.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Pour effectuer de la Data Augmentation 'à la volée' avec Keras, où place-t-on généralement les couches comme `RandomFlip` ou `RandomRotation` ?",
+    "code": "data_augmentation = Sequential([\n  RandomFlip(\"horizontal\"),\n  RandomRotation(0.1),\n])",
+    "codeLanguage": "python",
+    "responses": [
+      {
+        "text": "Juste après la couche de sortie.",
+        "isCorrect": false
+      },
+      {
+        "text": "Comme premières couches du modèle, avant le traitement par le CNN.",
+        "isCorrect": true
+      },
+      {
+        "text": "Dans la fonction de perte.",
+        "isCorrect": false
+      },
+      {
+        "text": "Uniquement lors de la phase de test (inference).",
+        "isCorrect": false
+      }
+    ]
+  }
+]
