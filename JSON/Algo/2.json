@@ -1,0 +1,659 @@
+[
+    {
+        "question": "Soit la machine de Turing Mp ci-dessous. Quelle est la séquence exacte d'états traversés pour l'entrée aaaaa) ?",
+        "imageUrl": "https://i.postimg.cc/KvNkxt04/Mon-cahier-P2.png",
+        "responses": [
+            {
+                "text": "q0 -> q1 -> q2 -> q3 -> q2 -> q3",
+                "isCorrect": false
+            },
+            {
+                "text": "q0 -> q1 -> q2 -> q3 -> qF",
+                "isCorrect": false
+            },
+            {
+                "text": "q0 -> q1 -> q2 -> q1 -> q2 -> q1 -> qF",
+                "isCorrect": true
+            },
+            {
+                "text": "q0 -> q1 -> q2 -> qr -> q0",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans la preuve du théorème de la hiérarchie, on construit une machine Mv qui décide le langage de la classe supérieure. Comment Mv traite-t-elle l'entrée (, x) ?",
+        "code": "Machine Mv( , x ):\n1. Calcule T = g(|(,x)|)\n2. Simule M sur x pendant T étapes\n3. ? ?",
+        "responses": [
+            {
+                "text": "Si M s'arrête en moins de T étapes, Mv renvoie l'opposé du résultat de M (diagonalisation).",
+                "isCorrect": true
+            },
+            {
+                "text": "Si M s'arrête en moins de T étapes, Mv renvoie le même résultat que M.",
+                "isCorrect": false
+            },
+            {
+                "text": "Mv simule M indéfiniment jusqu'à arrêt complet.",
+                "isCorrect": false
+            },
+            {
+                "text": "Mv vérifie si M est une machine de Turing valide uniquement.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Pourquoi l'algorithme naïf de test de primalité (diviser a par tous les entiers jusqu'à racine de a) est-il considéré comme un algorithme exponentiel ?",
+        "responses": [
+            {
+                "text": "Car la taille de l'entrée est n = log(a), donc racine(a) = 2^(n/2).",
+                "isCorrect": true
+            },
+            {
+                "text": "Car il y a une infinité de nombres premiers.",
+                "isCorrect": false
+            },
+            {
+                "text": "Car la division prend un temps exponentiel.",
+                "isCorrect": false
+            },
+            {
+                "text": "C'est faux, cet algorithme est polynomial (classe P).",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle est la conséquence exacte du théorème de l'accélération linéaire pour une machine fonctionnant en temps T(n) ?",
+        "responses": [
+            {
+                "text": "Pour tout epsilon > 0, on peut construire une machine équivalente fonctionnant en (1+epsilon)n + epsilon*T(n).",
+                "isCorrect": true
+            },
+            {
+                "text": "On peut réduire la complexité de quadratique à linéaire en changeant d'alphabet.",
+                "isCorrect": false
+            },
+            {
+                "text": "On peut diviser le temps par n'importe quelle constante k, obtenant T(n)/k + n.",
+                "isCorrect": false
+            },
+            {
+                "text": "Tout problème exponentiel peut être ramené à un temps polynomial.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Soit l'algorithme naïf de détection de clique de taille k dans un graphe G=(V,E) présenté ci-dessous. Pourquoi prouve-t-il que CLIQUE est dans EXP mais ne prouve pas qu'il est hors de P ?",
+        "code": "Algo(G, k):\n  Si k=0 retour Vrai\n  Pour chaque u de V:\n    Si u fait partie de la clique:\n       Appel récursif sur (G' = voisins de u, k-1)\n",
+        "responses": [
+            {
+                "text": "La complexité est O(n^k). Comme k fait partie de l'entrée (binaire), n^k peut être exponentiel en la taille de l'entrée.",
+                "isCorrect": true
+            },
+            {
+                "text": "L'algorithme utilise un espace exponentiel à cause de la récursion.",
+                "isCorrect": false
+            },
+            {
+                "text": "Parce que P = EXP est une question ouverte.",
+                "isCorrect": false
+            },
+            {
+                "text": "L'algorithme est en O(k^n), ce qui est toujours exponentiel.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans le problème des Carrés Magiques, on cherche à compléter une grille nxn. Quelle est la complexité exacte de la vérification d'un certificat (grille complète) en fonction de N (où N = n^2 est le nombre de cases) ?",
+        "responses": [
+            {
+                "text": "O(N) (ou O(N log N) selon l'encodage des nombres), donc Polynomial en la taille de la grille.",
+                "isCorrect": true
+            },
+            {
+                "text": "O(n!), donc Factorielle.",
+                "isCorrect": false
+            },
+            {
+                "text": "O(1), car la grille est petite.",
+                "isCorrect": false
+            },
+            {
+                "text": "Indécidable.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans l'exercice sur le chiffrement RSA, on établit un lien entre casser RSA et le problème DIVISEUR. Quelle est la conclusion ?",
+        "code": "DIVISEUR(n, k) : Existe-t-il un diviseur p de n tel que 2 <= p <= k ?",
+        "responses": [
+            {
+                "text": "Si DIVISEUR est dans P, alors on peut factoriser n et casser RSA en temps polynomial par dichotomie.",
+                "isCorrect": true
+            },
+            {
+                "text": "DIVISEUR est prouvé NP-complet, donc RSA est sûr.",
+                "isCorrect": false
+            },
+            {
+                "text": "Casser RSA est plus dur que DIVISEUR, donc DIVISEUR dans P n'implique rien.",
+                "isCorrect": false
+            },
+            {
+                "text": "RSA repose sur le problème du sac à dos, pas sur la factorisation.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle est la définition formelle exacte d'une machine de Turing Non-Déterministe (relation de transition) ?",
+        "responses": [
+            {
+                "text": "delta est un sous-ensemble de (Q x Gamma) x (Q x Gamma x {L,R}).",
+                "isCorrect": true
+            },
+            {
+                "text": "delta est une fonction de (Q x Gamma) vers un ensemble de probabilités.",
+                "isCorrect": false
+            },
+            {
+                "text": "delta associe à chaque état une liste unique d'instructions.",
+                "isCorrect": false
+            },
+            {
+                "text": "delta permet de changer d'état sans lire la bande.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Concernant la clôture des classes, quelle affirmation est vraie pour NTIME(t) ?",
+        "responses": [
+            {
+                "text": "NTIME(t) est close par Union et Intersection, mais on ignore si elle est close par Complémentation.",
+                "isCorrect": true
+            },
+            {
+                "text": "NTIME(t) est close par Complémentation (co-NTIME = NTIME).",
+                "isCorrect": false
+            },
+            {
+                "text": "NTIME(t) n'est close ni par Union ni par Intersection.",
+                "isCorrect": false
+            },
+            {
+                "text": "L'intersection de deux langages NP est nécessairement dans P.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle est la relation asymptotique prouvée entre le temps non-déterministe NTIME(t) et le temps déterministe DTIME ?",
+        "responses": [
+            {
+                "text": "NTIME(t) est inclus dans DTIME(2^O(t)).",
+                "isCorrect": true
+            },
+            {
+                "text": "NTIME(t) est inclus dans DTIME(t^2).",
+                "isCorrect": false
+            },
+            {
+                "text": "DTIME(t) est inclus dans NTIME(log t).",
+                "isCorrect": false
+            },
+            {
+                "text": "Il n'y a aucune relation prouvée.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Si on suppose l'existence de fonctions One-Way (f est One-Way si f est calculable en temps polynomial et bijective, mais f^-1 n'est pas calculable en temps polynomial), quelle implication cela a-t-il sur la complexité ?",
+        "responses": [
+            {
+                "text": "Le problème ONE_WAY (décider si f^-1(x) < y) est dans (NP inter coNP) mais pas dans P. Donc P != NP.",
+                "isCorrect": true
+            },
+            {
+                "text": "Cela prouve que P = NP.",
+                "isCorrect": false
+            },
+            {
+                "text": "Cela implique que NP est inclus dans PSPACE strictement.",
+                "isCorrect": false
+            },
+            {
+                "text": "Le problème devient indécidable.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Expliquez pourquoi la réduction de ENSEMBLE_INDEPENDANT(G, k) à CLIQUE( non G , k) repose fondamentalement sur la non-existence d'arêtes. Pourquoi un ensemble S doit-il conserver sa taille k pour les deux problèmes ?",
+        "responses": [
+            {
+                "text": "Un ensemble S de taille  k est un ensemble indépendant dans G ssi il n'y a aucune arête entre ses sommets. Ceci est équivalent à ce que l'ensemble S soit une clique de taille k dans le graphe complémentaire non G, car dans  non G, il y a une arête entre tous les sommets de S.",
+                "isCorrect": true
+            },
+            {
+                "text": "La réduction ne conserve pas k, mais cherche une clique de taille |V|-k .",
+                "isCorrect": false
+            },
+            {
+                "text": "L'équivalence n'est pas polynomiale car la construction de  non G  est trop lente.",
+                "isCorrect": false
+            },
+            {
+                "text": "La réduction utilise une inversion des poids des arêtes, pas le graphe complémentaire.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle est la réduction classique utilisée pour prouver que VERTEX_COVER est NP-difficile ?",
+        "responses": [
+            {
+                "text": "CLIQUE <=p VERTEX_COVER, en passant au graphe complémentaire et en cherchant une couverture de taille |V|-k.",
+                "isCorrect": true
+            },
+            {
+                "text": "3-SAT <=p VERTEX_COVER directement avec des gadgets triangles.",
+                "isCorrect": false
+            },
+            {
+                "text": "VERTEX_COVER <=p CLIQUE.",
+                "isCorrect": false
+            },
+            {
+                "text": "HAMILTON <=p VERTEX_COVER.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans le TD 7, on montre que 3-TAUTOLOGIE est coNP-complet. Quelle est l'idée clé de la réduction ?",
+        "responses": [
+            {
+                "text": "Une formule DNF est une tautologie ssi sa négation (qui est une CNF) n'est pas satisfiable (UNSAT).",
+                "isCorrect": true
+            },
+            {
+                "text": "On réduit 3-TAUTOLOGIE à 3-SAT en gardant la même formule.",
+                "isCorrect": false
+            },
+            {
+                "text": "C'est une réduction depuis le problème de l'Arrêt.",
+                "isCorrect": false
+            },
+            {
+                "text": "On vérifie toutes les valuations en temps polynomial.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Étant donné un problème Q dans P , et sachant que PARITÉ est dans P, pourquoi ne pourrait-on pas prouver que   PARITÉ est P-complet en utilisant la réduction qui génère une instance triviale de PARITÉ selon la réponse de Q ?",
+        "code": "PARITÉ : Entrée n, question : n est-il pair ?",
+        "responses": [
+            {
+                "text": "Les réductions pour la P-complétude doivent être plus strictes (réductions en espace logarithmique) afin de garantir que la difficulté du problème ne soit pas simplement absorbée par le temps polynomial de résolution de Q.",
+                "isCorrect": true
+            },
+            {
+                "text": "Car PARITÉ est le problème le plus dur de P, toute réduction de ce type invalide la P-complétude.",
+                "isCorrect": false
+            },
+            {
+                "text": "C'est faux, cette réduction prouve que PARITÉ est P-complet.",
+                "isCorrect": false
+            },
+            {
+                "text": "Car P = NP implique que tout se réduit à tout.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans la réduction de SAT vers SAT_MONOTONE (TD 7), comment élimine-t-on les négations ?",
+        "code": "Transformation :\nPour chaque variable x_i, on introduit deux nouvelles variables x'_i et x'_{n+i}.\nOn ajoute des clauses pour forcer x'_{n+i} à être l'opposé de x'_i.",
+        "responses": [
+            {
+                "text": "On remplace non-x_i par x'_{n+i} et on ajoute les clauses (x'_i v x'_{n+i}) et (non-x'_i v non-x'_{n+i}).",
+                "isCorrect": true
+            },
+            {
+                "text": "On supprime simplement les littéraux négatifs.",
+                "isCorrect": false
+            },
+            {
+                "text": "On remplace chaque clause C par deux clauses C1 et C2 positives.",
+                "isCorrect": false
+            },
+            {
+                "text": "C'est impossible, SAT_MONOTONE est dans P.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Le problème HORN-SAT (clauses avec au plus 1 littéral positif) est dans P. Quelle est la stratégie de résolution ?",
+        "responses": [
+            {
+                "text": "Propagation : On satisfait les clauses unitaires positives (ex: x), on propage, et on répète. Si conflit -> UNSAT.",
+                "isCorrect": true
+            },
+            {
+                "text": "On essaye de mettre toutes les variables à Vrai.",
+                "isCorrect": false
+            },
+            {
+                "text": "On utilise la méthode de résolution générale.",
+                "isCorrect": false
+            },
+            {
+                "text": "HORN-SAT est NP-complet, il n'y a pas de stratégie polynomiale.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Concernant la réduction de 3-SAT vers ENSEMBLE_INDEPENDANT, combien de sommets possède le graphe construit pour une formule à m clauses ?",
+        "responses": [
+            {
+                "text": "2n + 3m.",
+                "isCorrect": true
+            },
+            {
+                "text": "n + m sommets.",
+                "isCorrect": false
+            },
+            {
+                "text": "3m sommets uniquement.",
+                "isCorrect": false
+            },
+            {
+                "text": "m^2 sommets.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle est la taille k de l'ensemble indépendant recherché dans cette réduction (3-SAT -> INDEPENDANT) ?",
+        "responses": [
+            {
+                "text": "k = n (un par variable) + m (un par clause).",
+                "isCorrect": true
+            },
+            {
+                "text": "k = n.",
+                "isCorrect": false
+            },
+            {
+                "text": "k = m/2.",
+                "isCorrect": false
+            },
+            {
+                "text": "k = 3m.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "La preuve du Théorème de Cook-Levin utilise des variables pour représenter l'état, la position et le contenu de la bande d'une MTM. Quel est le facteur qui garantit que la formule  \\phi_{M,x}  construite a une taille polynomiale en  |x|  ?",
+        "responses": [
+            {
+                "text": "Le fait que le temps de calcul  T  de la machine  M  soit borné polynomialement en fonction de  |x|  (temps  T(|x|) = |x|^c ).",
+                "isCorrect": true
+            },
+            {
+                "text": "La formule est petite car le graphe de la configuration est planaire.",
+                "isCorrect": false
+            },
+            {
+                "text": "Seules les variables d'état (et non les variables de bande) sont utilisées dans la construction.",
+                "isCorrect": false
+            },
+            {
+                "text": "La construction de la formule n'est pas polynomiale, c'est ce qui est prouvé.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Qu'est-ce que le problème QBF (Quantified Boolean Formulas) et sa complexité ?",
+        "responses": [
+            {
+                "text": "Formules avec quantificateurs (Pour tout, Il existe). Il est PSPACE-complet.",
+                "isCorrect": true
+            },
+            {
+                "text": "Formules sans négation. Il est dans P.",
+                "isCorrect": false
+            },
+            {
+                "text": "Formules avec une infinité de variables. Indécidable.",
+                "isCorrect": false
+            },
+            {
+                "text": "Il est NP-complet comme SAT.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Le Théorème de Savitch montre que NPSPACE(S(n)) est inclus dans DSPACE(S(n)^2) . Comment cette simulation déterministe gère-t-elle le grand nombre de configurations non-déterministes en utilisant si peu d'espace ?",
+        "responses": [
+            {
+                "text": "Elle utilise une recherche récursive (type chemin moyen/binaire) pour vérifier l'existence d'un chemin entre deux configurations en un temps  T , limitant l'espace nécessaire à un carré de l'espace non-déterministe.",
+                "isCorrect": true
+            },
+            {
+                "text": "Elle utilise une machine probabiliste pour accélérer le chemin non-déterministe.",
+                "isCorrect": false
+            },
+            {
+                "text": "La simulation prend un temps exponentiel, pas polynomial, mais l'espace reste petit.",
+                "isCorrect": false
+            },
+            {
+                "text": "L'espace est  S(n)^2  car la bande de travail est dupliquée deux fois.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Si un langage L est dans   DSPACE(S(n)) , quelle est la borne supérieure en temps la plus serrée connue pour L ? Expliquez pourquoi cette borne est exponentielle en S(n) .",
+        "responses": [
+            {
+                "text": "La borne est DTIME(2^O(S(n))) . Elle est exponentielle car c'est le nombre maximal de configurations uniques que la machine peut traverser en utilisant seulement S(n)  cases avant de boucler.",
+                "isCorrect": true
+            },
+            {
+                "text": "La borne est DTIME(S(n)^2) .",
+                "isCorrect": false
+            },
+            {
+                "text": "Le temps de calcul est toujours polynomial en  S(n) .",
+                "isCorrect": false
+            },
+            {
+                "text": "Il n'y a aucune borne connue reliant l'espace et le temps.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Le problème du Voyageur de Commerce (version décision) est souvent réduit depuis quel problème pour prouver sa NP-difficulté ?",
+        "responses": [
+            {
+                "text": "Depuis le Circuit Hamiltonien.",
+                "isCorrect": true
+            },
+            {
+                "text": "Directement depuis SAT.",
+                "isCorrect": false
+            },
+            {
+                "text": "Depuis le problème de la Clique.",
+                "isCorrect": false
+            },
+            {
+                "text": "Depuis 3-Coloration.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans la réduction de CYCLE HAMILTONIEN à TSP , si le graphe d'origine  G  a  |V|=n  sommets, quelle condition le coût des arêtes manquantes doit-il satisfaire par rapport au coût  n  du tour hamiltonien recherché, et pourquoi ?",
+        "responses": [
+            {
+                "text": "Le coût doit être strictement supérieur à  n . S'il était < n , le TSP pourrait utiliser une arête inexistante et donner un tour de coût  n , brisant l'équivalence.",
+                "isCorrect": true
+            },
+            {
+                "text": "Le coût doit être  0  pour les arêtes manquantes.",
+                "isCorrect": false
+            },
+            {
+                "text": "La pondération n'est pas nécessaire, car les arêtes manquantes ne sont pas incluses dans la réduction.",
+                "isCorrect": false
+            },
+            {
+                "text": "Le coût doit être exactement  n+1 .",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle classe de complexité correspond à LOGSPACE ?",
+        "responses": [
+            {
+                "text": "DSPACE(log n). L'espace de travail est logarithmique (l'entrée n'est pas comptée).",
+                "isCorrect": true
+            },
+            {
+                "text": "DSPACE(log n). L'espace total (entrée incluse) est logarithmique.",
+                "isCorrect": false
+            },
+            {
+                "text": "Temps logarithmique.",
+                "isCorrect": false
+            },
+            {
+                "text": "C'est la classe des problèmes triviaux.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Si P = NP, quelle conséquence cela a-t-il sur la cryptographie ?",
+        "responses": [
+            {
+                "text": "Les systèmes basés sur la difficulté de problèmes NP (comme RSA, courbes elliptiques) ne sont plus théoriquement sûrs.",
+                "isCorrect": true
+            },
+            {
+                "text": "La cryptographie devient impossible.",
+                "isCorrect": false
+            },
+            {
+                "text": "On peut utiliser des clés infinies.",
+                "isCorrect": false
+            },
+            {
+                "text": "Cela n'a aucun impact car la constante de l'exposant peut être grande.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Le problème de savoir si un joueur peut gagner un niveau de 'Super Mario Bros' généralisé est :",
+        "responses": [
+            {
+                "text": "NP-difficile (voire PSPACE-complet selon les versions).",
+                "isCorrect": true
+            },
+            {
+                "text": "Dans P, car c'est un jeu fini.",
+                "isCorrect": false
+            },
+            {
+                "text": "Indécidable.",
+                "isCorrect": false
+            },
+            {
+                "text": "Trivial.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Si L est un langage NP-complet, alors son complémentaire L_barre est :",
+        "responses": [
+            {
+                "text": "coNP-complet.",
+                "isCorrect": true
+            },
+            {
+                "text": "NP-complet également.",
+                "isCorrect": false
+            },
+            {
+                "text": "Dans P.",
+                "isCorrect": false
+            },
+            {
+                "text": "Indécidable.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Quelle est la différence fondamentale entre NP et coNP ?",
+        "responses": [
+            {
+                "text": "NP : certificat existentiel (il existe une solution). coNP : certificat universel (pour toute solution, XXX).",
+                "isCorrect": true
+            },
+            {
+                "text": "NP concerne le temps, coNP concerne l'espace.",
+                "isCorrect": false
+            },
+            {
+                "text": "coNP est l'ensemble des problèmes impossibles.",
+                "isCorrect": false
+            },
+            {
+                "text": "Il n'y en a pas, on sait que NP = coNP.",
+                "isCorrect": false
+            }
+        ]
+    },
+    {
+        "question": "Dans la hiérarchie spatiale, où se situe EXPSPACE ?",
+        "responses": [
+            {
+                "text": "Au-dessus de PSPACE et de NEXPTIME.",
+                "isCorrect": true
+            },
+            {
+                "text": "Entre P et NP.",
+                "isCorrect": false
+            },
+            {
+                "text": "C'est équivalent à EXP.",
+                "isCorrect": false
+            },
+            {
+                "text": "Sous LOGSPACE.",
+                "isCorrect": false
+            }
+        ]
+    }
+]
