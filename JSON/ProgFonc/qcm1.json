@@ -1,0 +1,660 @@
+[
+  {
+    "question": "Quelle est la signature de type la plus générique pour la fonction 'map' ?",
+    "responses": [
+      {
+        "text": "[a] -> [b] -> [a, b]",
+        "isCorrect": false
+      },
+      {
+        "text": "(a -> a) -> [a] -> [a]",
+        "isCorrect": false
+      },
+      {
+        "text": "(a -> b) -> [a] -> [b]",
+        "isCorrect": true
+      },
+      {
+        "text": "List a -> List b",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "En Haskell, quelle est la priorité d'application de la fonction par rapport aux opérateurs mathématiques ?",
+    "code": "add1 x = x + 1\nres = add1 3 * 10",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "La multiplication a la priorité : résultat 31 (add1 30).",
+        "isCorrect": false
+      },
+      {
+        "text": "L'évaluation se fait de droite à gauche : résultat 31.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'application de fonction a la priorité la plus haute : résultat 40.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cela provoque une erreur de parenthésage.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la particularité de la définition de type suivante ?",
+    "code": "data List a = Empty | Cell a (List a)",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "C'est un type produit simple.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est un alias pour le type Array du système.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela définit une liste mutable.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est un type récursif définissant une liste chaînée (ADT).",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "Comment transformer la fonction `factorial` pour qu'elle soit 'Tail Recursive' (récursive terminale) ?",
+    "code": "factorial n = go n 1\n  where\n    go 0 acc = acc\n    go k acc = ???",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "k * go (k - 1) acc",
+        "isCorrect": false
+      },
+      {
+        "text": "go (k - 1) (k * acc)",
+        "isCorrect": true
+      },
+      {
+        "text": "go (k - 1) acc * k",
+        "isCorrect": false
+      },
+      {
+        "text": "go (k * acc) (k - 1)",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le type inféré de cette fonction lambda ?",
+    "code": "\\x y -> x + y",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "Int -> Int -> Int",
+        "isCorrect": false
+      },
+      {
+        "text": "a -> b -> a",
+        "isCorrect": false
+      },
+      {
+        "text": "Num a => a -> a -> a",
+        "isCorrect": true
+      },
+      {
+        "text": "Eq a => a -> a -> Bool",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Que signifie le concept de 'Structural Sharing' lors de la modification d'une liste immuable ?",
+    "responses": [
+      {
+        "text": "La nouvelle liste copie intégralement l'ancienne en mémoire.",
+        "isCorrect": false
+      },
+      {
+        "text": "La liste est modifiée en place pour économiser de la mémoire.",
+        "isCorrect": false
+      },
+      {
+        "text": "La nouvelle liste réutilise les cellules mémoire de l'ancienne liste pour la partie commune.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cela permet à deux threads d'écrire sur la même variable simultanément.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans le cadre de la Curryfication, à quoi est équivalente la signature `a -> b -> c` ?",
+    "responses": [
+      {
+        "text": "(a -> b) -> c",
+        "isCorrect": false
+      },
+      {
+        "text": "a -> (b -> c)",
+        "isCorrect": true
+      },
+      {
+        "text": "(a, b) -> c",
+        "isCorrect": false
+      },
+      {
+        "text": "a -> (b, c)",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le résultat de cette composition ?",
+    "code": "f = (* 2) . (+ 1)\nres = f 3",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "7",
+        "isCorrect": false
+      },
+      {
+        "text": "8",
+        "isCorrect": true
+      },
+      {
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "text": "Erreur de syntaxe",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Que retourne l'expression suivante ?",
+    "code": "filter isUpper \"AbCd\"",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "\"AC\"",
+        "isCorrect": true
+      },
+      {
+        "text": "\"bd\"",
+        "isCorrect": false
+      },
+      {
+        "text": "\"AbCd\"",
+        "isCorrect": false
+      },
+      {
+        "text": "True",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel pattern permet de matcher une liste contenant au moins deux éléments ?",
+    "responses": [
+      {
+        "text": "(x:xs)",
+        "isCorrect": false
+      },
+      {
+        "text": "(x:y:xs)",
+        "isCorrect": true
+      },
+      {
+        "text": "[x, y]",
+        "isCorrect": false
+      },
+      {
+        "text": "x ++ y ++ xs",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la valeur de `res` ?",
+    "code": "derive e f x = ((f (x+e)) - (f x)) / e\nsquare x = x * x\nres = derive 0.0001 square 5",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "25.0",
+        "isCorrect": false
+      },
+      {
+        "text": "Environ 10.0 (approximation de la dérivée 2x en 5)",
+        "isCorrect": true
+      },
+      {
+        "text": "0.0",
+        "isCorrect": false
+      },
+      {
+        "text": "Erreur de type Float vs Int",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Pourquoi la récursion terminale nécessite-t-elle souvent une fonction auxiliaire (helper) ?",
+    "responses": [
+      {
+        "text": "Parce que Haskell interdit d'appeler la fonction principale directement.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour transporter un accumulateur qui stocke le résultat intermédiaire.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour augmenter la complexité temporelle.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour convertir les types Int en Float.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Que se passe-t-il si vous appelez `head []` en Haskell (sans gestion d'erreur spécifique type Maybe) ?",
+    "responses": [
+      {
+        "text": "Cela retourne `Nothing`.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela retourne 0.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela lève une exception (Empty list).",
+        "isCorrect": true
+      },
+      {
+        "text": "Cela retourne une liste vide.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la définition correcte d'un Type Algébrique 'Somme' (Sum Type) ?",
+    "code": "data Bool = _____",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "False True",
+        "isCorrect": false
+      },
+      {
+        "text": "False | True",
+        "isCorrect": true
+      },
+      {
+        "text": "(False, True)",
+        "isCorrect": false
+      },
+      {
+        "text": "{ False, True }",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Que retourne cette fonction utilisant `case` sur un `Maybe` ?",
+    "code": "check x = case x of\n  Just v -> v * 2\n  Nothing -> -1\nres = check Nothing",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "0",
+        "isCorrect": false
+      },
+      {
+        "text": "-1",
+        "isCorrect": true
+      },
+      {
+        "text": "Nothing",
+        "isCorrect": false
+      },
+      {
+        "text": "Erreur de compilation",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la particularité syntaxique de l'opérateur `:` (cons) ?",
+    "responses": [
+      {
+        "text": "C'est un opérateur de division.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il ajoute un élément à la fin de la liste.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est un constructeur infixe qui ajoute un élément en tête de liste.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il ne peut être utilisé que dans les définitions de types.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le type de la fonction `filter` ?",
+    "responses": [
+      {
+        "text": "[a] -> (a -> Bool) -> [a]",
+        "isCorrect": false
+      },
+      {
+        "text": "(a -> a) -> [a] -> [Bool]",
+        "isCorrect": false
+      },
+      {
+        "text": "Bool -> [a] -> [a]",
+        "isCorrect": false
+      },
+      {
+        "text": "(a -> Bool) -> [a] -> [a]",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "Comment définir une fonction anonyme (lambda) prenant deux arguments et les multipliant ?",
+    "responses": [
+      {
+        "text": "lambda x y : x * y",
+        "isCorrect": false
+      },
+      {
+        "text": "\\x y -> x * y",
+        "isCorrect": true
+      },
+      {
+        "text": "(x, y) => x * y",
+        "isCorrect": false
+      },
+      {
+        "text": "function(x, y) { return x * y; }",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la valeur de `res` après cette application partielle ?",
+    "code": "add x y = x + y\nincrement = add 2\nres = map increment [8, 9]",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "[8, 9]",
+        "isCorrect": false
+      },
+      {
+        "text": "31",
+        "isCorrect": false
+      },
+      {
+        "text": "[10, 11]",
+        "isCorrect": true
+      },
+      {
+        "text": "Une fonction",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Que permet l'instanciation suivante ?",
+    "code": "instance Eq FlagInt where\n  Flag a i == Flag b j = a == b && i == j",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "Elle crée une nouvelle classe nommée FlagInt.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle définit comment comparer deux objets de type FlagInt avec l'opérateur ==.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle vérifie si FlagInt est égal à Eq.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle trie automatiquement les FlagInt.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la particularité du typage statique en Haskell par rapport au C ou Java ?",
+    "responses": [
+      {
+        "text": "Il n'y a pas de typage statique en Haskell, c'est dynamique.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il utilise l'inférence de type : le compilateur devine souvent les types sans déclaration explicite.",
+        "isCorrect": true
+      },
+      {
+        "text": "Les types sont vérifiés à l'exécution.",
+        "isCorrect": false
+      },
+      {
+        "text": "On doit obligatoirement typer chaque variable.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Que fait cette fonction récursive sur une liste ?",
+    "code": "func [] = 0\nfunc (x:xs) = 1 + func xs",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "Elle fait la somme des éléments.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle calcule la longueur de la liste (length).",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle retourne toujours 1.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle renverse la liste.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le résultat de `take 2 (drop 1 [8, 9, 13])` ?",
+    "responses": [
+      {
+        "text": "[8, 9]",
+        "isCorrect": false
+      },
+      {
+        "text": "[13]",
+        "isCorrect": false
+      },
+      {
+        "text": "[9, 13]",
+        "isCorrect": true
+      },
+      {
+        "text": "[9]",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Dans l'expression `f g x`, comment sont associées les applications ?",
+    "responses": [
+      {
+        "text": "f (g x)",
+        "isCorrect": false
+      },
+      {
+        "text": "(f g) x",
+        "isCorrect": true
+      },
+      {
+        "text": "f (g, x)",
+        "isCorrect": false
+      },
+      {
+        "text": "x (f g)",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le type de la fonction `id x = x` ?",
+    "responses": [
+      {
+        "text": "Int -> Int",
+        "isCorrect": false
+      },
+      {
+        "text": "a -> b",
+        "isCorrect": false
+      },
+      {
+        "text": "Void",
+        "isCorrect": false
+      },
+      {
+        "text": "a -> a",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "question": "Que retourne `zip [1, 2] ['a', 'b', 'c']` ?",
+    "responses": [
+      {
+        "text": "[(1, 'a'), (2, 'b'), (0, 'c')]",
+        "isCorrect": false
+      },
+      {
+        "text": "[(1, 'a'), (2, 'b')]",
+        "isCorrect": true
+      },
+      {
+        "text": "Erreur de longueur différente",
+        "isCorrect": false
+      },
+      {
+        "text": "[1, 2, 'a', 'b', 'c']",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "À quoi sert le 'Pattern Matching' avec la clause `otherwise` dans une garde (`|`) ?",
+    "code": "sign x | x > 0 = 1\n       | otherwise = -1",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "À générer une erreur si aucune condition n'est remplie.",
+        "isCorrect": false
+      },
+      {
+        "text": "À capturer tous les cas restants (équivalent d'un 'else' final).",
+        "isCorrect": true
+      },
+      {
+        "text": "C'est une variable qui vaut toujours False.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est obligatoire dans toutes les fonctions.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la particularité d'une fermeture (closure) en programmation fonctionnelle pure ?",
+    "responses": [
+      {
+        "text": "Elle modifie les variables globales capturées.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle capture son environnement de définition (contexte immuable).",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle est détruite immédiatement après son appel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle ne peut pas prendre d'arguments.",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quel est le résultat de `length (map (*2) [1..100])` ?",
+    "responses": [
+      {
+        "text": "200",
+        "isCorrect": false
+      },
+      {
+        "text": "100 (map préserve la structure et la taille).",
+        "isCorrect": true
+      },
+      {
+        "text": "50",
+        "isCorrect": false
+      },
+      {
+        "text": "0",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Quelle est la valeur de `res` ?",
+    "code": "op = \f x -> f (f x)\nres = op (*2) 3",
+    "codeLanguage": "haskell",
+    "responses": [
+      {
+        "text": "6",
+        "isCorrect": false
+      },
+      {
+        "text": "9",
+        "isCorrect": false
+      },
+      {
+        "text": "12 (car (3*2)*2)",
+        "isCorrect": true
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      }
+    ]
+  }
+]
