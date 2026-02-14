@@ -1,0 +1,744 @@
+[
+  {
+    "question": "Comment corriger le code précédent pour garantir que 'count' vaut 4 à la fin ?",
+    "responses": [
+      {
+        "text": "#pragma omp critical",
+        "isCorrect": true
+      },
+      {
+        "text": "#pragma omp single",
+        "isCorrect": false
+      },
+      {
+        "text": "#pragma omp master",
+        "isCorrect": false
+      },
+      {
+        "text": "#pragma omp barrier",
+        "isCorrect": false
+      },
+      {
+        "text": "#pragma omp ordered",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "int count = 0;\n#pragma omp parallel num_threads(4)\n{\n    // Ligne manquante\n    count++;\n}",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Dans cet extrait utilisant des Moniteurs Java, pourquoi la méthode 'wait()' est-elle placée dans une boucle 'while' ?",
+    "responses": [
+      {
+        "text": "C'est une erreur, un simple 'if' suffit.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour gérer les réveils intempestifs (spurious wakeups) et revérifier la condition après le réveil.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour empêcher les autres threads d'entrer dans le moniteur.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour consommer toutes les données du tampon d'un coup.",
+        "isCorrect": false
+      },
+      {
+        "text": "Car 'wait()' ne compile pas en dehors d'une boucle.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "synchronized void consumer() {\n  while (buffer.isEmpty()) {\n    wait();\n  }\n  // consume data\n}",
+    "codeLanguage": "java"
+  },
+  {
+    "question": "Quel est le problème potentiel de ce pseudo-code de gestion de verrous (Deadlock) ?",
+    "responses": [
+      {
+        "text": "Une famine (Starvation) du Thread B.",
+        "isCorrect": false
+      },
+      {
+        "text": "Une condition de course (Race Condition) sur les données.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un interblocage (Deadlock) si A détient R1 et B détient R2 simultanément.",
+        "isCorrect": true
+      },
+      {
+        "text": "Une utilisation excessive du CPU (Busy Waiting).",
+        "isCorrect": false
+      },
+      {
+        "text": "Il n'y a aucun problème, le code est sûr.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "Thread A: Lock(R1); ... Lock(R2); ... Unlock(R2); Unlock(R1);\nThread B: Lock(R2); ... Lock(R1); ... Unlock(R1); Unlock(R2);",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Complétez la clause manquante pour paralléliser cette boucle en accumulant correctement la somme.",
+    "responses": [
+      {
+        "text": "shared(sum)",
+        "isCorrect": false
+      },
+      {
+        "text": "private(sum)",
+        "isCorrect": false
+      },
+      {
+        "text": "reduction(+:sum)",
+        "isCorrect": true
+      },
+      {
+        "text": "critical(sum)",
+        "isCorrect": false
+      },
+      {
+        "text": "atomic(sum)",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "double sum = 0.0;\n#pragma omp parallel for _________\nfor(int i=0; i<N; i++) {\n   sum += array[i];\n}",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Dans le modèle PRAM, quelle est la complexité temporelle pour trouver le maximum d'un tableau de N éléments avec N processeurs en utilisant un arbre de tournoi (réduction) ?",
+    "responses": [
+      {
+        "text": "O(N)",
+        "isCorrect": false
+      },
+      {
+        "text": "O(log N)",
+        "isCorrect": true
+      },
+      {
+        "text": "O(1)",
+        "isCorrect": false
+      },
+      {
+        "text": "O(N log N)",
+        "isCorrect": false
+      },
+      {
+        "text": "O(N^2)",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Analysez ce code OpenMP. Que contient le tableau C à la fin ?",
+    "responses": [
+      {
+        "text": "C[i] contient 10 + i pour chaque thread i.",
+        "isCorrect": true
+      },
+      {
+        "text": "C[i] contient une valeur indéterminée car A n'est pas initialisé.",
+        "isCorrect": false
+      },
+      {
+        "text": "C[i] contient la somme cumulée de tous les IDs de threads.",
+        "isCorrect": false
+      },
+      {
+        "text": "Erreur de compilation car A est firstprivate.",
+        "isCorrect": false
+      },
+      {
+        "text": "C[i] contient toujours 10.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "int A=10; \n#pragma omp parallel firstprivate(A)\n{\n   A = A + omp_get_thread_num();\n   C[omp_get_thread_num()] = A;\n}",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Quelle directive OpenMP utiliseriez-vous pour paralléliser des sections de code indépendantes (tâches fonctionnelles différentes) ?",
+    "responses": [
+      {
+        "text": "for",
+        "isCorrect": false
+      },
+      {
+        "text": "single",
+        "isCorrect": false
+      },
+      {
+        "text": "sections",
+        "isCorrect": true
+      },
+      {
+        "text": "task",
+        "isCorrect": false
+      },
+      {
+        "text": "master",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Dans le problème des Producteurs-Consommateurs, pourquoi utilise-t-on deux sémaphores (Empty et Full) ?",
+    "responses": [
+      {
+        "text": "Pour que le producteur attende si le tampon est plein et le consommateur attende s'il est vide.",
+        "isCorrect": true
+      },
+      {
+        "text": "Un seul sémaphore suffit toujours, deux c'est du gaspillage.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour garantir que le producteur est plus rapide que le consommateur.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour éviter que deux producteurs écrivent en même temps (exclusion mutuelle uniquement).",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour compter le nombre de threads actifs.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Selon la loi d'Amdahl, si 20% du code est strictement séquentiel (f=0.2), quel est le speedup maximal théorique avec un nombre infini de processeurs ?",
+    "responses": [
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "5 (car 1/0.2 = 5)",
+        "isCorrect": true
+      },
+      {
+        "text": "20",
+        "isCorrect": false
+      },
+      {
+        "text": "Infini",
+        "isCorrect": false
+      },
+      {
+        "text": "10",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quel est le rôle de la variable 'tid' dans ce code classique OpenMP ?",
+    "responses": [
+      {
+        "text": "Identifier le numéro unique du thread courant au sein de l'équipe.",
+        "isCorrect": true
+      },
+      {
+        "text": "Compter le nombre total de threads.",
+        "isCorrect": false
+      },
+      {
+        "text": "Définir la priorité du thread.",
+        "isCorrect": false
+      },
+      {
+        "text": "Stocker le résultat du calcul.",
+        "isCorrect": false
+      },
+      {
+        "text": "Synchroniser les threads.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "int tid;\n#pragma omp parallel private(tid)\n{\n  tid = omp_get_thread_num();\n  printf(\"Hello from %d\", tid);\n}",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Dans le code suivant, pourquoi 'total' donne-t-il un résultat incorrect sans protection ?",
+    "responses": [
+      {
+        "text": "Car l'opération 'total = total + 1' n'est pas atomique (Lecture-Modification-Ecriture).",
+        "isCorrect": true
+      },
+      {
+        "text": "Car la boucle ne va pas jusqu'au bout.",
+        "isCorrect": false
+      },
+      {
+        "text": "Car les threads écrasent la mémoire des autres threads.",
+        "isCorrect": false
+      },
+      {
+        "text": "Car 'total' devrait être déclaré dans la boucle.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le code est correct, le résultat sera 1000.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "int total = 0;\n#pragma omp parallel for\nfor(int i=0; i<1000; i++) {\n    total = total + 1;\n}",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Quelle est la différence entre 'P(S)' et 'V(S)' sur un sémaphore ?",
+    "responses": [
+      {
+        "text": "P décrémente (bloque si < 0), V incrémente (libère un thread).",
+        "isCorrect": true
+      },
+      {
+        "text": "P incrémente, V décrémente.",
+        "isCorrect": false
+      },
+      {
+        "text": "P initialise, V détruit.",
+        "isCorrect": false
+      },
+      {
+        "text": "P est pour les processus, V pour les threads.",
+        "isCorrect": false
+      },
+      {
+        "text": "P et V font exactement la même chose.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quel problème l'instruction '#pragma omp single' résout-elle ici ?",
+    "responses": [
+      {
+        "text": "Elle garantit que 'print_log()' n'est exécuté que par un seul thread, évitant les affichages dupliqués.",
+        "isCorrect": true
+      },
+      {
+        "text": "Elle force l'exécution de 'print_log()' par tous les threads en même temps.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle met le programme en pause.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle crée un nouveau thread dédié aux logs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elle n'a aucun effet ici.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "#pragma omp parallel\n{\n   setup_data(); // Doit être fait par tous\n   #pragma omp single\n   print_log(); // ??\n   compute(); // Doit être fait par tous\n}",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Dans le calcul du coût (Work) d'un algorithme parallèle : W(n) = p * T(n). Que signifie T(n) ?",
+    "responses": [
+      {
+        "text": "Le temps d'exécution parallèle avec p processeurs.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le temps d'exécution séquentiel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le nombre de processeurs.",
+        "isCorrect": false
+      },
+      {
+        "text": "La taille des données.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans un modèle à mémoire partagée, qu'est-ce que le 'False Sharing' ?",
+    "responses": [
+      {
+        "text": "Quand deux threads modifient des variables différentes mais situées sur la même ligne de cache, provoquant des invalidations de cache inutiles.",
+        "isCorrect": true
+      },
+      {
+        "text": "Quand deux threads partagent une variable sans utiliser de mutex.",
+        "isCorrect": false
+      },
+      {
+        "text": "Quand un thread croit partager une variable alors qu'elle est privée.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'utilisation illégale de la mémoire virtuelle.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Complétez : La loi de Gustafson suggère que si on augmente le nombre de processeurs, on devrait...",
+    "responses": [
+      {
+        "text": "...augmenter la taille du problème traité pour maintenir un temps d'exécution constant.",
+        "isCorrect": true
+      },
+      {
+        "text": "...garder la même taille de problème pour aller plus vite.",
+        "isCorrect": false
+      },
+      {
+        "text": "...réduire la fréquence d'horloge.",
+        "isCorrect": false
+      },
+      {
+        "text": "...arrêter d'utiliser la mémoire partagée.",
+        "isCorrect": false
+      },
+      {
+        "text": "...réduire le nombre de threads.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "En Java, si un thread appelle 'notifyAll()' sur un objet moniteur :",
+    "responses": [
+      {
+        "text": "Tous les threads en attente (wait) sur cet objet sont réveillés et entrent en compétition pour le verrou.",
+        "isCorrect": true
+      },
+      {
+        "text": "Tous les threads s'arrêtent.",
+        "isCorrect": false
+      },
+      {
+        "text": "Seul le thread le plus prioritaire est réveillé.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le verrou est définitivement brisé.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'objet est supprimé de la mémoire.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Que se passe-t-il si on omet 'omp barrier' implicite ou explicite avant de lire un tableau rempli par plusieurs threads en parallèle ?",
+    "responses": [
+      {
+        "text": "Risque de lire des données incomplètes ou anciennes (Race Condition).",
+        "isCorrect": true
+      },
+      {
+        "text": "Rien, OpenMP gère tout automatiquement.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le programme s'accélère.",
+        "isCorrect": false
+      },
+      {
+        "text": "Les données sont dupliquées.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le compilateur refuse de compiler.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le modèle OpenMP, que signifie 'Master Thread' ?",
+    "responses": [
+      {
+        "text": "Le thread qui exécute la partie séquentielle du programme et crée les équipes de threads.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le thread qui a la priorité la plus élevée du système d'exploitation.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un thread qui ne fait aucun calcul.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le dernier thread à finir.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quel est l'effet de '#pragma omp parallel default(none)' ?",
+    "responses": [
+      {
+        "text": "Il oblige le programmeur à spécifier explicitement la portée (shared/private) de toutes les variables utilisées.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il indique qu'aucune variable n'est utilisée.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il désactive le parallélisme.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il rend toutes les variables privées par défaut.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il rend toutes les variables partagées par défaut.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Comment calcule-t-on l'efficacité E (Efficiency) à partir du Speedup S et du nombre de processeurs P ?",
+    "responses": [
+      {
+        "text": "E = S / P",
+        "isCorrect": true
+      },
+      {
+        "text": "E = S * P",
+        "isCorrect": false
+      },
+      {
+        "text": "E = P / S",
+        "isCorrect": false
+      },
+      {
+        "text": "E = S + P",
+        "isCorrect": false
+      },
+      {
+        "text": "E = 1 / S",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Que se passe-t-il si un thread oublie de faire 'Unlock' après un 'Lock' ?",
+    "responses": [
+      {
+        "text": "Les autres threads voulant acquérir le verrou seront bloqués indéfiniment (Deadlock potentiel).",
+        "isCorrect": true
+      },
+      {
+        "text": "Le verrou se débloque automatiquement après 1 seconde.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le système d'exploitation tue le thread immédiatement.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rien de grave, c'est juste un avertissement.",
+        "isCorrect": false
+      },
+      {
+        "text": "La mémoire est libérée.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le tri bitonique (réseau de tri), quel est le rôle d'un comparateur ?",
+    "responses": [
+      {
+        "text": "Prendre deux entrées et les échanger si elles ne sont pas dans l'ordre désiré (min en haut, max en bas ou inversement).",
+        "isCorrect": true
+      },
+      {
+        "text": "Convertir les nombres en binaire.",
+        "isCorrect": false
+      },
+      {
+        "text": "Supprimer les valeurs négatives.",
+        "isCorrect": false
+      },
+      {
+        "text": "Additionner les deux valeurs.",
+        "isCorrect": false
+      },
+      {
+        "text": "Stocker les valeurs en mémoire cache.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le code suivant, pourquoi 'lastprivate(i)' est-il utile ?",
+    "responses": [
+      {
+        "text": "Pour que la variable 'i' ait la valeur qu'elle aurait eue si la boucle avait été exécutée séquentiellement (N) après la boucle.",
+        "isCorrect": true
+      },
+      {
+        "text": "Pour initialiser 'i' à 0.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour rendre 'i' partagé.",
+        "isCorrect": false
+      },
+      {
+        "text": "Pour optimiser la boucle.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est inutile, 'i' est toujours conservé.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "#pragma omp parallel for lastprivate(i)\nfor(i=0; i<N; i++) { ... } \nprintf(\"%d\", i);",
+    "codeLanguage": "c"
+  },
+  {
+    "question": "Que signifie SIMD ?",
+    "responses": [
+      {
+        "text": "Single Instruction, Multiple Data : Une seule instruction s'applique à plusieurs données en parallèle (vectorisation).",
+        "isCorrect": true
+      },
+      {
+        "text": "Single Instruction, Single Data : Le mode classique séquentiel.",
+        "isCorrect": false
+      },
+      {
+        "text": "Simple Integer, Multiple Double.",
+        "isCorrect": false
+      },
+      {
+        "text": "Synchronized Instruction, Memory Data.",
+        "isCorrect": false
+      },
+      {
+        "text": "System Integrated Memory Drive.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quelle affirmation est vraie concernant l'imbrication de régions parallèles (Nested Parallelism) dans OpenMP ?",
+    "responses": [
+      {
+        "text": "C'est autorisé, mais désactivé par défaut sur de nombreuses implémentations pour éviter la surcharge.",
+        "isCorrect": true
+      },
+      {
+        "text": "C'est strictement interdit et provoque une erreur de compilation.",
+        "isCorrect": false
+      },
+      {
+        "text": "Les IDs des threads sont globaux et uniques à travers toutes les régions imbriquées.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela permet de dépasser la limite physique des processeurs sans coût.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est la seule façon de faire du parallélisme.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  }
+]
