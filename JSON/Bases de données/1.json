@@ -1,0 +1,723 @@
+[
+  {
+    "question": "Lors de l'implémentation d'un système de session avec Redis, quel est l'avantage de définir le TTL (Time To Live) directement via la commande SET ... EX 900 plutôt qu'avec une commande EXPIRE séparée ?",
+    "responses": [
+      {
+        "text": "Cela garantit l'atomicité de l'opération : la clé et son expiration sont créées simultanément, évitant qu'une clé reste sans limite de temps en cas de crash entre les deux commandes.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cela permet à Redis de stocker la donnée sur le disque avant qu'elle ne soit en mémoire vive.",
+        "isCorrect": false
+      },
+      {
+        "text": "La commande SET ... EX consomme 50% de mémoire en moins qu'une commande EXPIRE classique",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans une base de données relationnelle orientée lignes (Row-oriented), si les valeurs (ex: varchar) ont des longueurs variables, comment le moteur détermine-t-il l'offset exact pour lire une ligne spécifique sans parcourir tout le fichier ?",
+    "responses": [
+      {
+        "text": "Il utilise une formule mathématique fixe : position = numéro_de_ligne * taille_fixe + taille_header.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il crée automatiquement un index inversé en RAM pour pointer vers l'offset du varchar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il doit nécessairement traverser et utiliser les longueurs d'enregistrement (record lengths) stockées dans les en-têtes (headers) de chaque ligne.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il stocke l'excédent de données 'hors-ligne' (off-row) sans utiliser d'en-têtes.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans l'architecture de HBase, quelle garantie ACID est strictement respectée si une opération d'écriture échoue (code de retour 'failure') avant d'avoir pu être inscrite dans le HLog (Write-Ahead-Log) ?",
+    "responses": [
+      {
+        "text": "La Consistance : la donnée est temporairement lue depuis le Memstore en attendant la réparation du HLog.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'Atomicité : la donnée n'est pas rendue durable et la mutation échoue entièrement pour cette ligne.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'Isolation : la transaction est mise en pause (lock) jusqu'à ce que le HDFS confirme l'écriture.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Lors de l'indexation de texte dans ElasticSearch, quelle est la différence de traitement entre le 'Stemming' et la 'Lemmatization' pour les mots 'changes', 'changing' et 'changed' ?",
+    "responses": [
+      {
+        "text": "Le Stemming tronque les mots à une racine brute ('chang'), tandis que la Lemmatization ramène au mot du dictionnaire valide ('change').",
+        "isCorrect": true
+      },
+      {
+        "text": "Le Stemming supprime les stopwords, tandis que la Lemmatization gère les synonymes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Lemmatization est appliquée par le type 'keyword', et le Stemming par le type 'text'.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans Redis, quelle structure de données probabiliste est idéale pour compter un grand nombre d'éléments uniques sans stocker les éléments eux-mêmes ?",
+    "responses": [
+      {
+        "text": "Bitmap",
+        "isCorrect": false
+      },
+      {
+        "text": "HyperLogLog (HLL)",
+        "isCorrect": true
+      },
+      {
+        "text": "Sorted Set",
+        "isCorrect": false
+      },
+      {
+        "text": "LUA Script Set",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Pourquoi la compression par dictionnaire (Dictionary Compression) est-elle particulièrement efficace dans les bases de données orientées colonnes ?",
+    "responses": [
+      {
+        "text": "Car toutes les données d'une même colonne ont le même type, et les chaînes répétées peuvent être remplacées par de petits entiers de taille fixe.",
+        "isCorrect": true
+      },
+      {
+        "text": "Car les bases colonnes compressent systématiquement chaque ligne entière (row) dans un dictionnaire global.",
+        "isCorrect": false
+      },
+      {
+        "text": "Car elle supprime les valeurs NULL de l'index inversé.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "En considérant le théorème CAP et les garanties des bases de données distribuées, que signifie l'acronyme BASE ?",
+    "responses": [
+      {
+        "text": "Backup Automatically, Strong Execution, Eventual consistency",
+        "isCorrect": false
+      },
+      {
+        "text": "Basically Available, Soft state, Eventual consistency",
+        "isCorrect": true
+      },
+      {
+        "text": "Basically Available, Sharded Execution, Enterprise consistency",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Que signifie le concept de 'Soft state' dans les propriétés BASE d'un système distribué ?",
+    "responses": [
+      {
+        "text": "Les données sont conservées uniquement en mémoire vive (RAM) et non sur disque.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le système refuse les écritures si plus de 50% des disques durs sont pleins.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'état de la base n'est pas garanti à un instant donné ; les mises à jour ne sont pas immédiates sur tous les nœuds.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Comment ElasticSearch calcule-t-il techniquement la pertinence d'une recherche floue (Fuzzy Search) pour tolérer les fautes de frappe comme 'genration'",
+    "responses": [
+      {
+        "text": "Il utilise la distance de Levenshtein pour calculer le nombre minimal de modifications (insertion, suppression, substitution) nécessaires pour passer d'un mot à l'autre.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il compare les empreintes numériques (hash) des mots pour voir s'ils se ressemblent à plus de 80%.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il utilise un dictionnaire de synonymes intégré qui contient toutes les fautes d'orthographe possibles de la langue française.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aucune foutre idée, c'est quoi cette question ?",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le modèle de données de HBase, quels identifiants composent la clé unique définissant très exactement une 'cellule' (cell) de donnée ?",
+    "responses": [
+      {
+        "text": "{row key, column family, column qualifier, timestamp}",
+        "isCorrect": true
+      },
+      {
+        "text": "{row id, column index, version}",
+        "isCorrect": false
+      },
+      {
+        "text": "{table name, row key, segment ID}",
+        "isCorrect": false
+      },
+      {
+        "text": "{shard key, document ID, field name}",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Complétez cette commande MongoDB pour modifier le document correspondant au livre 'The Hobbit', en ajoutant un tableau 'personnages' avec 3 valeurs :",
+    "responses": [
+      {
+        "text": "$push",
+        "isCorrect": false
+      },
+      {
+        "text": "$set",
+        "isCorrect": true
+      },
+      {
+        "text": "$add",
+        "isCorrect": false
+      },
+      {
+        "text": "$append",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "db.books.update({title: 'The Hobbit'}, { __________: { personnages: ['Gandalf', 'Bilbon', 'Elrond'] } })",
+    "codeLanguage": "javascript"
+  },
+  {
+    "question": "Dans l'architecture de MongoDB, en cas de partitionnement (Sharding), quel est le rôle du 'Query Router' ?",
+    "responses": [
+      {
+        "text": "Il élit le nouveau nœud 'Primary' en cas de panne matérielle d'un 'Secondary'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il convertit les requêtes SQL classiques en requêtes JavaScript compréhensibles par MongoDB.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il reçoit la requête du client et la redirige vers le(s) bon(s) shard(s) en utilisant la clé de partitionnement (shard key).",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quelle technique de partitionnement (Sharding) permet d'assurer que les données soient réparties de façon extrêmement uniforme entre les nœuds, ce qui est très efficace pour les opérations intensives d'écriture ?",
+    "responses": [
+      {
+        "text": "Le Range-Sharding",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Quorum-Sharding",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Master/Slave Sharding",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Hash-Sharding",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans HBase, comment sont physiquement triées et stockées les lignes (rows) au sein des régions ?",
+    "responses": [
+      {
+        "text": "Elles sont triées chronologiquement selon le timestamp d'insertion.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elles sont triées de manière lexicographique en se basant sur le tableau d'octets (byte array) de la clé de ligne (row key).",
+        "isCorrect": true
+      },
+      {
+        "text": "Elles sont stockées aléatoirement pour maximiser les performances d'écriture.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quel est un des intérêts majeurs de calculer et de stocker des métadonnées par segment (Segment meta data) dans une base orientée colonnes (ex: min, max, nombre de NULLs) ?",
+    "responses": [
+      {
+        "text": "Cela permet de reconstruire immédiatement les lignes sans avoir à interroger les autres colonnes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela remplace totalement le besoin d'un Write-Ahead-Log (WAL).",
+        "isCorrect": false
+      },
+      {
+        "text": "Cela permet lors d'une requête de vérifier rapidement si un segment entier peut être ignoré (skippé) sans avoir à traiter ses valeurs.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le TP ElasticSearch, vous avez un document contenant un tableau de 'genres'. Pourquoi n'est-il pas possible de faire une agrégation simple pour obtenir le nombre d'occurrences par genre sans modifier la configuration ?",
+    "responses": [
+      {
+        "text": "Parce qu'ElasticSearch ne supporte aucune opération d'agrégation sur les tableaux (arrays) JSON.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parce qu'il faut obligatoirement utiliser un script Python externe pour faire cette opération.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parce que le champ 'genres' est une liste textuelle indexée dynamiquement par défaut, ce qui nécessite la définition d'un mapping spécifique (ex: keyword) pour les agrégations complexes.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans un pattern de type 'Message Queue' avec Redis, quel est l'intérêt d'utiliser RPOPLPUSH (ou BLMOVE) plutôt qu'un simple LPOP pour consommer une tâche ?",
+    "responses": [
+      {
+        "text": "Cela permet d'extraire une tâche tout en la plaçant dans une liste de 'traitement' de manière atomique, évitant la perte du message si le worker crash avant d'avoir fini.",
+        "isCorrect": true
+      },
+      {
+        "text": "Cette commande permet de trier automatiquement les messages par ordre de priorité alphabétique.",
+        "isCorrect": false
+      },
+      {
+        "text": "LPOP ne fonctionne que sur des chaînes de caractères, alors que RPOPLPUSH fonctionne sur des fichiers binaires.",
+        "isCorrect": false
+      },
+      {
+        "text": "Réponse 5",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "LPUSH mylist 'world'\nLPUSH mylist 'hello'\nLPOP mylist",
+    "codeLanguage": "bash"
+  },
+  {
+    "question": "Dans HBase, quelle est la fonction du 'Memstore' au sein d'une région ?",
+    "responses": [
+      {
+        "text": "C'est une structure en mémoire vive qui accumule les écritures récentes (KeyValues) et les trie avant de les vider (flush) dans un HFile sur disque.",
+        "isCorrect": true
+      },
+      {
+        "text": "C'est le journal des transactions en mode append-only qui garantit la durabilité en cas de crash.",
+        "isCorrect": false
+      },
+      {
+        "text": "C'est le système de cache dédié uniquement à l'accélération des lectures (Read Cache).",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Sachant que MongoDB ne supporte pas nativement les jointures complexes (JOIN) optimisées comme SQL, comment gère-t-on généralement les relations dans une approche de conception NoSQL orientée documents ?",
+    "responses": [
+      {
+        "text": "On utilise un nœud maître secondaire exclusivement dédié au calcul des clés étrangères.",
+        "isCorrect": false
+      },
+      {
+        "text": "Les relations (références) sont gérées de manière programmatique par l'application cliente, ou par l'imbrication (nesting) de documents.",
+        "isCorrect": true
+      },
+      {
+        "text": "MongoDB crée automatiquement des tables de liaison invisibles dans le Config Server.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le moteur Apache Lucene sous-jacent à ElasticSearch, que construit l'opération d'indexation d'un champ texte (text) pour permettre des recherches ultra-rapides de mots-clés ?",
+    "responses": [
+      {
+        "text": "Un arbre B-Tree relationnel sur l'ensemble de la chaîne de caractères exacte.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un BitMap probabiliste de type HyperLogLog.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un index inversé (Inverted Index) listant tous les mots uniques et les documents dans lesquels ils apparaissent.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans l'écosystème NoSQL, que signifie le paradigme de 'Polyglot Persistence' ?",
+    "responses": [
+      {
+        "text": "La capacité d'une base de données à traduire des requêtes SQL vers un langage orienté documents.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le fait de choisir et d'utiliser conjointement différentes technologies de bases de données (relationnelles, clés-valeurs, documents) adaptées à chaque cas d'usage spécifique d'une application.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'encodage automatique des chaînes de caractères en UTF-8 multilingue dans HBase.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans un système distribué avec réplication Master/Slave, comment résout-on le problème de la panne du nœud Maître ?",
+    "responses": [
+      {
+        "text": "Le système s'arrête indéfiniment jusqu'à ce que l'administrateur redémarre physiquement le serveur maître.",
+        "isCorrect": false
+      },
+      {
+        "text": "Tous les nœuds deviennent temporairement maîtres en mode 'Peer-to-Peer'.",
+        "isCorrect": false
+      },
+      {
+        "text": "Un nouveau Maître est élu par les nœuds esclaves restants, souvent via un protocole de consensus comme Paxos ou Raft.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quelle est la particularité du traitement par blocs (block-at-a-time) dans les bases de données orientées colonnes par rapport au traitement ligne par ligne (row-at-a-time) ?",
+    "responses": [
+      {
+        "text": "Il permet au processeur d'utiliser des opérations vectorisées (SIMD) et améliore drastiquement l'utilisation du cache CPU en traitant des données contiguës en mémoire.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il oblige la base de données à charger l'intégralité du fichier disque en mémoire RAM avant toute lecture.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il empêche toute mise à jour (UPDATE) des valeurs, les rendant immuables.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans la conception d'un schéma Redis pour de l'analytique temporel (ex: hits par mois sur Wikipédia), quelle est la meilleure pratique ?",
+    "responses": [
+      {
+        "text": "Rapatrier toutes les clés et faire la somme côté client.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliser une seule Hashmap contenant tous les jours depuis la création du site.",
+        "isCorrect": false
+      },
+      {
+        "text": "Créer une nouvelle clé par période d'agrégation (ex: unique_hits_angela_merkel_july_2014) et les mettre à jour via l'application.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Quel est l'impact d'une requête 'Scan' sur une table HBase en termes de propriétés ACID ?",
+    "responses": [
+      {
+        "text": "Le Scan verrouille (lock) toutes les régions de la table, garantissant une cohérence absolue.",
+        "isCorrect": false
+      },
+      {
+        "text": "Le Scan ne fournit pas une vue consistante de la table entière (pas de snapshot isolation) ; il a un niveau d'isolation 'read committed'.",
+        "isCorrect": true
+      },
+      {
+        "text": "Le Scan provoque la suppression automatique des versions obsolètes des cellules lues.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Que permet de visualiser principalement Kibana au sein de la suite ELK ?",
+    "responses": [
+      {
+        "text": "Il permet de créer des tableaux de bord interactifs (histogrammes, camemberts) basés sur les capacités d'agrégation et de recherche d'ElasticSearch.",
+        "isCorrect": true
+      },
+      {
+        "text": "Il sert d'interface de ligne de commande pour remplacer mongosh.",
+        "isCorrect": false
+      },
+      {
+        "text": "Il génère automatiquement les scripts LUA pour le clustering Redis.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Concernant les garanties transactionnelles dans Redis, comment se comportent les scripts LUA ou les blocs MULTI/EXEC ?",
+    "responses": [
+      {
+        "text": "Elles respectent strictement la norme ACID via le protocole Two-Phase Commit.",
+        "isCorrect": false
+      },
+      {
+        "text": "Elles sont asynchrones et ne garantissent pas l'ordre d'exécution.",
+        "isCorrect": false
+      },
+      {
+        "text": "Les commandes s'exécutent de manière isolée sans être interrompues par un autre client, mais en cas d'erreur d'une commande, il n'y a pas de Rollback (annulation) des commandes précédentes réussies.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans le cas d'usage de 'Mozilla Socorro' (gestion des rapports de crash), pourquoi sont-ils passés d'une base relationnelle PostgreSQL à Hadoop/HBase ?",
+    "responses": [
+      {
+        "text": "Parce que PostgreSQL ne permettait pas de faire des jointures complexes.",
+        "isCorrect": false
+      },
+      {
+        "text": "Parce qu'HBase offre un schéma flexible et une mise à l'échelle horizontale (scale-out) pour gérer des tables très larges et creuses (sparse data) générées par 320GB de logs quotidiens.",
+        "isCorrect": true
+      },
+      {
+        "text": "Parce que HBase garantit l'intégrité référentielle entre les rapports de crash.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans une base de données de graphes (ou documentaire complexe), si l'on applique le théorème CAP avec une tolérance au partitionnement (P), que sacrifie très souvent l'approche NoSQL 'Eventual Consistency' ?",
+    "responses": [
+      {
+        "text": "La Disponibilité (Availability) : le système rejette toute lecture tant que la donnée n'est pas répliquée partout.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Résilience (Partition Tolerance) : le système coupe les connexions réseau défaillantes.",
+        "isCorrect": false
+      },
+      {
+        "text": "La Cohérence (Consistency) : on accepte que tous les clients ne voient pas immédiatement la même version de la donnée.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans MongoDB, quel est le principal risque lié à l'utilisation massive de $regex avec l'option $options: 'i' (insensibilité à la casse) sur une collection volumineuse ?",
+    "responses": [
+      {
+        "text": "Cette opération rend souvent l'utilisation des index classiques inefficace (index scan total), ce qui peut saturer les ressources CPU et disque.",
+        "isCorrect": true
+      },
+      {
+        "text": "MongoDB limite par défaut le nombre de caractères d'une regex à 128 pour des raisons de sécurité.",
+        "isCorrect": false
+      },
+      {
+        "text": "L'option 'i' force MongoDB à convertir l'intégralité de la base de données en minuscules de manière permanente.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": "db.collection.find({ type: { $regex: 'te*', $options: _____ } })",
+    "codeLanguage": "javascript"
+  },
+  {
+    "question": "Comment indexer manuellement un système d'index secondaire (Secondary Index) dans HBase, étant donné qu'il ne supporte nativement que l'accès par Row Key ?",
+    "responses": [
+      {
+        "text": "En exécutant une commande 'CREATE INDEX' comme en SQL.",
+        "isCorrect": false
+      },
+      {
+        "text": "En créant manuellement une deuxième table dont la Row Key est inversée (ex: valeur de la colonne ciblée) pour utiliser un Scan avec un PrefixFilter.",
+        "isCorrect": true
+      },
+      {
+        "text": "En stockant les données exclusivement dans le Master Node pour une lecture directe.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Lors du TP ElasticSearch, vous constatez que le champ de 'type' dans les documents JSON est parfois confondu par ES lors du mapping automatique. Quelle est la solution recommandée ?",
+    "responses": [
+      {
+        "text": "Convertir tous les champs JSON en tableaux de bytes (Byte Arrays) avant insertion.",
+        "isCorrect": false
+      },
+      {
+        "text": "Utiliser un script MapReduce pour nettoyer les types après insertion.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fournir manuellement un mapping explicite à ElasticSearch lors de la création de l'index avant d'injecter le premier document.",
+        "isCorrect": true
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  },
+  {
+    "question": "Dans ElasticSearch, pourquoi est-il recommandé d'utiliser l'API Get (GET /index/_doc/id) plutôt qu'une requête de recherche (GET /index/_search?q=_id:id) pour récupérer un document unique ?",
+    "responses": [
+      {
+        "text": "L'API Get est une lecture en temps réel qui interroge directement l'id, tandis que _search nécessite de passer par la phase de rafraîchissement (refresh) de l'index et par le moteur de score.",
+        "isCorrect": true
+      },
+      {
+        "text": "L'API _search ne permet pas de récupérer le contenu complet du document JSON original.",
+        "isCorrect": false
+      },
+      {
+        "text": "_doc est la seule méthode qui permet de contourner les droits d'accès de sécurité d'un index.",
+        "isCorrect": false
+      }
+    ],
+    "imageUrl": null,
+    "imageWidth": null,
+    "code": null,
+    "codeLanguage": null
+  }
+]
