@@ -1,0 +1,291 @@
+[
+  {
+    "question": "Dans le théorème CAP, que sacrifie concrètement une base NoSQL fonctionnant en mode 'Eventual Consistency' lors d'une coupure réseau ?",
+    "responses": [
+      { "text": "La Disponibilité (A) : le système s'arrête pour protéger l'intégrité des données.", "isCorrect": false },
+      { "text": "La Cohérence (C) : on accepte que différents nœuds renvoient des versions divergentes le temps de la resynchronisation.", "isCorrect": true },
+      { "text": "La Résilience (P) : le système perd sa capacité à fonctionner en cluster distribué.", "isCorrect": false },
+      { "text": "La Durabilité (D) : les données écrites pendant la coupure sont définitivement perdues.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi le 'Hash-Sharding' est-il généralement préféré au 'Range-Sharding' pour des applications avec d'énormes volumes d'écritures ?",
+    "responses": [
+      { "text": "Parce qu'il permet d'effectuer des requêtes sur des plages de valeurs (ex: dates) de manière native.", "isCorrect": false },
+      { "text": "Parce qu'il distribue les données de façon uniforme sur tous les shards, évitant de surcharger un seul serveur (hotspot).", "isCorrect": true },
+      { "text": "Parce qu'il ne nécessite aucune clé de partitionnement pour fonctionner.", "isCorrect": false },
+      { "text": "Parce qu'il garantit que les données liées sont physiquement proches sur le même disque.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans l'architecture de MongoDB, quel composant est chargé de masquer la complexité du cluster pour le client en l'orientant vers les bons shards ?",
+    "responses": [
+      { "text": "Le Shard Server (mongod).", "isCorrect": false },
+      { "text": "Le Config Server.", "isCorrect": false },
+      { "text": "Le Query Router (mongos).", "isCorrect": true },
+      { "text": "Le Primary Node du Replica Set.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la différence concrète entre l'opérateur $set et $push dans une mise à jour MongoDB ?",
+    "responses": [
+      { "text": "$set remplace la valeur d'un champ, tandis que $push ajoute un élément à la fin d'un tableau existant.", "isCorrect": true },
+      { "text": "$set crée un nouveau document, $push modifie l'existant.", "isCorrect": false },
+      { "text": "$set est utilisé uniquement pour les nombres, $push pour les objets complexes.", "isCorrect": false },
+      { "text": "$set écrase le document entier, $push ne modifie qu'un champ.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans le TP MongoDB MapReduce, pourquoi émet-on (emit) le nom du magasin en valeur plutôt que simplement le chiffre '1' ?",
+    "responses": [
+      { "text": "Pour permettre au 'reduce' de vérifier si la liste des magasins contient uniquement 'Amazon' afin de valider l'exclusivité.", "isCorrect": true },
+      { "text": "Parce que MongoDB n'autorise pas l'émission de valeurs numériques simples dans la fonction map.", "isCorrect": false },
+      { "text": "Pour trier les résultats finaux par ordre alphabétique de magasin directement.", "isCorrect": false },
+      { "text": "Pour calculer la moyenne des prix pratiqués par chaque magasin émis.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle commande MongoDB permet de lister toutes les catégories uniques présentes dans une collection sans charger tous les documents en mémoire ?",
+    "responses": [
+      { "text": "db.collection.find({unique: true})", "isCorrect": false },
+      { "text": "db.collection.distinct('categorie')", "isCorrect": true },
+      { "text": "db.collection.aggregate([{$unique: '$categorie'}])", "isCorrect": false },
+      { "text": "db.collection.count('categorie')", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans ElasticSearch, quelle est la différence de recherche entre un champ mappé en 'text' et un champ mappé en 'keyword' ?",
+    "responses": [
+      { "text": "Le type 'text' est analysé (découpé en mots), tandis que le type 'keyword' est stocké tel quel pour des correspondances exactes.", "isCorrect": true },
+      { "text": "Le type 'text' est optimisé pour les agrégations, le type 'keyword' pour la recherche plein texte.", "isCorrect": false },
+      { "text": "Le type 'keyword' supporte le stemming (racinisation), contrairement au type 'text'.", "isCorrect": false },
+      { "text": "Le type 'text' ne peut stocker que des chaînes de moins de 256 caractères.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "À quoi sert l'étape de 'Stemming' lors de l'indexation d'un document dans ElasticSearch ?",
+    "responses": [
+      { "text": "À supprimer les mots vides (stop words) comme 'le', 'et' ou 'du'.", "isCorrect": false },
+      { "text": "À ramener les mots à leur racine (ex: 'mangeait' -> 'mang') pour qu'une recherche sur 'manger' soit fructueuse.", "isCorrect": true },
+      { "text": "À traduire automatiquement le contenu pour permettre des recherches multilingues.", "isCorrect": false },
+      { "text": "À vérifier l'orthographe du document avant son insertion.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi est-il impossible de faire des agrégations (ex: top 10 des genres) sur un champ 'text' dans Kibana sans mapping spécifique ?",
+    "responses": [
+      { "text": "Parce qu'ElasticSearch refuse de trier ou grouper des données sur des champs analysés qui ont été découpés en multiples jetons (tokens).", "isCorrect": true },
+      { "text": "Parce que Kibana ne supporte les graphiques que pour les données de type date ou numérique.", "isCorrect": false },
+      { "text": "Parce que le type 'text' est compressé de telle manière qu'il devient illisible pour le moteur d'agrégation.", "isCorrect": false },
+      { "text": "Parce que les agrégations nécessitent l'activation du plugin Hadoop.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans l'API REST d'ElasticSearch, quel symbole permet d'activer la recherche 'floue' (fuzzy search) pour tolérer les fautes de frappe ?",
+    "responses": [
+      { "text": "L'astérisque (*)", "isCorrect": false },
+      { "text": "Le tilde (~)", "isCorrect": true },
+      { "text": "Le point d'interrogation (?)", "isCorrect": false },
+      { "text": "Le signe pourcentage (%)", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans Redis, quelle option de la commande SET est utilisée pour créer une clé qui expire automatiquement après un délai ?",
+    "responses": [
+      { "text": "EX (expire en secondes) ou PX (expire en millisecondes).", "isCorrect": true },
+      { "text": "TTL (Time To Live).", "isCorrect": false },
+      { "text": "NX (Not eXists).", "isCorrect": false },
+      { "text": "KEEPTTL.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi la commande 'KEYS *' est-elle jugée dangereuse sur un serveur Redis en production ?",
+    "responses": [
+      { "text": "Parce qu'elle vide instantanément le cache mémoire du serveur.", "isCorrect": false },
+      { "text": "Parce qu'elle bloque toutes les autres requêtes clients le temps du scan, car Redis traite les commandes de façon séquentielle.", "isCorrect": true },
+      { "text": "Parce qu'elle expose les mots de passe des utilisateurs en clair.", "isCorrect": false },
+      { "text": "Parce qu'elle force un redémarrage du service Redis.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est l'avantage majeur d'utiliser la commande INCR dans Redis pour gérer un compteur ?",
+    "responses": [
+      { "text": "Elle permet de stocker des valeurs décimales très précises.", "isCorrect": false },
+      { "text": "Elle est atomique : elle évite que deux processus n'écrasent le résultat de l'autre lors d'incrémentations simultanées.", "isCorrect": true },
+      { "text": "Elle compresse la donnée pour économiser de la RAM.", "isCorrect": false },
+      { "text": "Elle sauvegarde automatiquement la valeur sur le disque dur.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans Redis, que permet de calculer la commande SINTER entre deux ensembles (Sets) ?",
+    "responses": [
+      { "text": "L'union de tous les éléments sans doublon.", "isCorrect": false },
+      { "text": "L'intersection : seuls les éléments communs aux deux ensembles sont retournés.", "isCorrect": true },
+      { "text": "La différence : les éléments du premier qui ne sont pas dans le second.", "isCorrect": false },
+      { "text": "Le nombre total d'éléments uniques cumulés.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle structure probabiliste de Redis permet d'estimer la cardinalité (nombre d'éléments uniques) avec une consommation mémoire fixe de 12 Ko ?",
+    "responses": [
+      { "text": "Le Sorted Set (ZSET).", "isCorrect": false },
+      { "text": "L'HyperLogLog (HLL).", "isCorrect": true },
+      { "text": "Le Bloom Filter.", "isCorrect": false },
+      { "text": "Le Bitmap.", "isCorrect": false },
+      { "text": "La List LUA.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Comment se comporte Redis si une commande échoue au milieu d'une transaction (bloc MULTI/EXEC) ?",
+    "responses": [
+      { "text": "Il annule toutes les commandes du bloc (Rollback).", "isCorrect": false },
+      { "text": "Il continue l'exécution des autres commandes ; Redis ne supporte pas le rollback automatique en cas d'erreur de logique.", "isCorrect": true },
+      { "text": "Il met le serveur en mode 'Lecture seule' par sécurité.", "isCorrect": false },
+      { "text": "Il supprime la transaction et déconnecte le client fautif.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Comment une base relationnelle orientée lignes gère-t-elle l'offset pour lire un champ de taille variable (varchar) ?",
+    "responses": [
+      { "text": "En utilisant des en-têtes de ligne (headers) qui stockent la longueur de chaque enregistrement.", "isCorrect": true },
+      { "text": "En allouant une taille fixe maximale à chaque champ, quitte à laisser du vide.", "isCorrect": false },
+      { "text": "En stockant chaque colonne dans un fichier binaire séparé.", "isCorrect": false },
+      { "text": "En utilisant un index inversé obligatoire sur chaque varchar.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi la compression par dictionnaire est-elle particulièrement efficace dans les bases NoSQL orientées colonnes ?",
+    "responses": [
+      { "text": "Parce qu'elle remplace les répétitions de valeurs identiques dans une même colonne par des codes entiers très courts.", "isCorrect": true },
+      { "text": "Parce qu'elle crypte les données pour empêcher les accès non autorisés.", "isCorrect": false },
+      { "text": "Parce qu'elle permet de supprimer les lignes vides du disque.", "isCorrect": false },
+      { "text": "Parce qu'elle fusionne les tables HBase avec le système de fichiers HDFS.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans le modèle HBase, quels éléments constituent la clé unique pour accéder à une 'cellule' de donnée ?",
+    "responses": [
+      { "text": "{Table, Row Key, Column Family, Index}", "isCorrect": false },
+      { "text": "{Row Key, Column Family, Column Qualifier, Timestamp}", "isCorrect": true },
+      { "text": "{Database, Table, Row ID, Version}", "isCorrect": false },
+      { "text": "{Shard ID, Document ID, Property Name, Hash}", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "En cas de panne d'un RegionServer HBase, comment le système garantit-il la non-perte des données qui n'avaient pas encore été écrites sur disque ?",
+    "responses": [
+      { "text": "Grâce au Memstore qui est répliqué en temps réel sur tous les nœuds.", "isCorrect": false },
+      { "text": "Grâce au Write-Ahead-Log (WAL) enregistré sur HDFS avant chaque confirmation d'écriture.", "isCorrect": true },
+      { "text": "Grâce à une sauvegarde automatique effectuée par Kibana toutes les minutes.", "isCorrect": false },
+      { "text": "Grâce à la persistance native de Zookeeper.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans HBase, quel est le rôle du 'Memstore' ?",
+    "responses": [
+      { "text": "Servir de cache de lecture pour les requêtes les plus fréquentes.", "isCorrect": false },
+      { "text": "Accumuler les écritures en RAM, les trier, puis les vider sur disque (flush) dans un fichier HFile.", "isCorrect": true },
+      { "text": "Stocker le journal des transactions en mode append-only.", "isCorrect": false },
+      { "text": "Gérer l'élection du HMaster en cas de conflit.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Puisque HBase ne permet l'accès rapide que via la 'Row Key', comment implémente-t-on un index secondaire pour chercher par un autre attribut ?",
+    "responses": [
+      { "text": "En utilisant la commande SQL 'CREATE INDEX'.", "isCorrect": false },
+      { "text": "En créant une table supplémentaire dont la Row Key est la valeur de l'attribut recherché.", "isCorrect": true },
+      { "text": "En activant l'option 'SecondarySearch' dans la configuration de Zookeeper.", "isCorrect": false },
+      { "text": "En dé-normalisant toutes les données dans un seul champ texte.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle caractéristique majeure distingue Neo4J de la plupart des autres bases NoSQL ?",
+    "responses": [
+      { "text": "Neo4J ne supporte pas la réplication distribuée.", "isCorrect": false },
+      { "text": "Neo4J garantit des transactions strictement conformes à la norme ACID.", "isCorrect": true },
+      { "text": "Neo4J est optimisé pour stocker des fichiers volumineux (BLOB).", "isCorrect": false },
+      { "text": "Neo4J utilise le théorème CAP pour privilégier systématiquement la disponibilité sur la cohérence.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est le modèle de données fondamental utilisé par Neo4J ?",
+    "responses": [
+      { "text": "Le modèle Document (similaire à JSON).", "isCorrect": false },
+      { "text": "Le modèle Property Graph (Graphe de propriétés avec nœuds et relations).", "isCorrect": true },
+      { "text": "Le modèle Relationnel normalisé.", "isCorrect": false },
+      { "text": "Le modèle RDF (Resource Description Framework).", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans une requête Cypher (Neo4J), que signifie une relation écrite sans flèche : (a)-[r]-(b) ?",
+    "responses": [
+      { "text": "Que la relation est unidirectionnelle mais masquée.", "isCorrect": false },
+      { "text": "Que l'on recherche la relation quel que soit son sens (entrant ou sortant).", "isCorrect": true },
+      { "text": "Que la relation a été supprimée du graphe.", "isCorrect": false },
+      { "text": "Qu'il s'agit d'une erreur de syntaxe Cypher.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "À quoi sert la fonction shortestPath dans le langage Cypher ?",
+    "responses": [
+      { "text": "À trouver le chemin comportant le moins de relations entre deux nœuds donnés.", "isCorrect": true },
+      { "text": "À compresser le graphe pour gagner de l'espace disque.", "isCorrect": false },
+      { "text": "À supprimer les cycles infinis dans le graphe.", "isCorrect": false },
+      { "text": "À calculer la distance géographique entre deux points GPS.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi le partitionnement (Sharding) est-il complexe à mettre en œuvre sur une base de données de graphes ?",
+    "responses": [
+      { "text": "Parce que traverser une relation entre deux nœuds situés sur des serveurs différents génère une latence réseau prohibitive.", "isCorrect": true },
+      { "text": "Parce que les graphes sont limités physiquement à un seul disque dur.", "isCorrect": false },
+      { "text": "Parce que le langage Cypher n'est pas conçu pour fonctionner en réseau.", "isCorrect": false },
+      { "text": "Parce que la RAM ne peut pas être partagée entre plusieurs serveurs de graphes.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans quel cas l'utilisation de Neo4J est-elle MOINS pertinente qu'une base de données classique ?",
+    "responses": [
+      { "text": "Pour la détection de fraudes bancaires via des liens entre comptes.", "isCorrect": false },
+      { "text": "Pour effectuer des calculs d'agrégation massifs sur des colonnes indépendantes (ex: somme des revenus de 10 millions de clients).", "isCorrect": true },
+      { "text": "Pour gérer un système de recommandations sociales.", "isCorrect": false },
+      { "text": "Pour modéliser des réseaux de transport complexes.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est le rôle de Zookeeper dans un cluster HBase ?",
+    "responses": [
+      { "text": "Synchroniser les métadonnées et coordonner les serveurs pour éviter les conflits d'écriture ou d'élection.", "isCorrect": true },
+      { "text": "Stocker l'intégralité des données de la base en mémoire vive.", "isCorrect": false },
+      { "text": "Fournir une interface graphique pour requêter HBase en SQL.", "isCorrect": false },
+      { "text": "Remplacer le système de fichiers HDFS.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Comment Neo4J permet-il d'effectuer des recherches textuelles performantes sur les propriétés des nœuds ?",
+    "responses": [
+      { "text": "En indexant les propriétés via le moteur Apache Lucene intégré.", "isCorrect": true },
+      { "text": "En convertissant automatiquement les textes en tableaux binaires.", "isCorrect": false },
+      { "text": "En envoyant les requêtes de recherche à un serveur ElasticSearch externe.", "isCorrect": false },
+      { "text": "En scannant l'intégralité du graphe à chaque recherche.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "En HBase, qu'est-ce qu'une 'Minor Compaction' ?",
+    "responses": [
+      { "text": "Le processus de réécriture de la table entière pour supprimer les versions obsolètes.", "isCorrect": false },
+      { "text": "La fusion de plusieurs petits fichiers HFiles en un seul plus grand pour limiter le nombre de fichiers ouverts.", "isCorrect": true },
+      { "text": "La suppression automatique des colonnes inutilisées.", "isCorrect": false },
+      { "text": "Le nettoyage de la mémoire vive du HMaster.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que signifie le concept de 'Soft State' dans le paradigme BASE ?",
+    "responses": [
+      { "text": "Que le système peut évoluer vers un état de cohérence sans intervention extérieure, même en l'absence de nouvelles entrées.", "isCorrect": true },
+      { "text": "Que les données sont stockées sur des supports de stockage magnétiques fragiles.", "isCorrect": false },
+      { "text": "Que le logiciel est capable de s'adapter automatiquement à n'importe quel système d'exploitation.", "isCorrect": false },
+      { "text": "Que les transactions sont annulées dès qu'une erreur mineure survient.", "isCorrect": false }
+    ]
+  }
+]
