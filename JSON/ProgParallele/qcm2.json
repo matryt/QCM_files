@@ -1,0 +1,306 @@
+[
+  {
+    "question": "Dans un programme Python utilisant Numba pour CUDA, quelle est la formule correcte pour calculer l'identifiant global (Global ID) d'un thread dans une grille 1D ?",
+    "code": "@cuda.jit\ndef my_kernel(array):\n    index = _________ # Ligne à compléter\n    if index < array.size:\n        array[index] += 1",
+    "codeLanguage": "python",
+    "responses": [
+      { "text": "index = blockIdx.x * blockDim.x + threadIdx.x", "isCorrect": true },
+      { "text": "index = threadIdx.x * blockDim.x + blockIdx.x", "isCorrect": false },
+      { "text": "index = gridDim.x * blockDim.x + threadIdx.x", "isCorrect": false },
+      { "text": "index = cuda.get_thread_id()", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi l'accès mémoire 'coalescé' (Coalesced Memory Access) est-il un objectif de performance majeur en CUDA ?",
+    "responses": [
+      { "text": "Il permet d'éviter l'utilisation de la mémoire partagée (Shared Memory).", "isCorrect": false },
+      { "text": "Il garantit que les threads s'exécutent dans l'ordre de leur ID.", "isCorrect": false },
+      { "text": "Il empêche les débordements de pile (stack overflow) sur le GPU.", "isCorrect": false },
+      { "text": "Il permet de regrouper les lectures/écritures de threads d'un même Warp en une seule transaction mémoire vers la VRAM.", "isCorrect": true }
+    ]
+  },
+  {
+    "question": "Analysez ce code OpenMP. Si 4 threads sont utilisés, quelle est la valeur finale probable de 'count' ?",
+    "code": "int count = 0;\n#pragma omp parallel num_threads(4)\n{\n    count++;\n}",
+    "codeLanguage": "c",
+    "responses": [
+      { "text": "Entre 1 et 4, le résultat est indéterminé à cause d'une 'Race Condition'.", "isCorrect": true },
+      { "text": "Exactement 4.", "isCorrect": false },
+      { "text": "0, car la variable est privée par défaut.", "isCorrect": false },
+      { "text": "Exactement 1, car l'accès est automatiquement protégé.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la différence fondamentale entre `#pragma omp critical` et `#pragma omp atomic` en OpenMP ?",
+    "responses": [
+      { "text": "Atomic est réservé aux calculs sur flottants, Critical aux entiers.", "isCorrect": false },
+      { "text": "Critical permet à plusieurs threads d'entrer si le code est différent.", "isCorrect": false },
+      { "text": "Atomic utilise des instructions matérielles spécifiques pour une seule opération, tandis que Critical définit une section de code protégée par un verrou logiciel plus lourd.", "isCorrect": true },
+      { "text": "Il n'y a aucune différence de performance entre les deux.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Selon la loi d'Amdahl, si 20% du code est strictement séquentiel (f=0.2), quel est le Speedup maximal théorique avec un nombre infini de processeurs ?",
+    "responses": [
+      { "text": "Un Speedup de 5 (1 / 0.2).", "isCorrect": true },
+      { "text": "Un Speedup de 20.", "isCorrect": false },
+      { "text": "Un Speedup de 1.2.", "isCorrect": false },
+      { "text": "Un Speedup infini.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans le modèle théorique PRAM, que signifie le mode d'accès mémoire CRCW 'Arbitrary' ?",
+    "responses": [
+      { "text": "Si plusieurs processeurs écrivent à la même adresse, l'écriture d'un processeur choisi arbitrairement réussit.", "isCorrect": true },
+      { "text": "L'écriture n'est autorisée que si toutes les valeurs sont identiques.", "isCorrect": false },
+      { "text": "Une erreur d'exécution est déclenchée en cas de conflit.", "isCorrect": false },
+      { "text": "Les valeurs sont additionnées aléatoirement.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "En programmation GPU avec CUDA, qu'est-ce qu'un 'Warp' ?",
+    "responses": [
+      { "text": "Le transfert de données entre le Host et le Device.", "isCorrect": false },
+      { "text": "L'unité d'ordonnancement matérielle composée de 32 threads exécutant la même instruction simultanément.", "isCorrect": true },
+      { "text": "Une dimension spécifique de la grille (Grid).", "isCorrect": false },
+      { "text": "Une fonction qui ne s'exécute que sur le CPU.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans une étude de performance, que mesure-t-on par le 'Strong Scaling' ?",
+    "responses": [
+      { "text": "L'évolution du temps quand on augmente proportionnellement la taille du problème et le nombre de processeurs.", "isCorrect": false },
+      { "text": "L'évolution du temps d'exécution quand on augmente le nombre de processeurs pour une taille de problème fixe.", "isCorrect": true },
+      { "text": "La résistance physique du matériel à la chaleur.", "isCorrect": false },
+      { "text": "La capacité d'un algorithme à utiliser des instructions SIMD.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel problème l'opération atomique 'Test_and_Set' permet-elle de résoudre ?",
+    "responses": [
+      { "text": "Elle permet de lire et modifier une valeur en mémoire de manière indivisible pour implémenter un verrou (mutex).", "isCorrect": true },
+      { "text": "Elle synchronise l'horloge système entre les nœuds d'un cluster.", "isCorrect": false },
+      { "text": "Elle vérifie l'intégrité des fichiers sur le disque.", "isCorrect": false },
+      { "text": "Elle empêche les fuites de mémoire dans les boucles for.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Comment corrigeriez-vous cette boucle OpenMP pour agréger proprement la somme dans 'total' ?",
+    "code": "double total = 0.0;\n#pragma omp parallel for _________\nfor(int i=0; i<N; i++) {\n   total += array[i];\n}",
+    "codeLanguage": "c",
+    "responses": [
+      { "text": "shared(total)", "isCorrect": false },
+      { "text": "private(total)", "isCorrect": false },
+      { "text": "reduction(+:total)", "isCorrect": true },
+      { "text": "atomic(total)", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle loi suggère que pour maintenir un temps d'exécution constant, il faut augmenter la taille du problème (Weak Scaling) ?",
+    "responses": [
+      { "text": "La loi de Gustafson.", "isCorrect": true },
+      { "text": "La loi d'Amdahl.", "isCorrect": false },
+      { "text": "La loi de Moore.", "isCorrect": false },
+      { "text": "Le théorème de Brent.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Qu'est-ce qu'un algorithme PRAM dit 'Work Efficient' (Optimal en coût) ?",
+    "responses": [
+      { "text": "Il s'exécute en temps constant O(1).", "isCorrect": false },
+      { "text": "Il n'utilise que de la mémoire locale.", "isCorrect": false },
+      { "text": "Il nécessite un nombre infini de processeurs.", "isCorrect": false },
+      { "text": "Son travail total (Temps * Procs) est du même ordre de grandeur que le meilleur algorithme séquentiel.", "isCorrect": true }
+    ]
+  },
+  {
+    "question": "En utilisant Numba (`@cuda.jit`), comment transférez-vous un tableau Numpy `A` vers la mémoire du GPU ?",
+    "code": "import numpy as np\nfrom numba import cuda\nA = np.zeros(1000)\n# Code manquant",
+    "codeLanguage": "python",
+    "responses": [
+      { "text": "d_A = cuda.to_device(A)", "isCorrect": true },
+      { "text": "d_A = cuda.transfer(A)", "isCorrect": false },
+      { "text": "d_A = cuda.device_array(A)", "isCorrect": false },
+      { "text": "d_A = A.gpu()", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Analysez ce pseudo-code de verrouillage. Quel est le risque majeur ?",
+    "code": "Thread 1: Lock(A); Lock(B);\nThread 2: Lock(B); Lock(A);",
+    "codeLanguage": "c",
+    "responses": [
+      { "text": "Une Race Condition sur la variable B.", "isCorrect": false },
+      { "text": "Un interblocage (Deadlock) si les deux threads obtiennent leur premier verrou simultanément.", "isCorrect": true },
+      { "text": "Une boucle infinie de calcul.", "isCorrect": false },
+      { "text": "Aucun, l'ordre des verrous n'a pas d'importance.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans OpenMP, quel est l'effet de la clause 'schedule(dynamic, chunk)' ?",
+    "responses": [
+      { "text": "Elle distribue les itérations par paquets aux threads au fur et à mesure qu'ils se libèrent, améliorant l'équilibrage de charge.", "isCorrect": true },
+      { "text": "Elle fixe la distribution des tâches au moment de la compilation.", "isCorrect": false },
+      { "text": "Elle permet d'exécuter la boucle sur une carte graphique.", "isCorrect": false },
+      { "text": "Elle double la taille du cache L2.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans un arbre de réduction (tournoi) pour trouver le maximum de N éléments, quelle est la complexité temporelle sur PRAM ?",
+    "responses": [
+      { "text": "O(N)", "isCorrect": false },
+      { "text": "O(1)", "isCorrect": false },
+      { "text": "O(log N)", "isCorrect": true },
+      { "text": "O(N log N)", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que signifie le paramètre 'device=True' dans `@cuda.jit(device=True)` ?",
+    "code": "@cuda.jit(device=True)\ndef func(a, b):\n    return a + b",
+    "codeLanguage": "python",
+    "responses": [
+      { "text": "La fonction est un point d'entrée lançable par le CPU.", "isCorrect": false },
+      { "text": "La fonction est compilée pour le GPU et ne peut être appelée que depuis un autre Kernel.", "isCorrect": true },
+      { "text": "La fonction utilise exclusivement la mémoire globale.", "isCorrect": false },
+      { "text": "La fonction est exécutée sur le disque dur.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi est-il recommandé d'utiliser `while (condition)` avec `wait()` en Java ?",
+    "code": "synchronized void consumer() {\n  while (buffer.isEmpty()) { wait(); }\n}",
+    "codeLanguage": "java",
+    "responses": [
+      { "text": "Pour se protéger des réveils intempestifs (spurious wakeups) et revérifier l'état au réveil.", "isCorrect": true },
+      { "text": "Pour transformer l'attente en pause active (busy wait).", "isCorrect": false },
+      { "text": "Parce que le compilateur Java interdit l'usage du 'if' ici.", "isCorrect": false },
+      { "text": "Pour consommer tout le buffer en une seule itération.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que permet de réaliser la clause OpenMP `firstprivate(x)` ?",
+    "responses": [
+      { "text": "Elle garantit que seul le thread 0 a accès à 'x'.", "isCorrect": false },
+      { "text": "Elle crée une copie locale de 'x' pour chaque thread, initialisée avec la valeur de 'x' avant la région parallèle.", "isCorrect": true },
+      { "text": "Elle protège 'x' contre les écritures concurrentes via un verrou.", "isCorrect": false },
+      { "text": "Elle partage 'x' entre tous les threads sans copie.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la définition de la classe de complexité parallèle 'NC' (Nick's Class) ?",
+    "responses": [
+      { "text": "Problèmes solubles en temps polylogarithmique avec un nombre polynomial de processeurs.", "isCorrect": true },
+      { "text": "Problèmes qui ne peuvent pas être parallélisés (Not Computable).", "isCorrect": false },
+      { "text": "Algorithmes dont le speedup est supérieur au nombre de cœurs.", "isCorrect": false },
+      { "text": "Algorithmes de cryptographie non cassables.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "En CUDA, pourquoi l'utilisation de la 'Shared Memory' est-elle performante ?",
+    "responses": [
+      { "text": "Elle réside sur la puce (on-chip), offrant une latence très faible et un partage rapide entre threads d'un même bloc.", "isCorrect": true },
+      { "text": "Elle est virtuellement infinie.", "isCorrect": false },
+      { "text": "Elle permet de communiquer entre différents GPU.", "isCorrect": false },
+      { "text": "Elle remplace les registres des threads.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que fait précisément l'opération V(S) (Signal) sur un Sémaphore ?",
+    "responses": [
+      { "text": "Elle incrémente le sémaphore et réveille un thread si la file d'attente n'est pas vide.", "isCorrect": true },
+      { "text": "Elle bloque le thread actuel si le sémaphore est à 0.", "isCorrect": false },
+      { "text": "Elle réinitialise le sémaphore à sa valeur d'origine.", "isCorrect": false },
+      { "text": "Elle détruit l'objet sémaphore.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est l'effet de la directive `#pragma omp barrier` ?",
+    "responses": [
+      { "text": "Elle empêche les interruptions matérielles.", "isCorrect": false },
+      { "text": "Elle termine prématurément la région parallèle.", "isCorrect": false },
+      { "text": "Elle crée une section critique automatique.", "isCorrect": false },
+      { "text": "Elle force tous les threads de l'équipe à attendre que chacun ait atteint ce point.", "isCorrect": true }
+    ]
+  },
+  {
+    "question": "Dans le modèle PRAM, que signifie 'SIMD idéal' ?",
+    "responses": [
+      { "text": "Chaque processeur a son propre programme indépendant (MIMD).", "isCorrect": false },
+      { "text": "Les instructions sont lues à partir d'un disque réseau.", "isCorrect": false },
+      { "text": "Tous les processeurs exécutent la même instruction de façon parfaitement synchrone sur leurs propres données.", "isCorrect": true },
+      { "text": "Le temps de calcul est toujours égal à 1 seconde.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Lors d'un micro-benchmark GPU, pourquoi privilégie-t-on souvent le débit (GB/s ou GFLOPS) au temps brut ?",
+    "responses": [
+      { "text": "Parce que l'ajout de threads peut augmenter le parallélisme sans réduire le temps d'exécution individuel (latence).", "isCorrect": true },
+      { "text": "Parce que le temps d'exécution est impossible à mesurer sur GPU.", "isCorrect": false },
+      { "text": "Parce que le débit est toujours constant peu importe le code.", "isCorrect": false },
+      { "text": "Pour masquer les erreurs de compilation.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pour implémenter un 'Rendez-vous' de N threads dans un Moniteur, quel élément est indispensable ?",
+    "responses": [
+      { "text": "Un compteur entier (ex: NbArrives) pour suivre le nombre de threads ayant atteint le moniteur.", "isCorrect": true },
+      { "text": "Une connexion réseau TCP.", "isCorrect": false },
+      { "text": "Un tableau de pointeurs vers le CPU.", "isCorrect": false },
+      { "text": "L'utilisation de la clause 'nowait'.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est le problème dans ce code empêchant une parallélisation correcte ?",
+    "code": "#pragma omp parallel for\nfor(int i=1; i<N; i++) {\n   A[i] = A[i-1] + B[i];\n}",
+    "responses": [
+      { "text": "Une dépendance de données (Loop-carried dependency) : A[i] dépend du résultat de l'itération précédente.", "isCorrect": true },
+      { "text": "Un manque de mémoire vive.", "isCorrect": false },
+      { "text": "L'absence de la clause 'atomic'.", "isCorrect": false },
+      { "text": "Une division par zéro.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans l'architecture CUDA moderne, comment la hiérarchie matérielle est-elle structurée (haut en bas) ?",
+    "responses": [
+      { "text": "GPU -> GPC -> Streaming Multiprocessors (SM) -> CUDA Cores.", "isCorrect": true },
+      { "text": "GPU -> Grids -> Warps -> Tensor Cores.", "isCorrect": false },
+      { "text": "CPU -> RAM -> GPU -> VRAM.", "isCorrect": false },
+      { "text": "GPU -> L3 Cache -> Threads -> Registres.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que se passe-t-il si un processus demande l'accès à un verrou non-réentrant qu'il détient déjà ?",
+    "responses": [
+      { "text": "Le processus s'auto-bloque indéfiniment (Deadlock).", "isCorrect": true },
+      { "text": "Le verrou est libéré par sécurité.", "isCorrect": false },
+      { "text": "Une exception système est levée.", "isCorrect": false },
+      { "text": "Le deuxième verrouillage est ignoré et le code continue.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Qu'est-ce que le 'False Sharing' en programmation multithread ?",
+    "responses": [
+      { "text": "L'utilisation d'une variable globale sans la déclarer 'shared'.", "isCorrect": false },
+      { "text": "Des threads modifient des variables différentes situées sur la même ligne de cache, provoquant des invalidations constantes.", "isCorrect": true },
+      { "text": "Le partage accidentel d'un pointeur entre le Host et le Device.", "isCorrect": false },
+      { "text": "Une erreur de segmentation lors d'un `malloc`.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que fait la clause `nowait` à la fin d'une boucle OpenMP ?",
+    "code": "#pragma omp for nowait\nfor(i=0; i<N; i++) { ... }",
+    "responses": [
+      { "text": "Elle empêche les threads de démarrer la boucle.", "isCorrect": false },
+      { "text": "Elle désactive le multithreading pour cette section.", "isCorrect": false },
+      { "text": "Elle supprime la barrière de synchronisation implicite en fin de boucle.", "isCorrect": true },
+      { "text": "Elle force l'arrêt du programme après 10ms.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "En CUDA, comment définit-on la taille d'une Grille et d'un Bloc pour traiter un tableau de taille N ?",
+    "responses": [
+      { "text": "On utilise toujours 1 seul bloc contenant N threads.", "isCorrect": false },
+      { "text": "On choisit une taille de bloc (ex: 256) et on calcule le nombre de blocs par (N + block_size - 1) / block_size.", "isCorrect": true },
+      { "text": "On laisse le GPU choisir dynamiquement sans intervention.", "isCorrect": false },
+      { "text": "La grille doit toujours être de dimension 3D.", "isCorrect": false }
+    ]
+  }
+]
