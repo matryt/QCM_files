@@ -1,0 +1,290 @@
+[
+  {
+    "question": "Pourquoi un LLM échoue-t-il souvent face à un 'Glitch Token' comme « SolidGoldMagikarp » alors qu'il semble pourtant être dans son vocabulaire ?",
+    "responses": [
+      { "text": "Le tokenizer a fusionné ce jeton via des données brutes (ex: Reddit), mais le modèle n'a quasiment jamais vu ce vecteur mis à jour lors de l'étape d'entraînement sémantique.", "isCorrect": true },
+      { "text": "Le mécanisme d'attention ignore les jetons dont la fréquence d'apparition est inférieure à un seuil critique de 0.001%.", "isCorrect": false },
+      { "text": "L'algorithme BPE interdit le calcul de gradient pour les mots contenant plus de deux majuscules consécutives.", "isCorrect": false },
+      { "text": "Le mot dépasse la capacité de stockage de la couche d'embedding statique.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans le traitement des langues comme l'allemand ou le turc (langues agglutinantes), quel est le risque principal d'une tokenisation sous-optimale ?",
+    "responses": [
+      { "text": "Une explosion de la longueur de séquence (over-segmentation) qui sature la fenêtre de contexte du Transformer.", "isCorrect": true },
+      { "text": "Une inversion systématique des vecteurs de position (Positional Encodings).", "isCorrect": false },
+      { "text": "L'incapacité du Softmax à normaliser des mots de plus de 20 caractères.", "isCorrect": false },
+      { "text": "La perte totale de la structure de droite à gauche requise pour ces langues.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est le compromis fondamental de la tokenisation par caractères (1 token = 1 lettre) ?",
+    "responses": [
+      { "text": "Elle résout le problème des mots inconnus, mais augmente massivement la charge de calcul et rend plus difficile l'apprentissage de relations sémantiques lointaines.", "isCorrect": true },
+      { "text": "Elle réduit la taille du vocabulaire à 256, mais rend le modèle incapable de traiter les emojis.", "isCorrect": false },
+      { "text": "Elle accélère l'inférence, mais empêche l'utilisation de l'attention multi-têtes.", "isCorrect": false },
+      { "text": "Elle oblige le modèle à utiliser uniquement des embeddings statiques de type GloVe.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi l'inversion d'une chaîne de caractères (ex: 'apple' -> 'elppa') est-elle une tâche complexe pour un Transformer ?",
+    "responses": [
+      { "text": "Les tokens de sous-mots agissent comme des unités sémantiques atomiques, 'cachant' la structure interne des caractères au mécanisme d'attention.", "isCorrect": true },
+      { "text": "La fonction de perte Cross-Entropy est mathématiquement incapable de prédire des séquences inversées.", "isCorrect": false },
+      { "text": "L'encodage positionnel sinusoïdal est asymétrique et interdit le retour en arrière.", "isCorrect": false },
+      { "text": "Le modèle manque de mémoire vive pour stocker les caractères individuels dans la couche de Value.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la différence majeure entre un embedding Word2Vec et un état caché (hidden state) d'un Transformer ?",
+    "responses": [
+      { "text": "Word2Vec fournit une représentation context-free (fixe), tandis que le Transformer génère une représentation contextuelle (dynamique).", "isCorrect": true },
+      { "text": "Word2Vec utilise des nombres complexes, le Transformer des nombres réels.", "isCorrect": false },
+      { "text": "Le Transformer ne peut pas représenter les synonymes, contrairement à Word2Vec.", "isCorrect": false },
+      { "text": "Word2Vec nécessite un encodage positionnel pour fonctionner.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans l'équation de l'attention, à quoi correspond l'opération $Q . K^T$ ?",
+    "responses": [
+      { "text": "Un calcul de score de similarité (ou compatibilité) entre chaque paire de tokens de la séquence.", "isCorrect": true },
+      { "text": "Une projection linéaire pour réduire la dimensionnalité des vecteurs d'entrée.", "isCorrect": false },
+      { "text": "Une étape de normalisation pour stabiliser les gradients lors de la rétropropagation.", "isCorrect": false },
+      { "text": "Une méthode de compression pour stocker les Value (V) plus efficacement.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi applique-t-on un facteur d'échelle $1/sqrt{d_k}$ dans le mécanisme de Scaled Dot-Product Attention ?",
+    "responses": [
+      { "text": "Pour éviter que le Softmax ne sature dans des zones à gradient nul à cause de produits scalaires de trop grande magnitude.", "isCorrect": true },
+      { "text": "Pour s'assurer que la matrice d'attention reste inversible.", "isCorrect": false },
+      { "text": "Pour compenser l'absence de couches de Dropout dans l'encodeur.", "isCorrect": false },
+      { "text": "Pour permettre au modèle de traiter des séquences de longueur infinie.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est l'effet de l'application d'un Softmax sur des scores ayant subi un masquage causal (-infini) ?",
+    "responses": [
+      { "text": "Il redistribue la probabilité uniquement sur les tokens passés et présents, mettant à zéro celle des tokens futurs.", "isCorrect": true },
+      { "text": "Il transforme tous les scores négatifs en valeurs positives uniformes.", "isCorrect": false },
+      { "text": "Il provoque une erreur de division par zéro si le masque n'est pas binaire.", "isCorrect": false },
+      { "text": "Il force le modèle à ne regarder que le tout premier token de la phrase.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Sans encodage positionnel, comment une couche d'attention traite-t-elle une phrase ?",
+    "responses": [
+      { "text": "Comme un 'sac de mots' (Bag of Words) : l'information d'ordre est totalement perdue.", "isCorrect": true },
+      { "text": "Elle utilise par défaut l'ordre alphabétique des tokens.", "isCorrect": false },
+      { "text": "Elle traite la phrase de la fin vers le début par souci d'efficacité.", "isCorrect": false },
+      { "text": "Elle ne peut tout simplement pas calculer le produit scalaire $QK^T$.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel avantage offre l'encodage positionnel sinusoïdal par rapport à un encodage appris (learned embeddings) ?",
+    "responses": [
+      { "text": "Il permet théoriquement d'extrapoler à des longueurs de séquences non vues durant l'entraînement.", "isCorrect": true },
+      { "text": "Il réduit le nombre de paramètres du modèle de 15%.", "isCorrect": false },
+      { "text": "Il est plus robuste face aux erreurs de tokenisation BPE.", "isCorrect": false },
+      { "text": "Il garantit que les mots identiques ont toujours le même vecteur final.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "L'analogie entre l'Attention Multi-Têtes et les filtres d'un CNN suggère que :",
+    "responses": [
+      { "text": "Chaque tête peut se spécialiser dans l'extraction d'un type de relation spécifique (syntaxique, sémantique, locale).", "isCorrect": true },
+      { "text": "Le Transformer finit par devenir un réseau de neurones convolutif après 12 couches.", "isCorrect": false },
+      { "text": "L'attention multi-têtes est moins performante que l'attention simple tête sur les longs textes.", "isCorrect": false },
+      { "text": "Le modèle traite les tokens comme des pixels d'image en 2D.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la particularité de l'objectif 'Masked Language Modeling' de BERT par rapport à GPT ?",
+    "responses": [
+      { "text": "BERT a accès au contexte gauche ET droit de chaque mot, ce qui le rend bidirectionnel.", "isCorrect": true },
+      { "text": "BERT masque 100% des mots pour forcer le modèle à tout reconstruire.", "isCorrect": false },
+      { "text": "GPT est le seul à utiliser le masquage de tokens pour l'apprentissage.", "isCorrect": false },
+      { "text": "BERT ne peut pas être utilisé pour des tâches de classification.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Lors de l'entraînement de Word Embeddings, pourquoi utilise-t-on souvent deux vecteurs ($w$ et $w_{contexte}$) pour un même mot ?",
+    "responses": [
+      { "text": "Pour simplifier le calcul du produit scalaire et de la dérivée lors de l'optimisation.", "isCorrect": true },
+      { "text": "Parce qu'un mot a toujours deux sens opposés en linguistique.", "isCorrect": false },
+      { "text": "Pour différencier les majuscules des minuscules.", "isCorrect": false },
+      { "text": "C'est une contrainte imposée par la fonction d'activation ReLU.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans un Bi-encodeur, pourquoi le calcul de similarité est-il plus rapide que dans un Cross-encodeur pour la recherche documentaire ?",
+    "responses": [
+      { "text": "Les représentations des documents peuvent être pré-calculées et indexées (ex: FAISS), ne laissant qu'un produit scalaire à faire en temps réel.", "isCorrect": true },
+      { "text": "Le Bi-encodeur utilise moins de couches de Transformer.", "isCorrect": false },
+      { "text": "Le Cross-encodeur est obligé de traduire les documents en anglais avant de les comparer.", "isCorrect": false },
+      { "text": "Le Bi-encodeur ignore l'ordre des mots, ce qui accélère le GPU.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la fonction principale du 'Reward Model' dans le workflow RLHF ?",
+    "responses": [
+      { "text": "Prédire le score de préférence humaine pour une réponse donnée afin de guider l'optimisation du modèle.", "isCorrect": true },
+      { "text": "Générer automatiquement des données d'entraînement synthétiques.", "isCorrect": false },
+      { "text": "Vérifier la validité grammaticale des phrases générées.", "isCorrect": false },
+      { "text": "Réduire la consommation d'énergie du GPU lors de l'inférence.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "L'approche ORPO (Odds Ratio Preference Optimization) se distingue du DPO ou du RLHF car :",
+    "responses": [
+      { "text": "Elle intègre l'alignement directement dans la phase SFT via une pénalité sur les réponses non-préférées.", "isCorrect": true },
+      { "text": "Elle utilise des algorithmes génétiques au lieu de la descente de gradient.", "isCorrect": false },
+      { "text": "Elle ne fonctionne que sur des modèles de petite taille (moins de 7B).", "isCorrect": false },
+      { "text": "Elle nécessite 10 fois plus de données classées par des humains.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que mesure concrètement le test WEFAT (Word Embedding Factual Association Test) ?",
+    "responses": [
+      { "text": "La force de l'association relative d'un concept cible avec deux groupes d'attributs opposés.", "isCorrect": true },
+      { "text": "La vitesse à laquelle un modèle génère des tokens.", "isCorrect": false },
+      { "text": "Le taux d'erreur de la tokenisation BPE sur les noms propres.", "isCorrect": false },
+      { "text": "La distance Euclidienne entre les vecteurs de Query et de Key.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi dit-on que les LLM 'amplifient' les biais présents dans les données d'entraînement ?",
+    "responses": [
+      { "text": "Parce que le modèle apprend des corrélations statistiques qui renforcent les co-occurrences les plus fréquentes au détriment des cas rares.", "isCorrect": true },
+      { "text": "Parce que les couches d'auto-attention sont conçues pour privilégier les stéréotypes.", "isCorrect": false },
+      { "text": "Parce que les optimiseurs comme Adam favorisent les poids à forte variance.", "isCorrect": false },
+      { "text": "Parce que les filtres de sécurité (Safety filters) sont désactivés pendant le pré-entraînement.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans une architecture 'Encoder-only' (type BERT), quel est l'usage principal ?",
+    "responses": [
+      { "text": "L'extraction d'information, la classification de texte et le NER (Named Entity Recognition).", "isCorrect": true },
+      { "text": "La génération de poésie et de code informatique.", "isCorrect": false },
+      { "text": "La compression de fichiers audio et vidéo.", "isCorrect": false },
+      { "text": "Le calcul exclusif de la perte ORPO.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Lors de la fusion des têtes d'attention (Multi-head), quelle opération suit immédiatement la concaténation des vecteurs de chaque tête ?",
+    "responses": [
+      { "text": "Une projection linéaire via une matrice de poids $W_O$.", "isCorrect": true },
+      { "text": "Une normalisation par batch (Batch Norm).", "isCorrect": false },
+      { "text": "Un masquage causal supplémentaire.", "isCorrect": false },
+      { "text": "Une activation par fonction Sigmoïde.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "La tâche de 'Question-Réponse Extractive' diffère de la 'Génération' car :",
+    "responses": [
+      { "text": "Le modèle identifie les indices de début et de fin de la réponse dans le texte source au lieu de produire de nouveaux mots.", "isCorrect": true },
+      { "text": "Le modèle n'utilise pas de mécanisme d'attention.", "isCorrect": false },
+      { "text": "Elle ne fonctionne que si la réponse est un nombre ou une date.", "isCorrect": false },
+      { "text": "Elle nécessite un encodeur statique de type GloVe.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est le problème des méthodes de tokenisation 'naïves' par espaces (Token = Mot) pour les langues comme le français ?",
+    "responses": [
+      { "text": "Elles ne capturent pas la morphologie (ex: 'marcher' et 'marchons' sont vus comme totalement différents).", "isCorrect": true },
+      { "text": "Elles empêchent le calcul du Softmax sur des phrases de plus de 10 mots.", "isCorrect": false },
+      { "text": "Elles créent trop de jetons de type [MASK].", "isCorrect": false },
+      { "text": "Elles sont incompatibles avec l'architecture GPU.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans l'algorithme BPE, comment choisit-on la paire de caractères (ou sous-mots) à fusionner à chaque itération ?",
+    "responses": [
+      { "text": "On choisit la paire qui apparaît le plus fréquemment dans le corpus.", "isCorrect": true },
+      { "text": "On choisit la paire qui a le score d'attention le plus élevé.", "isCorrect": false },
+      { "text": "On fusionne les caractères de manière aléatoire pour augmenter la diversité.", "isCorrect": false },
+      { "text": "On fusionne les paires qui minimisent la perte de Cross-Entropy.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est l'impact d'une tête d'attention dont les scores bruts sont très hétérogènes (ex: une valeur très haute, les autres très basses) ?",
+    "responses": [
+      { "text": "Le Softmax va concentrer presque tout le poids sur un seul token (attention 'pointue').", "isCorrect": true },
+      { "text": "Le modèle va planter à cause d'une explosion de gradient.", "isCorrect": false },
+      { "text": "L'attention sera répartie de manière égale entre tous les tokens (attention 'floue').", "isCorrect": false },
+      { "text": "La tête d'attention sera désactivée par le dropout.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi additionne-t-on l'encodage positionnel à l'embedding au lieu de le concaténer ?",
+    "responses": [
+      { "text": "Pour préserver la dimensionnalité du modèle et économiser des paramètres, tout en mélangeant les signaux.", "isCorrect": true },
+      { "text": "Parce que la concaténation rendrait les matrices Query et Key non-multipliables.", "isCorrect": false },
+      { "text": "C'est une erreur historique dans l'article original qui a été conservée par habitude.", "isCorrect": false },
+      { "text": "L'addition est la seule opération mathématique autorisée dans un bloc Transformer.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans un calcul de similarité cosinus, quelle valeur indique que deux vecteurs de mots sont strictement identiques ?",
+    "responses": [
+      { "text": "1.0", "isCorrect": true },
+      { "text": "0.0", "isCorrect": false },
+      { "text": "-1.0", "isCorrect": false },
+      { "text": "0.5", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quel est l'un des risques majeurs du RLHF sur la diversité des réponses du modèle ?",
+    "responses": [
+      { "text": "Le 'Reward Collapse' ou l'effondrement de la diversité (le modèle finit par donner toujours la même réponse formatée qu'il sait être bien notée).", "isCorrect": true },
+      { "text": "Le modèle devient incapable de parler anglais.", "isCorrect": false },
+      { "text": "Le modèle augmente sa taille de paramètres de manière incontrôlée.", "isCorrect": false },
+      { "text": "Le tokenizer BPE doit être ré-entraîné après chaque étape de RLHF.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Que permet d'analyser la visualisation des couches d'attention (Attention Maps) ?",
+    "responses": [
+      { "text": "Quels tokens le modèle considère comme importants pour prédire le token actuel.", "isCorrect": true },
+      { "text": "Le temps de calcul précis de chaque neurone.", "isCorrect": false },
+      { "text": "La consommation mémoire de la matrice Value.", "isCorrect": false },
+      { "text": "Le nombre de biais sexistes détectés dans la phrase.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle est la limite principale de la métrique WEFAT pour mesurer les biais ?",
+    "responses": [
+      { "text": "Elle dépend entièrement du choix des listes de mots cibles et d'attributs, ce qui peut introduire un biais de mesure.", "isCorrect": true },
+      { "text": "Elle ne fonctionne que pour les langues n'utilisant pas l'alphabet latin.", "isCorrect": false },
+      { "text": "Elle nécessite l'accès aux poids internes (matrices K, Q, V) du modèle.", "isCorrect": false },
+      { "text": "Elle est beaucoup trop lente pour être utilisée sur des modèles de plus de 1 milliard de paramètres.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Dans le cas d'une traduction, à quoi sert l'attention croisée (Cross-Attention) ?",
+    "responses": [
+      { "text": "Elle permet au décodeur de regarder les représentations générées par l'encodeur pour chaque mot de la langue source.", "isCorrect": true },
+      { "text": "Elle permet de mélanger les vocabulaires de deux langues différentes.", "isCorrect": false },
+      { "text": "Elle sert à masquer les mots vulgaires lors de la traduction.", "isCorrect": false },
+      { "text": "Elle remplace l'encodage positionnel dans les modèles multilingues.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Pourquoi la tokenisation WordPiece est-elle préférée à BPE dans certains modèles comme BERT ?",
+    "responses": [
+      { "text": "Elle utilise un critère de vraisemblance (likelihood) plutôt que la simple fréquence pour choisir les fusions.", "isCorrect": true },
+      { "text": "Elle permet de créer des tokens de longueur infinie.", "isCorrect": false },
+      { "text": "Elle est 100 fois plus rapide à entraîner sur CPU.", "isCorrect": false },
+      { "text": "Elle ne nécessite pas de dictionnaire de base.", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Quelle affirmation sur le mécanisme d'attention est fausse ?",
+    "responses": [
+      { "text": "L'attention a une complexité temporelle linéaire par rapport à la longueur de la séquence.", "isCorrect": true },
+      { "text": "L'attention permet de relier des mots très éloignés dans un texte.", "isCorrect": false },
+      { "text": "L'attention peut être calculée en parallèle pour tous les tokens d'une séquence (en mode encodeur).", "isCorrect": false },
+      { "text": "L'attention utilise des matrices de poids apprises lors de l'entraînement.", "isCorrect": false }
+    ]
+  }
+]
