@@ -1,21 +1,21 @@
 [
   {
-    "question": "Dans l'architecture 5C dédiée aux systèmes cyber-physiques (CPS), quelle responsabilité relève spécifiquement du niveau « Cognition Level » par rapport aux autres niveaux ?",
+    "question": "En quoi l'impact des vulnérabilités de sécurité sur un système cyber-physique (CPS) diffère-t-il fondamentalement de celui sur un système informatique traditionnel (IT) ?",
     "responses": [
       {
-        "text": "L'intégration de simulations, la synthèse de données, le diagnostic collaboratif et la visualisation distante pour la prise de décision humaine.",
+        "text": "Les CPS interagissent avec le monde physique via des actionneurs, pouvant provoquer des dommages matériels ou des risques humains réels.",
         "isCorrect": true
       },
       {
-        "text": "L'auto-configuration autonome, l'auto-ajustement face aux variations et l'auto-optimisation en cas de perturbation externe.",
+        "text": "Les CPS ne traitent que des données logiques sans aucune connexion avec l'environnement physique.",
         "isCorrect": false
       },
       {
-        "text": "La création de modèles jumeaux numériques (Digital Twins) et la gestion de l'historique temporel pour identifier les variations.",
+        "text": "Les systèmes IT traditionnels subissent des attaques uniquement au niveau matériel.",
         "isCorrect": false
       },
       {
-        "text": "L'acquisition de données brutes sur le réseau de capteurs et la conversion de protocoles de communication matériels.",
+        "text": "Les vulnérabilités CPS n'ont aucun impact sur la confidentialité des données.",
         "isCorrect": false
       }
     ],
@@ -25,22 +25,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Comment le principe de conception « As-If » (Comme Si) formule-t-il l'exigence de protection de la vie privée dans les écosystèmes IoT ?",
+    "question": "Dans l'architecture en 5C dédiée aux systèmes cyber-physiques, quelles fonctionnalités caractérisent le niveau supérieur « Configuration Level » ?",
     "responses": [
       {
-        "text": "Concevoir et sécuriser l'écosystème IoT dès son architecture initiale comme s'il traitait des données à caractère personnel, même si ce n'est pas le cas au moment du lancement.",
+        "text": "Auto-configuration pour la résilience, auto-ajustement continu et auto-optimisation face aux perturbations.",
         "isCorrect": true
       },
       {
-        "text": "Traiter les données techniques des capteurs comme des données à caractère personnel uniquement lorsqu'un utilisateur humain est connecté au terminal.",
+        "text": "Acquisition de données brutes via les capteurs.",
         "isCorrect": false
       },
       {
-        "text": "Anonymiser toutes les métriques réseau transmises vers le Cloud uniquement si l'équipement est déployé dans une juridiction hors-UE.",
+        "text": "Conversion des données réseau en protocoles HTTP uniquement.",
         "isCorrect": false
       },
       {
-        "text": "Exiger l'accord explicite de l'utilisateur avant toute mise à jour de firmware dès qu'une donnée d'identification est générée.",
+        "text": "Visualisation 3D basique sur écran local.",
         "isCorrect": false
       }
     ],
@@ -50,22 +50,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Parmi les propositions suivantes, quelle menace est spécifiquement caractéristique de la couche « Cloud Computing » dans une architecture IoT multi-niveaux ?",
+    "question": "En quoi consiste le principe de conception « As-If » (Comme Si) dans la protection de la vie privée en IoT ?",
     "responses": [
       {
-        "text": "L'atteinte à la vie privée par inférence de données sensibles à partir d'agrégations à grande échelle.",
+        "text": "Concevoir l'écosystème IoT dès le départ comme s'il traitait des données à caractère personnel, même si ce n'est pas le cas au lancement.",
         "isCorrect": true
       },
       {
-        "text": "L'injection et la corruption directe de commandes ou de données sur les passerelles de proximité.",
+        "text": "Traiter toutes les données utilisateurs comme s'il s'agissait de données publiques non chiffrées.",
         "isCorrect": false
       },
       {
-        "text": "La compromission physique directe du boîtier matériel et le détournement de plateforme (boot hijacking).",
+        "text": "Attendre une fuite de données avant de déployer le chiffrement par défaut.",
         "isCorrect": false
       },
       {
-        "text": "L'usurpation du canal d'impulsion électromagnétique de proximité entre le tag et le lecteur.",
+        "text": "Supprimer systématiquement le firmware si une donnée personnelle est détectée.",
         "isCorrect": false
       }
     ],
@@ -75,22 +75,22 @@
     "codeLanguage": null
   },
   {
-    "question": "En quoi l'impact d'une faille de sécurité sur un système cyber-physique (CPS) diffère-t-il fondamentalement d'un système informatique traditionnel (IT) ?",
+    "question": "Parmi les propositions suivantes, quelles menaces sont spécifiquement associées à la couche « Edge Computing » d'une infrastructure IoT ?",
     "responses": [
       {
-        "text": "Les CPS agissent sur le monde matériel via des actionneurs, de sorte qu'une vulnérabilité peut provoquer des dommages physiques réels ou mettre en danger des vies humaines.",
+        "text": "L'injection et la corruption de commandes ou de données, ainsi que le déni de service (DoS).",
         "isCorrect": true
       },
       {
-        "text": "Les CPS ne reposent sur aucun protocole cryptographique, rendant toute attaque immédiatement critique pour le chiffrement des données.",
+        "text": "Le vol physique de la carte à puce hôte.",
         "isCorrect": false
       },
       {
-        "text": "Les systèmes IT traditionnels ne subissent des impacts que sur les composants matériels, alors que les CPS sont uniquement sensibles aux failles logicielles.",
+        "text": "L'attaque par canal auxiliaire sur les registres du CPU uniquement.",
         "isCorrect": false
       },
       {
-        "text": "Les CPS sont totalement prémunis contre les fuites de données grâce au couplage systématique avec un jumeau numérique.",
+        "text": "L'impossibilité d'exécuter du code binaire.",
         "isCorrect": false
       }
     ],
@@ -100,22 +100,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Selon le cours, quelle est la définition exacte du concept de Privacy (vie privée) par rapport à la simple confidentialité des données ?",
+    "question": "Dans le modèle de compromis de sécurité IoT (Usabilité, Sécurité, Performance), quel problème de comportement humain est souvent observé ?",
     "responses": [
       {
-        "text": "La capacité d'un individu à déterminer quelles informations personnelles sont partagées, avec qui et dans quel but (englobant minimisation, anonymat, non-liabilité et unobservabilité).",
+        "text": "Les utilisateurs et développeurs sacrifient souvent la sécurité au profit de l'usabilité et de la vitesse de mise sur le marché.",
         "isCorrect": true
       },
       {
-        "text": "L'application stricte d'un chiffrement symétrique AES-256 sur l'ensemble des paquets réseau en transit.",
+        "text": "Les utilisateurs appliquent toujours immédiatement les mises à jour de sécurité de firmware.",
         "isCorrect": false
       },
       {
-        "text": "L'interdiction absolue pour un objet connecté de stocker des données dans la mémoire non volatile (EEPROM/Flash).",
+        "text": "La sécurité est le facteur principal de différenciation commerciale pour les fabricants d'objets connectés.",
         "isCorrect": false
       },
       {
-        "text": "L'isolation matérielle des fonctions de calcul au sein d'une puce sécurisée certifiée ISO 27001.",
+        "text": "Les architectures IoT sont toujours trop simples pour être attaquées.",
         "isCorrect": false
       }
     ],
@@ -125,22 +125,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans la norme ISO/IEC 18004 régissant les QR-Codes, quel mécanisme assure la lisibilité du code même s'il est partiellement détérioré ?",
+    "question": "Quelle est la règle générale du principe « De-Identification par défaut » dans les écosystèmes IoT ?",
     "responses": [
       {
-        "text": "L'utilisation du code correcteur d'erreurs Reed-Solomon permettant de restituer jusqu'à 30% des données endommagées selon le niveau de sécurité choisi.",
+        "text": "Anonymiser, assainir ou supprimer les données personnelles dès qu'elles ne sont plus nécessaires au service.",
         "isCorrect": true
       },
       {
-        "text": "La réplication exacte à quatre reprises du message binaire dans chacun des coins du symbole matriciel.",
+        "text": "Conserver les identifiants en clair dans des bases de données publiques à des fins de sauvegarde.",
         "isCorrect": false
       },
       {
-        "text": "L'intégration d'un chiffrement asymétrique RSA-1024 signé par le fabricant du composant matériel.",
+        "text": "Chiffrer uniquement la mémoire ROM et laisser la RAM accessible à tous.",
         "isCorrect": false
       },
       {
-        "text": "L'utilisation d'un code de Hamming (7,4) associé à un contrôle de parité bidimensionnel sur les modules de cadrage.",
+        "text": "Autoriser la vente de données non nettoyées aux tiers sans consentement.",
         "isCorrect": false
       }
     ],
@@ -150,22 +150,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Comment le standard FIDO Device Onboard (FDO) réalise-t-il le transfert de propriété sécurisé d'un objet connecté lors du déploiement ?",
+    "question": "Dans l'anatomie d'un QR Code, quel algorithme est utilisé pour la correction d'erreurs ?",
     "responses": [
       {
-        "text": "Par l'utilisation d'un « Ownership Voucher » transmis de façon sécurisée, permettant au propriétaire final d'assigner l'équipement à son Cloud sans exposer les identifiants à l'installateur.",
+        "text": "L'algorithme de Reed-Solomon.",
         "isCorrect": true
       },
       {
-        "text": "Par la saisie manuelle d'une clé d'API secrète gravée sur le boîtier physique lors d'une connexion série UART local.",
+        "text": "L'algorithme AES-GCM.",
         "isCorrect": false
       },
       {
-        "text": "En inscrivant de manière inaltérable l'adresse IP définitive du serveur cible directement dans la ROM du microcontrôleur usine.",
+        "text": "Le chiffrement RSA 2048.",
         "isCorrect": false
       },
       {
-        "text": "En déléguant au serveur de Rendez-vous (Rendezvous Service) le stockage permanent des paires de clés privées de tous les objets.",
+        "text": "La fonction de hachage SHA-256.",
         "isCorrect": false
       }
     ],
@@ -175,22 +175,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Quel est le bénéfice industriel principal du concept de « Late Binding » apporté par FDO dans la chaîne logistique IoT ?",
+    "question": "Quel niveau de correction d'erreurs d'un QR Code permet de restaurer jusqu'à 30 % de la surface endommagée ?",
     "responses": [
       {
-        "text": "Il permet de fabriquer une seule référence de produit (Single SKU) personnalisable tardivement pour n'importe quel Cloud d'un client.",
+        "text": "Le niveau H (High).",
         "isCorrect": true
       },
       {
-        "text": "Il garantit que le firmware de l'équipement est recompilé et reflashé en usine à chaque changement de propriétaire.",
+        "text": "Le niveau L (Low - 7 %).",
         "isCorrect": false
       },
       {
-        "text": "Il impose que l'équipement dispose obligatoirement d'une interface graphique pour valider le code d'appairage.",
+        "text": "Le niveau M (Medium - 15 %).",
         "isCorrect": false
       },
       {
-        "text": "Il remplace l'authentification par certificat X.509 par un protocole de jeton symétrique pré-partagé.",
+        "text": "Le niveau Q (Quartile - 25 %).",
         "isCorrect": false
       }
     ],
@@ -200,22 +200,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans le contexte des preuves de proximité (Distance Bounding), en quoi consiste spécifiquement l'attaque appelée « Mafia Fraud » ?",
+    "question": "Quel est l'objectif principal du standard FDO (FIDO Device Onboard) pour les équipements IoT ?",
     "responses": [
       {
-        "text": "Un relais malveillant (Relay R) s'interpose entre un vérificateur honnête (V) et un prouveur honnête distant (P) pour faire croire à V que P est à proximité immédiate.",
+        "text": "Permettre un déploiement automatique (Zero-Touch) et un transfert de propriété sécurisé sans exposer les identifiants à l'installateur.",
         "isCorrect": true
       },
       {
-        "text": "Le prouveur malveillant (P) tente d'envoyer sa réponse de défi avant même d'avoir reçu le bit de défi du vérificateur.",
+        "text": "Remplacer le protocole Wi-Fi par une communication filaire obligatoire.",
         "isCorrect": false
       },
       {
-        "text": "Le prouveur malveillant (P) s'associe avec un complice situé près du vérificateur pour lui communiquer son secret de session à distance.",
+        "text": "Supprimer les cartes à puce et TEE des processeurs ARM.",
         "isCorrect": false
       },
       {
-        "text": "Le vérificateur (V) falsifie l'horodatage NTP des mesures de temps d'aller-retour pour refuser l'accès à un prouveur légitime.",
+        "text": "Forcer le stockage de tous les mots de passe utilisateur dans un fichier JSON non chiffré.",
         "isCorrect": false
       }
     ],
@@ -225,22 +225,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Comment le protocole de mesure de distance de Brands et Chaum (BC93) parvient-il à prémunir le vérificateur contre les attaques de délai lors de l'échange de défi ?",
+    "question": "Dans le protocole FDO, quel mécanisme permet la stratégie de « Late Binding » (liaison tardive) au Cloud ?",
     "responses": [
       {
-        "text": "En utilisant une phase rapide composée de défis de 1 bit répondus instantanément via des opérations logiques simples (sans calcul cryptographique lourd).",
+        "text": "L'utilisation d'un coupon de propriété (« Ownership Voucher ») permettant de choisir la plateforme Cloud après la fabrication.",
         "isCorrect": true
       },
       {
-        "text": "En exigeant une signature asymétrique RSA-2048 calculée séparément sur chaque bit de défi échangé.",
+        "text": "La pré-programmation en usine des clés d'API d'un unique fournisseur Cloud dans la ROM.",
         "isCorrect": false
       },
       {
-        "text": "En transmettant les défis sous forme de certificats X.509 v3 chiffrés avec AES-128-GCM.",
+        "text": "L'interdiction de changer de propriétaire d'équipement au cours de son cycle de vie.",
         "isCorrect": false
       },
       {
-        "text": "En mesurant la baisse d'amplitude du signal radio (RSSI) sans effectuer de comptage de temps d'aller-retour.",
+        "text": "La saisie manuelle d'une clé RSA par un technicien sur le terminal.",
         "isCorrect": false
       }
     ],
@@ -250,22 +250,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Comment la spécification ACE (Authorization in Constrained Environments) adapte-t-elle l'architecture OAuth 2.0 aux contraintes de l'IoT ?",
+    "question": "Dans les protocoles de mesure de distance (Distance Bounding), quelle attaque implique un relais malveillant (R) situé entre un vérificateur (V) et un prouveur (P) distant ?",
     "responses": [
       {
-        "text": "En remplaçant HTTP par CoAP, la sérialisation JSON par CBOR, et les jetons JWT par des jetons CWT sécurisés avec COSE.",
+        "text": "L'attaque de type « Mafia Fraud » (ou attaque par relais).",
         "isCorrect": true
       },
       {
-        "text": "En imposant le protocole TLS 1.3 sur TCP avec une infrastructure de clés publiques X.509 complète sur chaque nœud capteur.",
+        "text": "L'attaque par déni de service distribué (DDoS).",
         "isCorrect": false
       },
       {
-        "text": "En s'appuyant sur des assertions XML compressées gérées par le standard SAML 2.0 sur HTTP/2.",
+        "text": "L'attaque par injection de code SQL.",
         "isCorrect": false
       },
       {
-        "text": "En exigeant la présence d'une puce HSM dédiée sur tous les équipements d'extrémité du réseau sans fil.",
+        "text": "L'attaque par débordement de mémoire tampon.",
         "isCorrect": false
       }
     ],
@@ -275,22 +275,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans le système de fichiers hiérarchique d'une carte à puce (ISO 7816-4), quel est le rôle respectif du Master File (MF), des Dedicated Files (DF) et des Elementary Files (EF) ?",
+    "question": "Comment le protocole de mesure de distance (Distance Bounding) de Brands et Chaum [BC93] garantit-il la rapidité de la phase de défi/réponse ?",
     "responses": [
       {
-        "text": "Le MF est la racine hiérarchique du système de fichiers, les DF agissent comme des répertoires/applications, et les EF contiennent les données métier réelles.",
+        "text": "En échangeant des défis de 1 bit et en calculant la réponse par une opération logique simple (sans cryptographie lourde).",
         "isCorrect": true
       },
       {
-        "text": "Le DF est la racine obligatoire du système, le MF gère les clés cryptographiques et les EF sont des sous-répertoires d'administration.",
+        "text": "En réalisant une signature RSA 4096 bits à chaque échange de bit.",
         "isCorrect": false
       },
       {
-        "text": "Les EF représentent l'espace d'exécution exécutable, les DF sont des fichiers de logs et le MF gère la table des interruptions du processeur.",
+        "text": "En passant exclusivement par un serveur Web distant en HTTPS.",
         "isCorrect": false
       },
       {
-        "text": "Le MF contient uniquement du bytecode Java, le DF contient les données utilisateurs et l'EF héberge le système d'exploitation de la carte.",
+        "text": "En chiffrant les signaux radio avec AES-256 en mode CBC.",
         "isCorrect": false
       }
     ],
@@ -300,22 +300,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Quelle est la structure exacte des octets d'en-tête (Mandatory Header) d'une commande APDU selon la norme ISO 7816-4 ?",
+    "question": "Quel composant d'une carte à puce matérielle intègre des capteurs de tension, température et luminosité pour prévenir les attaques physiques ?",
     "responses": [
       {
-        "text": "CLA (classe d'instruction), INS (code d'instruction), P1 et P2 (paramètres d'instruction).",
+        "text": "Le bloc de sécurité physique (sécurité matérielle).",
         "isCorrect": true
       },
       {
-        "text": "CLA (classe), INS (instruction), Lc (longueur des données) et Le (longueur de réponse).",
+        "text": "Le système de fichiers APDU.",
         "isCorrect": false
       },
       {
-        "text": "AID (identifiant d'application), P1, P2 et SW1-SW2 (mots d'état).",
+        "text": "Le convertisseur JavaCard Off-Card.",
         "isCorrect": false
       },
       {
-        "text": "INS (instruction), P1, P2, Lc et le champ Data Field.",
+        "text": "Le pilote de lecteur PC/SC.",
         "isCorrect": false
       }
     ],
@@ -325,22 +325,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans la réponse APDU envoyée par une carte à puce au terminal, que signifie spécifiquement la valeur du mot d'état SW1-SW2 égale à 0x9000 ?",
+    "question": "Selon la norme ISO 7816-4, quels sont les trois types de fichiers composant le système de fichiers hiérarchique d'une carte à puce ?",
     "responses": [
       {
-        "text": "L'exécution de la commande APDU reçue s'est déroulée avec succès sans erreur.",
+        "text": "Master File (MF), Dedicated File (DF) et Elementary File (EF).",
         "isCorrect": true
       },
       {
-        "text": "La mémoire Flash de la puce est saturée et nécessite une réinitialisation à froid (Cold Reset).",
+        "text": "Root File, Directory File et Text File.",
         "isCorrect": false
       },
       {
-        "text": "Le code PIN présenté est erroné et la carte requiert la présentation de la clé PUK.",
+        "text": "System File, User File et Temporary File.",
         "isCorrect": false
       },
       {
-        "text": "L'applet demandée n'a pas été trouvée dans le domaine de sécurité courant.",
+        "text": "Boot File, Core File et Log File.",
         "isCorrect": false
       }
     ],
@@ -350,22 +350,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans le cycle de vie d'une Applet JavaCard au sein de l'environnement JCRE, quelle méthode est automatiquement invoquée lors de la réception de chaque commande APDU ordinaire ?",
+    "question": "Que contiennent les quatre octets de l'en-tête obligatoire (Header) d'une commande APDU selon la norme ISO 7816-4 ?",
     "responses": [
       {
-        "text": "La méthode process() de l'applet active.",
+        "text": "CLA (Classe), INS (Instruction), P1 (Paramètre 1) et P2 (Paramètre 2).",
         "isCorrect": true
       },
       {
-        "text": "La méthode install() de la classe principale.",
+        "text": "CAD, PIN, RSA et DES.",
         "isCorrect": false
       },
       {
-        "text": "La méthode select() invoquée par le terminal.",
+        "text": "AID, Lc, Le et SW1.",
         "isCorrect": false
       },
       {
-        "text": "La méthode main() exécutée dans un thread d'arrière-plan.",
+        "text": "IP, Port, MAC et CRC.",
         "isCorrect": false
       }
     ],
@@ -375,22 +375,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Parmi les fonctionnalités standards du langage Java traditionnel, lesquelles sont STRICTEMENT ABSENTES du sous-ensemble JavaCard ?",
+    "question": "Dans une réponse APDU émise par une carte à puce, quelle valeur des mots d'état SW1-SW2 indique une exécution réussie ?",
     "responses": [
       {
-        "text": "Les types float, double, long, les chaînes String, les tableaux multi-dimensionnels, les threads et le ramasse-miettes (GC) traditionnel.",
+        "text": "90 00",
         "isCorrect": true
       },
       {
-        "text": "Les types primitive byte, short, les tableaux à une dimension, les exceptions et les interfaces.",
+        "text": "00 00",
         "isCorrect": false
       },
       {
-        "text": "La possibilité de définir des paquets (packages), des classes dérivées et des méthodes virtuelles.",
+        "text": "FF FF",
         "isCorrect": false
       },
       {
-        "text": "L'utilisation de structures conditionnelles if/else et de boucles for/while.",
+        "text": "6A 80",
         "isCorrect": false
       }
     ],
@@ -400,22 +400,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans l'architecture GlobalPlatform (GP) pour cartes à puce multi-applicatives, quel est le rôle du composant CardManager ?",
+    "question": "Quel est le rôle de la méthode `process()` dans le cycle de vie d'une Applet JavaCard ?",
     "responses": [
       {
-        "text": "C'est le composant central du domaine de sécurité qui gère le contenu de la carte, le routage des APDUs et les clés cryptographiques de l'émetteur et des fournisseurs d'applications.",
+        "text": "Elle est invoquée par le JCRE pour traiter chaque commande APDU reçue destinée à l'applet sélectionnée.",
         "isCorrect": true
       },
       {
-        "text": "C'est l'outil de développement hors carte (off-card) qui convertit les fichiers .class en fichiers .cap.",
+        "text": "Elle sert uniquement à formater la mémoire ROM lors de la fabrication en usine.",
         "isCorrect": false
       },
       {
-        "text": "C'est le pilote matériel du lecteur de carte utilisé sur le poste client dans la norme PC/SC.",
+        "text": "Elle détruit l'applet et efface la clé privée de la carte.",
         "isCorrect": false
       },
       {
-        "text": "C'est le coprocesseur matériel dédié à l'accélération des calculs RSA et ECC.",
+        "text": "Elle compile le code Java en bytecode sur la station de développement.",
         "isCorrect": false
       }
     ],
@@ -425,22 +425,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans le cycle de vie d'une carte géré par GlobalPlatform, quelle transition d'état est irréversible et marque le passage à la politique de sécurité sous contrôle du Card Manager ?",
+    "question": "Dans l'architecture GlobalPlatform pour cartes à puce, quel est le rôle central du composant « CardManager » ?",
     "responses": [
       {
-        "text": "La transition vers l'état SECURED.",
+        "text": "Gérer le contenu de la carte, son cycle de vie et les clés cryptographiques de l'émetteur et des fournisseurs d'applications.",
         "isCorrect": true
       },
       {
-        "text": "La transition vers l'état CARD_LOCKED.",
+        "text": "Fournir l'alimentation électrique via l'antenne radio.",
         "isCorrect": false
       },
       {
-        "text": "La transition de l'état SELECTABLE vers INSTALLED.",
+        "text": "Convertir les fichiers .class en fichiers .exe pour Windows.",
         "isCorrect": false
       },
       {
-        "text": "La réinitialisation temporaire vers l'état OP_READY.",
+        "text": "Calculer la trajectoire GPS du terminal marchand.",
         "isCorrect": false
       }
     ],
@@ -450,22 +450,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Que spécifie précisément la norme PKCS #15 (Cryptographic Token Information Format Standard) dans le domaine des cartes à puce ?",
+    "question": "Quel standard définit le format des fichiers et répertoires abritant les certificats et clés cryptographiques dans les jetons de sécurité (PKCS #15) ?",
     "responses": [
       {
-        "text": "Le format d'organisation des fichiers et répertoires abritant les certificats X.509 et les clés cryptographiques sur le jeton sécurisé.",
+        "text": "PKCS #15 (Cryptographic Token Information Format Standard).",
         "isCorrect": true
       },
       {
-        "text": "L'API bas niveau d'interface en langage C permettant à une application d'interagir avec le token (Cryptographic Token Interface).",
+        "text": "PKCS #1 (RSA Cryptography Standard).",
         "isCorrect": false
       },
       {
-        "text": "La syntaxe générale des messages cryptographiques chiffrés et signés (Cryptographic Message Syntax).",
+        "text": "PKCS #7 (Cryptographic Message Syntax).",
         "isCorrect": false
       },
       {
-        "text": "Le protocole de transport de paquets TPDU T=1 sur la liaison série de la puce.",
+        "text": "PKCS #11 (Cryptographic Token Interface).",
         "isCorrect": false
       }
     ],
@@ -475,22 +475,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Lors du démarrage à froid (Cold Reset) sous la norme ISO 7816-3, quelle structure de données est transmise automatiquement par la carte au lecteur pour négocier le protocole de communication ?",
+    "question": "Quelle est la différence fondamentale entre la protection des données « en transit » (TLS) et « en cours d'utilisation » (In Use) ?",
     "responses": [
       {
-        "text": "L'ATR (Answer To Reset).",
+        "text": "La protection en cours d'utilisation protège les données stockées en mémoire vive/CPU pendant leur traitement en clair par le processeur.",
         "isCorrect": true
       },
       {
-        "text": "L'APDU SELECT AID.",
+        "text": "La protection en transit empêche l'accès physique à la carte mère de l'ordinateur.",
         "isCorrect": false
       },
       {
-        "text": "Le jeton CWT signed with COSE.",
+        "text": "Le chiffrement en transit permet d'exécuter des requêtes SQL sur des données chiffrées sans processeur.",
         "isCorrect": false
       },
       {
-        "text": "La structure Master File (MF).",
+        "text": "Il n'y a aucune différence, TLS sécurise l'exécution du CPU.",
         "isCorrect": false
       }
     ],
@@ -500,22 +500,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans l'architecture ARM TrustZone, comment est assurée l'isolation matérielle entre le Normal World (Rich OS) et le Secure World (Trusted OS) ?",
+    "question": "Comment la technologie ARM TrustZone isole-t-elle le système au niveau matériel ?",
     "responses": [
       {
-        "text": "Par des extensions matérielles de bus et de mémoire (ex: TZASC, TZPC) et un mode privilégié « Secure Monitor » basculant les mondes via l'instruction SMC.",
+        "text": "En divisant l'ensemble du système en deux mondes distincts : le Normal World (non sécurisé) et le Secure World (sécurisé).",
         "isCorrect": true
       },
       {
-        "text": "Par deux puces processeurs physiquement distinctes soudées sur la carte mère et reliées par un câble Ethernet.",
+        "text": "En bloquant toutes les communications réseau entrantes et sortantes.",
         "isCorrect": false
       },
       {
-        "text": "Par l'exécution de l'OS du Normal World dans un conteneur Docker léger géré par le noyau Linux.",
+        "text": "En exécutant les applications exclusivement dans un hyperviseur Cloud distant.",
         "isCorrect": false
       },
       {
-        "text": "Par le chiffrement systématique des données réseau au niveau de la couche applicative avec TLS 1.3.",
+        "text": "En dupliquant physiquement toutes les cartes SIM du smartphone.",
         "isCorrect": false
       }
     ],
@@ -525,22 +525,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Dans l'architecture logicielle d'OP-TEE (Open Portable TEE), quel composant s'exécute dans le Normal World (espace utilisateur) pour faire l'interface avec le Secure World ?",
+    "question": "Quel composant logiciel/matériel assure la transition contrôlée entre le Normal World et le Secure World dans ARM TrustZone ?",
     "responses": [
       {
-        "text": "La bibliothèque optee_client (incluant GlobalPlatform TEE Client API et TEE Supplicant).",
+        "text": "Le Secure Monitor (s'exécutant au niveau d'exception EL3 ou via l'instruction SMC).",
         "isCorrect": true
       },
       {
-        "text": "L'exécutable optee_os hébergeant les Trusted Applications (TA).",
+        "text": "Le compilateur GCC du Normal World.",
         "isCorrect": false
       },
       {
-        "text": "Le composant Secure Monitor exécuté au niveau d'exception EL3.",
+        "text": "L'interface utilisateur de l'application Android.",
         "isCorrect": false
       },
       {
-        "text": "Le module matériel HSM (Hardware Security Module) dédié à l'arbitrage bus.",
+        "text": "Le pilote de carte réseau sans contact ISO 14443.",
         "isCorrect": false
       }
     ],
@@ -550,22 +550,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Quelle est la portée exacte des garanties fournies par l'Attestation Distante (Remote Attestation) reposant sur un composant de type TPM ou TEE ?",
+    "question": "Dans le système d'exploitation OP-TEE (Open Portable TEE), où s'exécutent les applications de confiance (Trusted Applications - TA) ?",
     "responses": [
       {
-        "text": "Elle fournit la preuve cryptographique (signature de registres PCR) que les composants logiciels configurés ont été chargés dans un état mesuré conforme au boot.",
+        "text": "Dans le Secure World, en espace utilisateur sécurisé (usr - secure state).",
         "isCorrect": true
       },
       {
-        "text": "Elle garantit formellement que le code applicatif en cours d'exécution est totalement exempt de bugs et de vulnérabilités mémoires.",
+        "text": "Dans le Normal World, directement au sein du noyau Linux (Rich OS kernel).",
         "isCorrect": false
       },
       {
-        "text": "Elle protège l'application contre l'ensemble des attaques par canaux auxiliaires (Side Channels) et les injections de fautes physiques.",
+        "text": "Dans le lecteur de carte à puce externe du terminal.",
         "isCorrect": false
       },
       {
-        "text": "Elle empêche tout administrateur Cloud d'éteindre la machine virtuelle ou de supprimer ses fichiers sur disque.",
+        "text": "Sur le serveur Cloud de gestion des tickets de transport.",
         "isCorrect": false
       }
     ],
@@ -575,22 +575,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Quels nouveaux domaines d'isolement matériels l'extension Arm Confidential Compute Architecture (Arm CCA) introduit-elle par rapport à TrustZone classique ?",
+    "question": "Quels mondes d'isolation supplémentaires ont été introduits par l'architecture Arm Confidential Compute Architecture (CCA) ?",
     "responses": [
       {
-        "text": "Le Realm World (pour l'exécution de VMs confidentielles de tierces parties via le RMM) et le Root World (pour le Monitor en EL3), complétés par les contrôles GPC et MPE.",
+        "text": "Le Realm World (pour l'informatique confidentielle tierce) et le Root World (pour le code en EL3).",
         "isCorrect": true
       },
       {
-        "text": "L'Hypervisor World et le User World, complétés par le protocole de chiffrement Bluetooth Low Energy.",
+        "text": "Le Virtual World et le Public World.",
         "isCorrect": false
       },
       {
-        "text": "Le Secure Domain et l'Issuer Domain, gérés par l'applet JavaCard off-card.",
+        "text": "Le Storage World et le Network World.",
         "isCorrect": false
       },
       {
-        "text": "Le TPM World et le HSM World, communicant uniquement par des paquets APDU ISO 7816-4.",
+        "text": "Le Sandbox World et le Legacy World.",
         "isCorrect": false
       }
     ],
@@ -600,22 +600,22 @@
     "codeLanguage": null
   },
   {
-    "question": "Parmi les vecteurs d'attaque suivants, lequel N'EST PAS couvert par le modèle de menace d'un TEE (Trusted Execution Environment) classique ?",
+    "question": "Quelle est une limitation essentielle du mécanisme d'attestation distante (Remote Attestation) dans les TEE ?",
     "responses": [
       {
-        "text": "Les attaques physiques par canaux auxiliaires (Side-Channel Attacks), les injections de fautes matérielles (Fault Attacks) et la logique malveillante interne à la TA.",
+        "text": "L'attestation prouve uniquement quel code a été chargé au démarrage, mais ne garantit pas que le code en cours d'exécution ne comporte aucun bug ou vulnérabilité logique.",
         "isCorrect": true
       },
       {
-        "text": "La compromission de l'OS hôte (Host OS root compromised) exécuté dans le Normal World.",
+        "text": "L'attestation empêche physiquement l'analyse des canaux auxiliaires (Side Channel Attacks).",
         "isCorrect": false
       },
       {
-        "text": "L'inspection de la mémoire vive du processeur par un opérateur Cloud malveillant.",
+        "text": "L'attestation ne fonctionne que si le processeur est déconnecté d'Internet.",
         "isCorrect": false
       },
       {
-        "text": "L'accès non autorisé de l'Hypervisor EL2 aux registres internes du Normal World.",
+        "text": "L'attestation est un substitut complet au chiffrement de la mémoire.",
         "isCorrect": false
       }
     ],
